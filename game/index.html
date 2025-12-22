@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автономера: Перекупский Синтвейв</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <div class="game-container">
+        <!-- Header -->
+        <header class="game-header">
+            <h1>🚗 Автономера: Перекупский Синтвейв</h1>
+            <div class="player-stats">
+                <div class="stat">
+                    <span class="stat-label">💰 Деньги:</span>
+                    <span id="money">50000</span> ₽
+                </div>
+                <div class="stat">
+                    <span class="stat-label">⭐ Репутация:</span>
+                    <span id="reputation">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">📅 День:</span>
+                    <span id="day">1</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="menu-section">
+                    <h2>🏪 Рынок</h2>
+                    <button class="menu-btn gibdd-btn" onclick="game.openGIBDDBox()">
+                        <span class="coat-of-arms">🦅</span>
+                        Госуслуги/ГИБДД
+                        <span class="price">5000 ₽</span>
+                    </button>
+                    <button class="menu-btn" onclick="game.openMarketplace()">
+                        📱 Авито
+                    </button>
+                    <button class="menu-btn" onclick="game.openJunkyard()">
+                        🔧 Разборка
+                    </button>
+                    <button class="menu-btn" onclick="game.openGarageConnections()">
+                        🤝 Гаражные знакомства
+                    </button>
+                    <button class="menu-btn black-market-btn" onclick="game.openBlackMarket()">
+                        💀 Telegram Чёрный рынок
+                    </button>
+                </div>
+
+                <div class="menu-section">
+                    <h2>💼 Работа</h2>
+                    <button class="menu-btn job-btn" onclick="game.workAsMechanic()">
+                        🔧 Механик
+                        <span class="price">+2000 ₽</span>
+                    </button>
+                    <button class="menu-btn job-btn" onclick="game.workAsValet()">
+                        🅿️ Парковщик
+                        <span class="price">+1500 ₽</span>
+                    </button>
+                    <button class="menu-btn job-btn" onclick="game.workAsTransporter()">
+                        🚛 Перевозчик
+                        <span class="price">+3000 ₽</span>
+                    </button>
+                </div>
+
+                <div class="menu-section">
+                    <h2>📊 Действия</h2>
+                    <button class="menu-btn" onclick="game.viewInventory()">
+                        🗂️ Инвентарь
+                    </button>
+                    <button class="menu-btn" onclick="game.viewAuctions()">
+                        🔨 Аукционы
+                    </button>
+                    <button class="menu-btn" onclick="game.viewQuests()">
+                        📜 Задания
+                    </button>
+                    <button class="menu-btn" onclick="game.viewCollectorsCorner()">
+                        🏆 Коллекционный уголок
+                    </button>
+                    <button class="menu-btn" onclick="game.nextDay()">
+                        ⏭️ Следующий день
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Market Board -->
+            <main class="market-board">
+                <div class="board-header">
+                    <h2>📋 Доска объявлений</h2>
+                    <div id="event-banner" class="event-banner" style="display: none;"></div>
+                </div>
+                <div id="market-listings" class="market-listings">
+                    <!-- Market listings will be populated here -->
+                </div>
+            </main>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="info-panel">
+            <div id="news-ticker" class="news-ticker">
+                📰 Добро пожаловать на рынок автономеров! Начните свой путь перекупа...
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- GIBDD Box Modal -->
+    <div id="gibdd-modal" class="modal">
+        <div class="modal-content gibdd-box">
+            <span class="close" onclick="game.closeModal('gibdd-modal')">&times;</span>
+            <h2>🦅 Госуслуги/ГИБДД</h2>
+            <p>Стоимость: 5000 ₽</p>
+            <div id="box-animation" class="box-animation">
+                <div class="spinning-box">📦</div>
+            </div>
+            <div id="box-result" class="box-result" style="display: none;"></div>
+            <button class="action-btn" onclick="game.openBox()">Открыть коробку</button>
+        </div>
+    </div>
+
+    <!-- Inventory Modal -->
+    <div id="inventory-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="game.closeModal('inventory-modal')">&times;</span>
+            <h2>🗂️ Ваш инвентарь</h2>
+            <div id="inventory-list" class="inventory-list">
+                <!-- Inventory items will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Marketplace Modal -->
+    <div id="marketplace-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="game.closeModal('marketplace-modal')">&times;</span>
+            <h2>📱 Авито - Автономера</h2>
+            <div id="marketplace-list" class="market-listings">
+                <!-- Marketplace listings will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Junkyard Modal -->
+    <div id="junkyard-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="game.closeModal('junkyard-modal')">&times;</span>
+            <h2>🔧 Разборка</h2>
+            <p>Дешёвые номера с разборки. Иногда попадаются редкие!</p>
+            <div id="junkyard-list" class="market-listings">
+                <!-- Junkyard listings will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Garage Connections Modal -->
+    <div id="garage-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="game.closeModal('garage-modal')">&times;</span>
+            <h2>🤝 Гаражные знакомства</h2>
+            <p>Требуется репутация для доступа к редким номерам</p>
+            <div id="garage-list" class="market-listings">
+                <!-- Garage connection listings will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Black Market Modal -->
+    <div id="blackmarket-modal" class="modal">
+        <div class="modal-content dark-modal">
+            <span class="close" onclick="game.closeModal('blackmarket-modal')">&times;</span>
+            <h2>💀 Telegram Чёрный рынок</h2>
+            <p class="warning">⚠️ Риск подделок! Возможна проверка ГИБДД!</p>
+            <div id="blackmarket-list" class="market-listings">
+                <!-- Black market listings will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Auctions Modal -->
+    <div id="auctions-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="game.closeModal('auctions-modal')">&times;</span>
+            <h2>🔨 Аукционы</h2>
+            <div id="auctions-list" class="auctions-list">
+                <!-- Auction listings will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Quests Modal -->
+    <div id="quests-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="game.closeModal('quests-modal')">&times;</span>
+            <h2>📜 Задания</h2>
+            <div id="quests-list" class="quests-list">
+                <!-- Quests will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Collectors Corner Modal -->
+    <div id="collectors-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="game.closeModal('collectors-modal')">&times;</span>
+            <h2>🏆 Коллекционный уголок</h2>
+            <div id="collectors-display" class="collectors-display">
+                <!-- Collector's items will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification" class="notification"></div>
+
+    <script src="game.js"></script>
+</body>
+</html>
