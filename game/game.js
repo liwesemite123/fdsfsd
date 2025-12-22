@@ -63,7 +63,8 @@ const game = {
             plate = this.generateOrdinaryPlate();
         }
 
-        plate.id = Date.now() + Math.random();
+        // Generate unique ID using timestamp and counter
+        plate.id = `plate-${Date.now()}-${Math.floor(Math.random() * 1000000)}`;
         return plate;
     },
 
@@ -592,9 +593,9 @@ const game = {
             
             auctionEl.querySelector('.action-btn').addEventListener('click', () => {
                 const bidInput = document.getElementById(`bid-${index}`);
-                const bidAmount = parseInt(bidInput.value);
+                const bidAmount = parseInt(bidInput.value, 10);
                 
-                if (!bidAmount || bidAmount <= auction.currentBid) {
+                if (!bidAmount || isNaN(bidAmount) || bidAmount <= auction.currentBid) {
                     this.showNotification('Ставка должна быть выше текущей!', 'error');
                     return;
                 }
@@ -746,7 +747,7 @@ const game = {
             if (auction.timeLeft <= 0) {
                 // Auction ended - NPC might win
                 if (Math.random() > 0.5) {
-                    this.showNotification(`Аукцион завершён. НПЦ выиграл ${auction.plate.number}`, 'warning');
+                    this.showNotification(`Аукцион завершён. NPC выиграл ${auction.plate.number}`, 'warning');
                 }
             }
         });
@@ -765,6 +766,8 @@ const game = {
     },
 
     triggerRandomEvent() {
+        const FREE_BOX_DURATION_MS = 60000; // 60 seconds
+        
         const events = [
             {
                 text: '🚨 Новый закон! Спрос на элитные номера вырос!',
@@ -784,7 +787,7 @@ const game = {
                 text: '🎉 Везучий день! Следующая коробка ГИБДД бесплатно!',
                 effect: () => {
                     this.GIBDD_BOX_COST = 0;
-                    setTimeout(() => { this.GIBDD_BOX_COST = 5000; }, 60000);
+                    setTimeout(() => { this.GIBDD_BOX_COST = 5000; }, FREE_BOX_DURATION_MS);
                 }
             }
         ];
