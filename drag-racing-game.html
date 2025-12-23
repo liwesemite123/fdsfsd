@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Neon Drag Racing - Quick Race</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1f 50%, #0a0a0a 100%);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Neon glow effects */
+        .neon-text {
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #ff00ff;
+            animation: neonPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes neonPulse {
+            0%, 100% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #ff00ff; }
+            50% { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 60px #ff00ff; }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid #00ffff;
+        }
+
+        h1 {
+            font-size: clamp(24px, 5vw, 48px);
+            margin-bottom: 10px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Screen system */
+        .screen {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Button styles */
+        .btn {
+            background: linear-gradient(135deg, #00ffff 0%, #ff00ff 100%);
+            border: none;
+            padding: 15px 30px;
+            font-size: clamp(14px, 2.5vw, 18px);
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Car selection */
+        .selection-container {
+            display: grid;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .car-selector {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00ffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .car-selector h2 {
+            color: #00ffff;
+            margin-bottom: 15px;
+            font-size: clamp(18px, 3vw, 24px);
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .brand-btn, .model-btn {
+            background: rgba(255, 0, 255, 0.2);
+            border: 1px solid #ff00ff;
+            padding: 12px 8px;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-size: clamp(12px, 2vw, 14px);
+        }
+
+        .brand-btn:hover, .model-btn:hover {
+            background: rgba(255, 0, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.5);
+        }
+
+        .brand-btn.selected, .model-btn.selected {
+            background: linear-gradient(135deg, #ff00ff 0%, #00ffff 100%);
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Car display */
+        .car-display {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .car-display {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .car-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+        }
+
+        .car-card h3 {
+            color: #ff00ff;
+            margin-bottom: 10px;
+            font-size: clamp(16px, 2.5vw, 20px);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2a1a3e 100%);
+            border-radius: 8px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #00ffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .car-svg {
+            width: 90%;
+            height: 90%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .stat-item {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 3px solid #00ffff;
+        }
+
+        .stat-label {
+            font-size: clamp(10px, 1.8vw, 12px);
+            color: #00ffff;
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            font-size: clamp(14px, 2.5vw, 18px);
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Race track */
+        .race-container {
+            background: #000;
+            border: 3px solid #00ffff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .race-track {
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to bottom, 
+                #87CEEB 0%,      /* Sky blue */
+                #B0D4E3 30%,     /* Light blue */
+                #D4E8F0 50%,     /* Horizon */
+                #8B7355 60%,     /* Distant ground */
+                #654321 70%,     /* Road edge */
+                #2a2a2a 75%,     /* Asphalt start */
+                #1a1a1a 100%     /* Asphalt */
+            );
+            border: 3px solid #333;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .race-track {
+                height: 350px;
+            }
+        }
+
+        /* Sky and clouds */
+        .race-environment {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .sky-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to bottom,
+                #4A90E2 0%,
+                #87CEEB 40%,
+                #F0E68C 100%
+            );
+        }
+
+        /* Sun */
+        .sun {
+            position: absolute;
+            top: 10%;
+            right: 15%;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #FFF44F 0%, #FFD700 50%, transparent 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 60px #FFD700, 0 0 100px #FFA500;
+            animation: sunGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes sunGlow {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .sun {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* Clouds */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 100px;
+            animation: cloudMove 30s linear infinite;
+        }
+
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 100px;
+        }
+
+        .cloud-1 {
+            width: 100px;
+            height: 40px;
+            top: 15%;
+            left: -120px;
+        }
+
+        .cloud-1::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud-1::after {
+            width: 60px;
+            height: 35px;
+            top: -15px;
+            right: 10px;
+        }
+
+        .cloud-2 {
+            width: 80px;
+            height: 35px;
+            top: 25%;
+            left: -100px;
+            animation-delay: 15s;
+        }
+
+        .cloud-2::before {
+            width: 40px;
+            height: 40px;
+            top: -20px;
+            left: 15px;
+        }
+
+        @keyframes cloudMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(100vw + 200px)); }
+        }
+
+        /* Trees on horizon */
+        .trees-layer {
+            position: absolute;
+            bottom: 40%;
+            left: 0;
+            right: 0;
+            height: 15%;
+            background: repeating-linear-gradient(
+                90deg,
+                #2d5016 0px,
+                #2d5016 10px,
+                transparent 10px,
+                transparent 15px,
+                #3d6d1e 15px,
+                #3d6d1e 25px,
+                transparent 25px,
+                transparent 35px
+            );
+            opacity: 0.6;
+            filter: blur(2px);
+        }
+
+        /* Road surface */
+        .road-surface {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(to bottom,
+                #4a4a4a 0%,
+                #2a2a2a 20%,
+                #1a1a1a 100%
+            );
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.1) 2px, rgba(0,0,0,.1) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.1) 2px, rgba(0,0,0,.1) 4px);
+        }
+
+        .track-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+
+        /* Road lanes */
+        .lane-divider {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: repeating-linear-gradient(
+                to right,
+                #ffff00 0px,
+                #ffff00 30px,
+                transparent 30px,
+                transparent 60px
+            );
+            box-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+        }
+
+        .center-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: repeating-linear-gradient(
+                to right,
+                #ffff00 0px,
+                #ffff00 40px,
+                transparent 40px,
+                transparent 80px
+            );
+            transform: translateY(-50%);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.6);
+        }
+
+        /* Road edges */
+        .road-edge {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: white;
+            box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+        }
+
+        .road-edge-top {
+            top: calc(50% - 150px);
+        }
+
+        .road-edge-bottom {
+            top: calc(50% + 150px);
+        }
+
+        .racing-car {
+            position: absolute;
+            width: 140px;
+            height: 70px;
+            transition: left 0.05s linear;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .racing-car {
+                width: 100px;
+                height: 50px;
+            }
+        }
+
+        /* Car wheels */
+        .car-wheel {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #1a1a1a 0%, #000 60%, #333 80%, #000 100%);
+            border-radius: 50%;
+            border: 2px solid #222;
+            bottom: -5px;
+            animation: wheelSpin 0.3s linear infinite;
+        }
+
+        .car-wheel::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #444;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .car-wheel::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #666;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .wheel-front {
+            left: 75%;
+        }
+
+        .wheel-rear {
+            left: 15%;
+        }
+
+        @keyframes wheelSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .car-wheel {
+                width: 15px;
+                height: 15px;
+            }
+            
+            .car-wheel::before {
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        .player-car {
+            top: 35%;
+            transform: translateY(-50%);
+        }
+
+        .opponent-car {
+            top: 65%;
+            transform: translateY(-50%);
+        }
+
+        /* Race effects */
+        .tire-smoke {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: smokeDisappear 0.8s ease-out forwards;
+        }
+
+        @keyframes smokeDisappear {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .spark {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ff6600;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff6600;
+            animation: sparkFly 0.5s ease-out forwards;
+        }
+
+        @keyframes sparkFly {
+            to {
+                transform: translate(-50px, -50px);
+                opacity: 0;
+            }
+        }
+
+        .motion-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(0, 255, 255, 0.2) 100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .motion-blur.active {
+            opacity: 1;
+            animation: blurPulse 0.3s ease-in-out infinite;
+        }
+
+        @keyframes blurPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Race info */
+        .race-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .info-box {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #00ffff;
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: clamp(10px, 1.8vw, 12px);
+            color: #00ffff;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: clamp(16px, 3vw, 24px);
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Gear indicator */
+        .gear-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #00ffff;
+            border-radius: 12px;
+            padding: 20px;
+            min-width: 120px;
+            text-align: center;
+            z-index: 200;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .gear-label {
+            font-size: clamp(12px, 2vw, 14px);
+            color: #00ffff;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .gear-value {
+            font-size: clamp(48px, 10vw, 72px);
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+            animation: gearPulse 0.3s ease-out;
+        }
+
+        @keyframes gearPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); color: #ff00ff; }
+            100% { transform: scale(1); }
+        }
+
+        .gear-rpm {
+            font-size: clamp(10px, 1.5vw, 12px);
+            color: #ff00ff;
+            margin-top: 5px;
+        }
+
+        .gear-instructions {
+            font-size: clamp(10px, 1.5vw, 12px);
+            color: #00ffff;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+
+        /* Countdown */
+        .countdown {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(60px, 15vw, 120px);
+            font-weight: bold;
+            color: #ff0000;
+            text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
+            z-index: 100;
+            animation: countdownPulse 1s ease-in-out;
+        }
+
+        @keyframes countdownPulse {
+            0% { transform: translate(-50%, -50%) scale(0); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .countdown.go {
+            color: #00ff00;
+            text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+        }
+
+        /* Results */
+        .results {
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #00ffff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .winner-text {
+            font-size: clamp(24px, 5vw, 48px);
+            margin-bottom: 20px;
+        }
+
+        .time-display {
+            font-size: clamp(32px, 7vw, 64px);
+            font-weight: bold;
+            color: #00ffff;
+            margin: 20px 0;
+        }
+
+        /* Controls */
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Loading animation */
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(0, 255, 255, 0.3);
+            border-top-color: #00ffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #00ffff;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ffff 0%, #ff00ff 100%);
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Help text */
+        .help-text {
+            color: #00ffff;
+            font-size: clamp(12px, 2vw, 14px);
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="neon-text">🏁 NEON DRAG RACING 🏁</h1>
+        <p class="help-text">Quarter Mile Championship</p>
+    </header>
+
+    <div class="container">
+        <!-- Main Menu -->
+        <div id="mainMenu" class="screen active">
+            <div class="controls">
+                <button class="btn" onclick="startCarSelection()">🏎️ Quick Race</button>
+                <button class="btn" onclick="showInfo()">ℹ️ Info</button>
+            </div>
+            <div id="infoSection" style="display: none; margin-top: 30px; background: rgba(0,0,0,0.8); padding: 20px; border-radius: 12px; border: 2px solid #00ffff;">
+                <h2 style="color: #00ffff; margin-bottom: 15px;">How to Play</h2>
+                <p style="line-height: 1.8; color: #fff;">
+                    1️⃣ Select your car (brand → model → configuration)<br>
+                    2️⃣ Choose your opponent's car<br>
+                    3️⃣ Race on a 1/4 mile drag strip<br>
+                    4️⃣ Watch the countdown and see who crosses the finish line first!<br><br>
+                    🚗 Features 30+ car brands including Russian makes (2010-2025)<br>
+                    ⚡ Realistic physics and spectacular visual effects<br>
+                    📱 Optimized for both PC and smartphone
+                </p>
+            </div>
+        </div>
+
+        <!-- Car Selection Screen -->
+        <div id="carSelection" class="screen">
+            <h2 style="text-align: center; color: #00ffff; margin-bottom: 20px;">Select Your Cars</h2>
+            
+            <div class="selection-container">
+                <!-- Player car selection -->
+                <div class="car-selector">
+                    <h2>🏎️ Your Car</h2>
+                    <div id="playerBrandSelection"></div>
+                    <div id="playerModelSelection" style="display: none;"></div>
+                    <div id="playerCarDisplay"></div>
+                </div>
+
+                <!-- Opponent car selection -->
+                <div class="car-selector">
+                    <h2>🏁 Opponent Car</h2>
+                    <div id="opponentBrandSelection"></div>
+                    <div id="opponentModelSelection" style="display: none;"></div>
+                    <div id="opponentCarDisplay"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn" onclick="showScreen('mainMenu')">← Back</button>
+                <button class="btn" id="startRaceBtn" onclick="startRace()" style="display: none;">🏁 Start Race</button>
+            </div>
+        </div>
+
+        <!-- Race Screen -->
+        <div id="raceScreen" class="screen">
+            <div class="race-container">
+                <h2 style="text-align: center; color: #00ffff; margin-bottom: 15px;">1/4 Mile Drag Race</h2>
+                
+                <div class="race-track" id="raceTrack">
+                    <!-- Environment layers -->
+                    <div class="race-environment">
+                        <div class="sky-layer"></div>
+                        <div class="sun"></div>
+                        <div class="cloud cloud-1"></div>
+                        <div class="cloud cloud-2"></div>
+                        <div class="trees-layer"></div>
+                        <div class="road-surface"></div>
+                    </div>
+                    
+                    <!-- Track markings -->
+                    <div class="track-lines">
+                        <div class="road-edge road-edge-top"></div>
+                        <div class="center-line"></div>
+                        <div class="road-edge road-edge-bottom"></div>
+                    </div>
+                    
+                    <!-- Motion effects -->
+                    <div class="motion-blur" id="motionBlur"></div>
+                    
+                    <!-- Racing cars with wheels -->
+                    <div class="racing-car player-car" id="playerRaceCar">
+                        <div class="car-wheel wheel-front"></div>
+                        <div class="car-wheel wheel-rear"></div>
+                    </div>
+                    <div class="racing-car opponent-car" id="opponentRaceCar">
+                        <div class="car-wheel wheel-front"></div>
+                        <div class="car-wheel wheel-rear"></div>
+                    </div>
+                </div>
+
+                <div class="race-info">
+                    <div class="info-box">
+                        <div class="info-label">Your Speed</div>
+                        <div class="info-value" id="playerSpeed">0 mph</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">Opponent Speed</div>
+                        <div class="info-value" id="opponentSpeed">0 mph</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">Distance</div>
+                        <div class="info-value" id="distanceCovered">0 ft</div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-label">Time</div>
+                        <div class="info-value" id="raceTime">0.00s</div>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%;">0%</div>
+                </div>
+
+                <!-- Gear Indicator (Manual Transmission) -->
+                <div class="gear-indicator" id="gearIndicator" style="display: none;">
+                    <div class="gear-label">⚙️ GEAR</div>
+                    <div class="gear-value" id="currentGear">N</div>
+                    <div class="gear-rpm" id="gearRPM">0 RPM</div>
+                    <div class="gear-instructions">
+                        ↑ Shift Up<br>
+                        ↓ Shift Down
+                    </div>
+                </div>
+            </div>
+
+            <div id="raceResults" style="display: none;"></div>
+
+            <div class="controls">
+                <button class="btn" onclick="showScreen('carSelection')">← Back to Selection</button>
+                <button class="btn" id="reRaceBtn" onclick="startRace()" style="display: none;">🔄 Race Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Car Assets Configuration -->
+    <script src="assets/car-assets.js"></script>
+
+    <script>
+        // Audio elements for engine sounds
+        let currentPlayerSound = null;
+        let currentOpponentSound = null;
+
+        // Manual transmission state
+        let manualTransmission = {
+            enabled: true,  // Always enabled for player
+            currentGear: 0, // 0 = Neutral, 1-6 = gears
+            maxGear: 6,
+            rpm: 0,
+            redlineRPM: 8000,
+            gearRatios: [0, 3.8, 2.5, 1.9, 1.4, 1.0, 0.8], // Neutral + 6 gears
+            shiftTime: 0,
+            lastShiftTime: 0
+        };
+
+        // Car database with realistic specs
+        const carDatabase = {
+            "BMW": {
+                "M3 Competition": [
+                    { config: "3.0L Twin-Turbo I6", hp: 503, weight: 3835, price: "$73,000" },
+                    { config: "M3 CS", hp: 543, weight: 3815, price: "$110,000" }
+                ],
+                "M5 Competition": [
+                    { config: "4.4L Twin-Turbo V8", hp: 617, weight: 4345, price: "$110,000" }
+                ]
+            },
+            "Mercedes-Benz": {
+                "AMG GT": [
+                    { config: "4.0L V8 Biturbo", hp: 523, weight: 3814, price: "$118,000" },
+                    { config: "GT R Pro", hp: 577, weight: 3737, price: "$200,000" }
+                ],
+                "C63 AMG": [
+                    { config: "4.0L V8 Biturbo", hp: 503, weight: 4145, price: "$75,000" }
+                ]
+            },
+            "Audi": {
+                "RS6 Avant": [
+                    { config: "4.0L Twin-Turbo V8", hp: 591, weight: 4575, price: "$110,000" }
+                ],
+                "R8 V10": [
+                    { config: "5.2L V10", hp: 562, weight: 3516, price: "$150,000" },
+                    { config: "V10 Performance", hp: 602, weight: 3516, price: "$200,000" }
+                ]
+            },
+            "Porsche": {
+                "911 Turbo S": [
+                    { config: "3.8L Twin-Turbo H6", hp: 640, weight: 3640, price: "$210,000" }
+                ],
+                "Taycan Turbo S": [
+                    { config: "Electric AWD", hp: 750, weight: 5132, price: "$185,000" }
+                ]
+            },
+            "Ferrari": {
+                "F8 Tributo": [
+                    { config: "3.9L Twin-Turbo V8", hp: 710, weight: 3164, price: "$280,000" }
+                ],
+                "SF90 Stradale": [
+                    { config: "4.0L V8 Hybrid", hp: 986, weight: 3461, price: "$500,000" }
+                ]
+            },
+            "Lamborghini": {
+                "Huracán EVO": [
+                    { config: "5.2L V10", hp: 631, weight: 3135, price: "$260,000" }
+                ],
+                "Aventador SVJ": [
+                    { config: "6.5L V12", hp: 759, weight: 3472, price: "$520,000" }
+                ]
+            },
+            "McLaren": {
+                "720S": [
+                    { config: "4.0L Twin-Turbo V8", hp: 710, weight: 3128, price: "$300,000" }
+                ],
+                "765LT": [
+                    { config: "4.0L Twin-Turbo V8", hp: 755, weight: 2952, price: "$380,000" }
+                ]
+            },
+            "Nissan": {
+                "GT-R NISMO": [
+                    { config: "3.8L Twin-Turbo V6", hp: 600, weight: 3865, price: "$210,000" }
+                ],
+                "Z Performance": [
+                    { config: "3.0L Twin-Turbo V6", hp: 400, weight: 3520, price: "$52,000" }
+                ]
+            },
+            "Toyota": {
+                "Supra A90": [
+                    { config: "3.0L Turbo I6", hp: 382, weight: 3397, price: "$55,000" }
+                ],
+                "GR Yaris": [
+                    { config: "1.6L Turbo I3 AWD", hp: 268, weight: 2822, price: "$45,000" }
+                ]
+            },
+            "Honda": {
+                "Civic Type R": [
+                    { config: "2.0L Turbo I4", hp: 315, weight: 3117, price: "$43,000" }
+                ],
+                "NSX": [
+                    { config: "3.5L V6 Hybrid", hp: 573, weight: 3878, price: "$160,000" }
+                ]
+            },
+            "Ford": {
+                "Mustang Shelby GT500": [
+                    { config: "5.2L Supercharged V8", hp: 760, weight: 4171, price: "$80,000" }
+                ],
+                "GT": [
+                    { config: "3.5L Twin-Turbo V6", hp: 660, weight: 3054, price: "$500,000" }
+                ]
+            },
+            "Chevrolet": {
+                "Corvette Z06": [
+                    { config: "5.5L V8", hp: 670, weight: 3434, price: "$105,000" }
+                ],
+                "Camaro ZL1": [
+                    { config: "6.2L Supercharged V8", hp: 650, weight: 3883, price: "$70,000" }
+                ]
+            },
+            "Dodge": {
+                "Challenger SRT Hellcat": [
+                    { config: "6.2L Supercharged V8", hp: 717, weight: 4448, price: "$75,000" }
+                ],
+                "Charger SRT Hellcat": [
+                    { config: "6.2L Supercharged V8", hp: 707, weight: 4575, price: "$80,000" }
+                ]
+            },
+            "Tesla": {
+                "Model S Plaid": [
+                    { config: "Electric Tri-Motor", hp: 1020, weight: 4766, price: "$110,000" }
+                ],
+                "Model 3 Performance": [
+                    { config: "Electric Dual-Motor", hp: 450, weight: 4048, price: "$62,000" }
+                ]
+            },
+            "LADA": {
+                "Vesta Sport": [
+                    { config: "1.8L MT", hp: 122, weight: 2756, price: "$15,000" },
+                    { config: "AMT Premium", hp: 106, weight: 2668, price: "$12,000" }
+                ],
+                "Granta Sport": [
+                    { config: "1.6L MT", hp: 106, weight: 2403, price: "$10,000" }
+                ]
+            },
+            "UAZ": {
+                "Patriot": [
+                    { config: "2.7L Gasoline", hp: 150, weight: 4189, price: "$20,000" }
+                ],
+                "Hunter": [
+                    { config: "2.7L I4", hp: 128, weight: 3968, price: "$18,000" }
+                ]
+            },
+            "GAZ": {
+                "Volga Siber": [
+                    { config: "2.4L I4", hp: 143, weight: 3417, price: "$16,000" }
+                ]
+            },
+            "Marussia": {
+                "B2": [
+                    { config: "2.8L Turbo V6", hp: 420, weight: 2755, price: "$250,000" }
+                ]
+            },
+            "Aurus": {
+                "Senat": [
+                    { config: "4.4L V8 Hybrid", hp: 598, weight: 6614, price: "$200,000" }
+                ]
+            },
+            "Bugatti": {
+                "Chiron": [
+                    { config: "8.0L Quad-Turbo W16", hp: 1500, weight: 4400, price: "$3,000,000" }
+                ]
+            },
+            "Koenigsegg": {
+                "Jesko": [
+                    { config: "5.0L Twin-Turbo V8", hp: 1600, weight: 3131, price: "$3,000,000" }
+                ]
+            },
+            "Pagani": {
+                "Huayra": [
+                    { config: "6.0L Twin-Turbo V12", hp: 730, weight: 2976, price: "$2,500,000" }
+                ]
+            },
+            "Aston Martin": {
+                "DBS Superleggera": [
+                    { config: "5.2L Twin-Turbo V12", hp: 715, weight: 3968, price: "$320,000" }
+                ]
+            },
+            "Lotus": {
+                "Evija": [
+                    { config: "Electric Quad-Motor", hp: 2000, weight: 3704, price: "$2,300,000" }
+                ]
+            },
+            "Maserati": {
+                "MC20": [
+                    { config: "3.0L Twin-Turbo V6", hp: 621, weight: 3307, price: "$220,000" }
+                ]
+            },
+            "Alfa Romeo": {
+                "Giulia Quadrifoglio": [
+                    { config: "2.9L Twin-Turbo V6", hp: 505, weight: 3880, price: "$78,000" }
+                ]
+            },
+            "Jaguar": {
+                "F-Type R": [
+                    { config: "5.0L Supercharged V8", hp: 575, weight: 3814, price: "$105,000" }
+                ]
+            },
+            "Lexus": {
+                "LC 500": [
+                    { config: "5.0L V8", hp: 471, weight: 4280, price: "$93,000" }
+                ]
+            },
+            "Acura": {
+                "NSX Type S": [
+                    { config: "3.5L V6 Hybrid", hp: 600, weight: 3878, price: "$170,000" }
+                ]
+            },
+            "Subaru": {
+                "WRX STI": [
+                    { config: "2.5L Turbo H4", hp: 310, weight: 3385, price: "$38,000" }
+                ]
+            }
+        };
+
+        // Game state
+        let gameState = {
+            playerCar: null,
+            opponentCar: null,
+            selectedPlayerBrand: null,
+            selectedPlayerModel: null,
+            selectedOpponentBrand: null,
+            selectedOpponentModel: null,
+            raceInProgress: false
+        };
+
+        // Screen management
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        function showInfo() {
+            const infoSection = document.getElementById('infoSection');
+            infoSection.style.display = infoSection.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Car selection
+        function startCarSelection() {
+            showScreen('carSelection');
+            renderBrandSelection('player');
+            renderBrandSelection('opponent');
+        }
+
+        function renderBrandSelection(player) {
+            const container = document.getElementById(player === 'player' ? 'playerBrandSelection' : 'opponentBrandSelection');
+            const brands = Object.keys(carDatabase).sort();
+            
+            container.innerHTML = '<div class="brand-grid"></div>';
+            const grid = container.querySelector('.brand-grid');
+            
+            brands.forEach(brand => {
+                const btn = document.createElement('button');
+                btn.className = 'brand-btn';
+                btn.textContent = brand;
+                btn.onclick = function() { selectBrand(player, brand, this); };
+                grid.appendChild(btn);
+            });
+        }
+
+        function selectBrand(player, brand, buttonElement) {
+            const prefix = player === 'player' ? 'player' : 'opponent';
+            
+            if (player === 'player') {
+                gameState.selectedPlayerBrand = brand;
+                gameState.selectedPlayerModel = null;
+                gameState.playerCar = null;
+            } else {
+                gameState.selectedOpponentBrand = brand;
+                gameState.selectedOpponentModel = null;
+                gameState.opponentCar = null;
+            }
+            
+            // Update UI
+            document.querySelectorAll(`#${prefix}BrandSelection .brand-btn`).forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            if (buttonElement) {
+                buttonElement.classList.add('selected');
+            }
+            
+            renderModelSelection(player, brand);
+            document.getElementById(prefix + 'CarDisplay').innerHTML = '';
+            updateStartButton();
+        }
+
+        function renderModelSelection(player, brand) {
+            const prefix = player === 'player' ? 'player' : 'opponent';
+            const container = document.getElementById(prefix + 'ModelSelection');
+            const models = Object.keys(carDatabase[brand]);
+            
+            container.style.display = 'block';
+            container.innerHTML = '<h3 style="color: #ff00ff; margin: 15px 0 10px 0; font-size: clamp(14px, 2.5vw, 18px);">Select Model:</h3><div class="brand-grid"></div>';
+            const grid = container.querySelector('.brand-grid');
+            
+            models.forEach(model => {
+                const configs = carDatabase[brand][model];
+                configs.forEach((config, index) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'model-btn';
+                    btn.innerHTML = `${model}<br><small>${config.config}</small>`;
+                    btn.onclick = function() { selectCar(player, brand, model, index, this); };
+                    grid.appendChild(btn);
+                });
+            });
+        }
+
+        function selectCar(player, brand, model, configIndex, buttonElement) {
+            const prefix = player === 'player' ? 'player' : 'opponent';
+            const car = {
+                brand: brand,
+                model: model,
+                configIndex: configIndex,  // Store config index for asset lookup
+                ...carDatabase[brand][model][configIndex]
+            };
+            
+            if (player === 'player') {
+                gameState.playerCar = car;
+                gameState.selectedPlayerModel = model;
+            } else {
+                gameState.opponentCar = car;
+                gameState.selectedOpponentModel = model;
+            }
+            
+            // Update UI
+            document.querySelectorAll(`#${prefix}ModelSelection .model-btn`).forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            if (buttonElement) {
+                buttonElement.classList.add('selected');
+            }
+            
+            displayCarCard(player, car);
+            updateStartButton();
+        }
+
+        function displayCarCard(player, car) {
+            const container = document.getElementById(player === 'player' ? 'playerCarDisplay' : 'opponentCarDisplay');
+            
+            // Get car assets (image and sound)
+            const assets = typeof getCarAssets === 'function' 
+                ? getCarAssets(car.brand, car.model, car.configIndex || 0)
+                : { image: '', sound: '', engineType: car.config };
+            
+            // Calculate performance stats
+            const powerToWeight = (car.hp / (car.weight / 1000)).toFixed(2);
+            const estimated0to60 = (3.5 + (car.weight / car.hp) * 0.01).toFixed(2);
+            const quarterMileTime = (10 + (car.weight / car.hp) * 0.02).toFixed(2);
+            
+            // Generate car image HTML - use real photo if available, otherwise SVG
+            const carImageHTML = assets.image 
+                ? `<img src="${assets.image}" alt="${car.brand} ${car.model}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.parentElement.innerHTML='${generateCarSVG(car.brand).replace(/'/g, "&apos;")}';">`
+                : generateCarSVG(car.brand);
+            
+            container.innerHTML = `
+                <div class="car-card">
+                    <h3>${car.brand} ${car.model}</h3>
+                    <div class="car-image">
+                        ${carImageHTML}
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-label">Engine</div>
+                            <div class="stat-value">${car.config}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Horsepower</div>
+                            <div class="stat-value">${car.hp} HP</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Weight</div>
+                            <div class="stat-value">${car.weight} lbs</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Power/Weight</div>
+                            <div class="stat-value">${powerToWeight} HP/ton</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">0-60 mph</div>
+                            <div class="stat-value">${estimated0to60}s</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">1/4 Mile (Est.)</div>
+                            <div class="stat-value">${quarterMileTime}s</div>
+                        </div>
+                    </div>
+                    ${assets.sound ? `<div style="margin-top: 10px; text-align: center; color: #00ffff; font-size: 12px;">🔊 ${assets.engineType}</div>` : ''}
+                </div>
+            `;
+        }
+
+        function generateCarSVG(brand) {
+            // Generate simple car SVG with brand-specific colors
+            const colors = {
+                'BMW': '#0066B1',
+                'Mercedes-Benz': '#00ADEF',
+                'Audi': '#BB0A30',
+                'Porsche': '#D5001C',
+                'Ferrari': '#DC0000',
+                'Lamborghini': '#F8B800',
+                'McLaren': '#FF8700',
+                'LADA': '#0066CC',
+                'Tesla': '#CC0000',
+                'Ford': '#003478',
+                'Chevrolet': '#FFC400',
+                'Dodge': '#E31837'
+            };
+            
+            const color = colors[brand] || '#00ffff';
+            
+            return `
+                <svg class="car-svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Car body -->
+                    <rect x="30" y="40" width="140" height="35" rx="5" fill="${color}" opacity="0.9"/>
+                    <path d="M 50 40 L 70 25 L 130 25 L 150 40 Z" fill="${color}" opacity="0.7"/>
+                    
+                    <!-- Windows -->
+                    <rect x="75" y="30" width="25" height="12" fill="#333" opacity="0.8"/>
+                    <rect x="105" y="30" width="25" height="12" fill="#333" opacity="0.8"/>
+                    
+                    <!-- Wheels -->
+                    <circle cx="60" cy="75" r="12" fill="#222" stroke="#888" stroke-width="2"/>
+                    <circle cx="140" cy="75" r="12" fill="#222" stroke="#888" stroke-width="2"/>
+                    <circle cx="60" cy="75" r="6" fill="#444"/>
+                    <circle cx="140" cy="75" r="6" fill="#444"/>
+                    
+                    <!-- Details -->
+                    <rect x="165" y="50" width="5" height="8" fill="#FF0000" opacity="0.8"/>
+                    <rect x="165" y="60" width="5" height="8" fill="#FF0000" opacity="0.8"/>
+                </svg>
+            `;
+        }
+
+        function updateStartButton() {
+            const btn = document.getElementById('startRaceBtn');
+            if (gameState.playerCar && gameState.opponentCar) {
+                btn.style.display = 'inline-block';
+            } else {
+                btn.style.display = 'none';
+            }
+        }
+
+        // Race logic
+        function startRace() {
+            if (!gameState.playerCar || !gameState.opponentCar) return;
+            
+            showScreen('raceScreen');
+            document.getElementById('raceResults').style.display = 'none';
+            document.getElementById('reRaceBtn').style.display = 'none';
+            
+            // Reset race state
+            gameState.raceInProgress = true;
+            
+            // Load and prepare engine sounds
+            prepareEngineSounds();
+            
+            // Set car visuals
+            document.getElementById('playerRaceCar').innerHTML = generateCarSVG(gameState.playerCar.brand);
+            document.getElementById('opponentRaceCar').innerHTML = generateCarSVG(gameState.opponentCar.brand);
+            
+            // Reset positions
+            document.getElementById('playerRaceCar').style.left = '0px';
+            document.getElementById('opponentRaceCar').style.left = '0px';
+            document.getElementById('playerSpeed').textContent = '0 mph';
+            document.getElementById('opponentSpeed').textContent = '0 mph';
+            document.getElementById('distanceCovered').textContent = '0 ft';
+            document.getElementById('raceTime').textContent = '0.00s';
+            document.getElementById('progressFill').style.width = '0%';
+            document.getElementById('progressFill').textContent = '0%';
+            
+            // Start countdown
+            startCountdown();
+        }
+
+        // Prepare engine sounds for racing
+        function prepareEngineSounds() {
+            // Stop any currently playing sounds
+            stopEngineSounds();
+            
+            // Get sound URLs for both cars
+            const playerAssets = typeof getCarAssets === 'function' 
+                ? getCarAssets(gameState.playerCar.brand, gameState.playerCar.model, gameState.playerCar.configIndex || 0)
+                : null;
+            const opponentAssets = typeof getCarAssets === 'function'
+                ? getCarAssets(gameState.opponentCar.brand, gameState.opponentCar.model, gameState.opponentCar.configIndex || 0)
+                : null;
+            
+            // Create audio elements if sounds are available
+            if (playerAssets && playerAssets.sound) {
+                currentPlayerSound = new Audio(playerAssets.sound);
+                currentPlayerSound.loop = true;
+                currentPlayerSound.volume = 0.6;
+            }
+            
+            if (opponentAssets && opponentAssets.sound) {
+                currentOpponentSound = new Audio(opponentAssets.sound);
+                currentOpponentSound.loop = true;
+                currentOpponentSound.volume = 0.4;
+            }
+        }
+
+        // Play engine sounds during race
+        function playEngineSounds() {
+            try {
+                if (currentPlayerSound) {
+                    currentPlayerSound.play().catch(e => console.log('Player sound play failed:', e));
+                }
+                if (currentOpponentSound) {
+                    currentOpponentSound.play().catch(e => console.log('Opponent sound play failed:', e));
+                }
+            } catch (e) {
+                console.log('Error playing sounds:', e);
+            }
+        }
+
+        // Stop engine sounds
+        function stopEngineSounds() {
+            if (currentPlayerSound) {
+                currentPlayerSound.pause();
+                currentPlayerSound.currentTime = 0;
+                currentPlayerSound = null;
+            }
+            if (currentOpponentSound) {
+                currentOpponentSound.pause();
+                currentOpponentSound.currentTime = 0;
+                currentOpponentSound = null;
+            }
+        }
+
+        function startCountdown() {
+            const track = document.getElementById('raceTrack');
+            let count = 3;
+            
+            const countdownInterval = setInterval(() => {
+                const countdownElement = document.createElement('div');
+                countdownElement.className = 'countdown';
+                countdownElement.textContent = count;
+                track.appendChild(countdownElement);
+                
+                setTimeout(() => countdownElement.remove(), 1000);
+                
+                count--;
+                
+                if (count < 0) {
+                    clearInterval(countdownInterval);
+                    
+                    // Show GO!
+                    const goElement = document.createElement('div');
+                    goElement.className = 'countdown go';
+                    goElement.textContent = 'GO!';
+                    track.appendChild(goElement);
+                    
+                    setTimeout(() => {
+                        goElement.remove();
+                        executeRace();
+                    }, 1000);
+                }
+            }, 1000);
+        }
+
+        // Manual transmission functions
+        function shiftUp() {
+            if (manualTransmission.currentGear < manualTransmission.maxGear && gameState.raceInProgress) {
+                const now = Date.now();
+                if (now - manualTransmission.lastShiftTime > 300) { // 300ms cooldown
+                    manualTransmission.currentGear++;
+                    manualTransmission.lastShiftTime = now;
+                    updateGearDisplay();
+                }
+            }
+        }
+
+        function shiftDown() {
+            if (manualTransmission.currentGear > 0 && gameState.raceInProgress) {
+                const now = Date.now();
+                if (now - manualTransmission.lastShiftTime > 300) { // 300ms cooldown
+                    manualTransmission.currentGear--;
+                    manualTransmission.lastShiftTime = now;
+                    updateGearDisplay();
+                }
+            }
+        }
+
+        function updateGearDisplay() {
+            const gearElement = document.getElementById('currentGear');
+            const rpmElement = document.getElementById('gearRPM');
+            
+            if (gearElement) {
+                gearElement.textContent = manualTransmission.currentGear === 0 ? 'N' : manualTransmission.currentGear;
+                gearElement.style.animation = 'none';
+                setTimeout(() => gearElement.style.animation = 'gearPulse 0.3s ease-out', 10);
+            }
+            
+            if (rpmElement) {
+                rpmElement.textContent = Math.round(manualTransmission.rpm) + ' RPM';
+                if (manualTransmission.rpm > manualTransmission.redlineRPM * 0.9) {
+                    rpmElement.style.color = '#ff0000';
+                } else {
+                    rpmElement.style.color = '#ff00ff';
+                }
+            }
+        }
+
+        // Calculate effective speed based on current gear
+        function calculateManualSpeed(baseSpeed, currentGear) {
+            if (currentGear === 0) return 0; // Neutral = no movement
+            
+            const gearRatio = manualTransmission.gearRatios[currentGear];
+            const efficiency = 1.0 / gearRatio;
+            
+            // Each gear has optimal speed range
+            const gearMaxSpeed = (baseSpeed / manualTransmission.maxGear) * (currentGear + 1) * 1.2;
+            
+            if (baseSpeed > gearMaxSpeed) {
+                // Over-revving penalty
+                return gearMaxSpeed * 0.9;
+            }
+            
+            return Math.min(baseSpeed * efficiency, gearMaxSpeed);
+        }
+
+        // Keyboard controls for manual transmission
+        document.addEventListener('keydown', (e) => {
+            if (gameState.raceInProgress) {
+                if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
+                    e.preventDefault();
+                    shiftUp();
+                } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
+                    e.preventDefault();
+                    shiftDown();
+                }
+            }
+        });
+
+        function executeRace() {
+            const quarterMile = 1320; // feet
+            const trackWidth = document.getElementById('raceTrack').offsetWidth - 120;
+            
+            // Initialize manual transmission
+            manualTransmission.currentGear = 1; // Start in 1st gear
+            manualTransmission.rpm = 1000;
+            manualTransmission.lastShiftTime = Date.now();
+            
+            // Show gear indicator
+            const gearIndicator = document.getElementById('gearIndicator');
+            if (gearIndicator) {
+                gearIndicator.style.display = 'block';
+            }
+            updateGearDisplay();
+            
+            // Start playing engine sounds
+            playEngineSounds();
+            
+            // Calculate race performance
+            const playerPerformance = calculatePerformance(gameState.playerCar);
+            const opponentPerformance = calculatePerformance(gameState.opponentCar);
+            
+            let playerDistance = 0;
+            let opponentDistance = 0;
+            let raceTime = 0;
+            let winner = null;
+            
+            const playerCar = document.getElementById('playerRaceCar');
+            const opponentCar = document.getElementById('opponentRaceCar');
+            const motionBlur = document.getElementById('motionBlur');
+            
+            motionBlur.classList.add('active');
+            
+            const raceInterval = setInterval(() => {
+                raceTime += GAME_CONSTANTS.TIME_INCREMENT;
+                
+                // Calculate base distances with realistic physics
+                const basePlayerDistance = calculateDistance(raceTime, playerPerformance);
+                const baseOpponentDistance = calculateDistance(raceTime, opponentPerformance);
+                
+                // Calculate base speeds
+                let basePlayerSpeed = calculateSpeed(raceTime, playerPerformance);
+                const opponentSpeed = calculateSpeed(raceTime, opponentPerformance);
+                
+                // Apply manual transmission to player speed
+                const effectivePlayerSpeed = calculateManualSpeed(basePlayerSpeed, manualTransmission.currentGear);
+                
+                // Update RPM based on speed and gear
+                if (manualTransmission.currentGear > 0) {
+                    const gearRatio = manualTransmission.gearRatios[manualTransmission.currentGear];
+                    manualTransmission.rpm = Math.min(
+                        (effectivePlayerSpeed / basePlayerSpeed) * manualTransmission.redlineRPM * gearRatio,
+                        manualTransmission.redlineRPM
+                    );
+                } else {
+                    manualTransmission.rpm = 1000;
+                }
+                
+                // Calculate player distance with manual transmission
+                const speedRatio = effectivePlayerSpeed / Math.max(basePlayerSpeed, 1);
+                playerDistance = basePlayerDistance * speedRatio;
+                opponentDistance = baseOpponentDistance;
+                
+                updateGearDisplay();
+                
+                // Calculate current speeds
+                const playerSpeed = effectivePlayerSpeed;
+                
+                // Update positions
+                const playerPosition = (playerDistance / quarterMile) * trackWidth;
+                const opponentPosition = (opponentDistance / quarterMile) * trackWidth;
+                
+                playerCar.style.left = playerPosition + 'px';
+                opponentCar.style.left = opponentPosition + 'px';
+                
+                // Update UI
+                document.getElementById('playerSpeed').textContent = Math.round(playerSpeed) + ' mph';
+                document.getElementById('opponentSpeed').textContent = Math.round(opponentSpeed) + ' mph';
+                document.getElementById('distanceCovered').textContent = Math.round(Math.max(playerDistance, opponentDistance)) + ' ft';
+                document.getElementById('raceTime').textContent = raceTime.toFixed(2) + 's';
+                
+                const progress = Math.min(100, (Math.max(playerDistance, opponentDistance) / quarterMile) * 100);
+                document.getElementById('progressFill').style.width = progress + '%';
+                document.getElementById('progressFill').textContent = Math.round(progress) + '%';
+                
+                // Add effects randomly
+                if (Math.random() > 0.7) {
+                    createTireSmoke(playerPosition, '25%');
+                    createTireSmoke(opponentPosition, '75%');
+                }
+                
+                if (Math.random() > 0.85) {
+                    createSparks(playerPosition, '25%');
+                    createSparks(opponentPosition, '75%');
+                }
+                
+                // Check for winner - handle both cars independently to detect ties
+                const playerFinished = playerDistance >= quarterMile;
+                const opponentFinished = opponentDistance >= quarterMile;
+                
+                if ((playerFinished || opponentFinished) && !winner) {
+                    clearInterval(raceInterval);
+                    
+                    // Determine winner based on who crossed first (or tie)
+                    if (playerFinished && opponentFinished) {
+                        // Both finished in same update - check actual distances
+                        winner = playerDistance > opponentDistance ? 'player' : 'opponent';
+                    } else if (playerFinished) {
+                        winner = 'player';
+                    } else {
+                        winner = 'opponent';
+                    }
+                    
+                    showResults(winner, raceTime, winner === 'player' ? playerPerformance.topSpeed : opponentPerformance.topSpeed);
+                }
+                
+            }, GAME_CONSTANTS.RACE_UPDATE_INTERVAL);
+        }
+
+        // Game timing constants
+        const GAME_CONSTANTS = {
+            // Race update interval in milliseconds (50ms = 20 updates per second)
+            RACE_UPDATE_INTERVAL: 50,
+            
+            // Time increment per update in seconds
+            TIME_INCREMENT: 0.05
+        };
+
+        // Physics constants for realistic drag racing simulation
+        const PHYSICS_CONSTANTS = {
+            // Acceleration multiplier: converts power-to-weight ratio to feet per second squared
+            // Based on empirical drag racing data where 1 HP/ton ≈ 0.15 ft/s²
+            ACCELERATION_FACTOR: 0.15,
+            
+            // Top speed multiplier: converts sqrt(power-to-weight) to mph
+            // Empirical formula for drag racing terminal velocity estimation
+            TOP_SPEED_FACTOR: 20,
+            
+            // Distance calculation scale factor: converts physics time units to feet
+            // Adjusts the basic kinematic equation (s = 0.5*a*t²) for game timing
+            DISTANCE_SCALE: 100,
+            
+            // Speed conversion factor: converts acceleration*time to mph
+            // Calibrated for realistic quarter-mile drag racing speeds
+            SPEED_CONVERSION: 10
+        };
+
+        function calculatePerformance(car) {
+            // Realistic drag racing physics based on power-to-weight ratio
+            const powerToWeightRatio = car.hp / (car.weight / 1000);
+            const acceleration = powerToWeightRatio * PHYSICS_CONSTANTS.ACCELERATION_FACTOR;
+            const topSpeed = Math.sqrt(car.hp / (car.weight / 1000)) * PHYSICS_CONSTANTS.TOP_SPEED_FACTOR;
+            
+            return {
+                acceleration: acceleration,
+                topSpeed: topSpeed,
+                quarterMileTime: Math.sqrt(2 * 1320 / acceleration)
+            };
+        }
+
+        function calculateDistance(time, performance) {
+            // Kinematic equation: s = 0.5 * a * t² with scaling for game timing
+            const distance = 0.5 * performance.acceleration * Math.pow(time, 2) * PHYSICS_CONSTANTS.DISTANCE_SCALE;
+            return Math.min(distance, 1320);
+        }
+
+        function calculateSpeed(time, performance) {
+            // Velocity equation: v = a * t, converted to mph
+            const speed = performance.acceleration * time * PHYSICS_CONSTANTS.SPEED_CONVERSION;
+            return Math.min(speed, performance.topSpeed);
+        }
+
+        function createTireSmoke(x, y) {
+            const track = document.getElementById('raceTrack');
+            const smoke = document.createElement('div');
+            smoke.className = 'tire-smoke';
+            smoke.style.left = x + 'px';
+            smoke.style.top = y;
+            track.appendChild(smoke);
+            setTimeout(() => smoke.remove(), 800);
+        }
+
+        function createSparks(x, y) {
+            const track = document.getElementById('raceTrack');
+            for (let i = 0; i < 3; i++) {
+                const spark = document.createElement('div');
+                spark.className = 'spark';
+                spark.style.left = x + 'px';
+                spark.style.top = y;
+                spark.style.animationDelay = (i * 0.1) + 's';
+                track.appendChild(spark);
+                setTimeout(() => spark.remove(), 500);
+            }
+        }
+
+        function showResults(winner, time, topSpeed) {
+            const motionBlur = document.getElementById('motionBlur');
+            motionBlur.classList.remove('active');
+            
+            // Hide gear indicator
+            const gearIndicator = document.getElementById('gearIndicator');
+            if (gearIndicator) {
+                gearIndicator.style.display = 'none';
+            }
+            
+            // Stop engine sounds
+            stopEngineSounds();
+            
+            const resultsDiv = document.getElementById('raceResults');
+            const winnerCar = winner === 'player' ? gameState.playerCar : gameState.opponentCar;
+            const winnerName = winner === 'player' ? 'YOU WIN!' : 'OPPONENT WINS!';
+            const winnerColor = winner === 'player' ? '#00ff00' : '#ff0000';
+            
+            resultsDiv.innerHTML = `
+                <div class="results">
+                    <div class="winner-text neon-text" style="color: ${winnerColor};">
+                        ${winnerName}
+                    </div>
+                    <div style="font-size: clamp(18px, 3vw, 24px); margin: 15px 0;">
+                        ${winnerCar.brand} ${winnerCar.model}
+                    </div>
+                    <div class="time-display">
+                        ${time.toFixed(3)}s
+                    </div>
+                    <div style="margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                        <div class="info-box">
+                            <div class="info-label">Quarter Mile Time</div>
+                            <div class="info-value">${time.toFixed(3)}s</div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-label">Top Speed</div>
+                            <div class="info-value">${Math.round(topSpeed)} mph</div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-label">Horsepower</div>
+                            <div class="info-value">${winnerCar.hp} HP</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            resultsDiv.style.display = 'block';
+            document.getElementById('reRaceBtn').style.display = 'inline-block';
+            gameState.raceInProgress = false;
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            console.log('🏁 Neon Drag Racing Game Loaded!');
+            console.log(`📊 ${Object.keys(carDatabase).length} car brands available`);
+        });
+    </script>
+</body>
+</html>
