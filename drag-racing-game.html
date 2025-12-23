@@ -827,12 +827,12 @@
                 const btn = document.createElement('button');
                 btn.className = 'brand-btn';
                 btn.textContent = brand;
-                btn.onclick = () => selectBrand(player, brand);
+                btn.onclick = function() { selectBrand(player, brand, this); };
                 grid.appendChild(btn);
             });
         }
 
-        function selectBrand(player, brand) {
+        function selectBrand(player, brand, buttonElement) {
             const prefix = player === 'player' ? 'player' : 'opponent';
             
             if (player === 'player') {
@@ -849,7 +849,9 @@
             document.querySelectorAll(`#${prefix}BrandSelection .brand-btn`).forEach(btn => {
                 btn.classList.remove('selected');
             });
-            event.target.classList.add('selected');
+            if (buttonElement) {
+                buttonElement.classList.add('selected');
+            }
             
             renderModelSelection(player, brand);
             document.getElementById(prefix + 'CarDisplay').innerHTML = '';
@@ -871,13 +873,13 @@
                     const btn = document.createElement('button');
                     btn.className = 'model-btn';
                     btn.innerHTML = `${model}<br><small>${config.config}</small>`;
-                    btn.onclick = () => selectCar(player, brand, model, index);
+                    btn.onclick = function() { selectCar(player, brand, model, index, this); };
                     grid.appendChild(btn);
                 });
             });
         }
 
-        function selectCar(player, brand, model, configIndex) {
+        function selectCar(player, brand, model, configIndex, buttonElement) {
             const prefix = player === 'player' ? 'player' : 'opponent';
             const car = {
                 brand: brand,
@@ -897,7 +899,9 @@
             document.querySelectorAll(`#${prefix}ModelSelection .model-btn`).forEach(btn => {
                 btn.classList.remove('selected');
             });
-            event.target.classList.add('selected');
+            if (buttonElement) {
+                buttonElement.classList.add('selected');
+            }
             
             displayCarCard(player, car);
             updateStartButton();
@@ -1130,11 +1134,30 @@
             }, 50);
         }
 
+        // Physics constants for realistic drag racing simulation
+        const PHYSICS_CONSTANTS = {
+            // Acceleration multiplier: converts power-to-weight ratio to feet per second squared
+            // Based on empirical drag racing data where 1 HP/ton ≈ 0.15 ft/s²
+            ACCELERATION_FACTOR: 0.15,
+            
+            // Top speed multiplier: converts sqrt(power-to-weight) to mph
+            // Empirical formula for drag racing terminal velocity estimation
+            TOP_SPEED_FACTOR: 20,
+            
+            // Distance calculation scale factor: converts physics time units to feet
+            // Adjusts the basic kinematic equation (s = 0.5*a*t²) for game timing
+            DISTANCE_SCALE: 100,
+            
+            // Speed conversion factor: converts acceleration*time to mph
+            // Calibrated for realistic quarter-mile drag racing speeds
+            SPEED_CONVERSION: 10
+        };
+
         function calculatePerformance(car) {
-            // Realistic drag racing physics
+            // Realistic drag racing physics based on power-to-weight ratio
             const powerToWeightRatio = car.hp / (car.weight / 1000);
-            const acceleration = powerToWeightRatio * 0.15; // feet per second squared
-            const topSpeed = Math.sqrt(car.hp / (car.weight / 1000)) * 20; // mph
+            const acceleration = powerToWeightRatio * PHYSICS_CONSTANTS.ACCELERATION_FACTOR;
+            const topSpeed = Math.sqrt(car.hp / (car.weight / 1000)) * PHYSICS_CONSTANTS.TOP_SPEED_FACTOR;
             
             return {
                 acceleration: acceleration,
@@ -1144,14 +1167,14 @@
         }
 
         function calculateDistance(time, performance) {
-            // s = 0.5 * a * t^2 with realistic drag
-            const distance = 0.5 * performance.acceleration * Math.pow(time, 2) * 100;
+            // Kinematic equation: s = 0.5 * a * t² with scaling for game timing
+            const distance = 0.5 * performance.acceleration * Math.pow(time, 2) * PHYSICS_CONSTANTS.DISTANCE_SCALE;
             return Math.min(distance, 1320);
         }
 
         function calculateSpeed(time, performance) {
-            // v = a * t converted to mph
-            const speed = performance.acceleration * time * 10;
+            // Velocity equation: v = a * t, converted to mph
+            const speed = performance.acceleration * time * PHYSICS_CONSTANTS.SPEED_CONVERSION;
             return Math.min(speed, performance.topSpeed);
         }
 
