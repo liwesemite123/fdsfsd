@@ -225,16 +225,169 @@
         }
 
         .race-track {
-            height: 400px;
-            background: linear-gradient(to bottom, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
+            height: 500px;
             position: relative;
-            border: 2px solid #333;
+            overflow: hidden;
+            background: linear-gradient(to bottom, 
+                #87CEEB 0%,      /* Sky blue */
+                #B0D4E3 30%,     /* Light blue */
+                #D4E8F0 50%,     /* Horizon */
+                #8B7355 60%,     /* Distant ground */
+                #654321 70%,     /* Road edge */
+                #2a2a2a 75%,     /* Asphalt start */
+                #1a1a1a 100%     /* Asphalt */
+            );
+            border: 3px solid #333;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
         }
 
         @media (max-width: 768px) {
             .race-track {
-                height: 300px;
+                height: 350px;
             }
+        }
+
+        /* Sky and clouds */
+        .race-environment {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .sky-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to bottom,
+                #4A90E2 0%,
+                #87CEEB 40%,
+                #F0E68C 100%
+            );
+        }
+
+        /* Sun */
+        .sun {
+            position: absolute;
+            top: 10%;
+            right: 15%;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #FFF44F 0%, #FFD700 50%, transparent 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 60px #FFD700, 0 0 100px #FFA500;
+            animation: sunGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes sunGlow {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .sun {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* Clouds */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 100px;
+            animation: cloudMove 30s linear infinite;
+        }
+
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 100px;
+        }
+
+        .cloud-1 {
+            width: 100px;
+            height: 40px;
+            top: 15%;
+            left: -120px;
+        }
+
+        .cloud-1::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud-1::after {
+            width: 60px;
+            height: 35px;
+            top: -15px;
+            right: 10px;
+        }
+
+        .cloud-2 {
+            width: 80px;
+            height: 35px;
+            top: 25%;
+            left: -100px;
+            animation-delay: 15s;
+        }
+
+        .cloud-2::before {
+            width: 40px;
+            height: 40px;
+            top: -20px;
+            left: 15px;
+        }
+
+        @keyframes cloudMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(100vw + 200px)); }
+        }
+
+        /* Trees on horizon */
+        .trees-layer {
+            position: absolute;
+            bottom: 40%;
+            left: 0;
+            right: 0;
+            height: 15%;
+            background: repeating-linear-gradient(
+                90deg,
+                #2d5016 0px,
+                #2d5016 10px,
+                transparent 10px,
+                transparent 15px,
+                #3d6d1e 15px,
+                #3d6d1e 25px,
+                transparent 25px,
+                transparent 35px
+            );
+            opacity: 0.6;
+            filter: blur(2px);
+        }
+
+        /* Road surface */
+        .road-surface {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(to bottom,
+                #4a4a4a 0%,
+                #2a2a2a 20%,
+                #1a1a1a 100%
+            );
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.1) 2px, rgba(0,0,0,.1) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.1) 2px, rgba(0,0,0,.1) 4px);
         }
 
         .track-lines {
@@ -243,6 +396,23 @@
             left: 0;
             right: 0;
             bottom: 0;
+            z-index: 2;
+        }
+
+        /* Road lanes */
+        .lane-divider {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: repeating-linear-gradient(
+                to right,
+                #ffff00 0px,
+                #ffff00 30px,
+                transparent 30px,
+                transparent 60px
+            );
+            box-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
         }
 
         .center-line {
@@ -250,38 +420,118 @@
             top: 50%;
             left: 0;
             right: 0;
-            height: 2px;
+            height: 4px;
             background: repeating-linear-gradient(
                 to right,
                 #ffff00 0px,
-                #ffff00 20px,
-                transparent 20px,
-                transparent 40px
+                #ffff00 40px,
+                transparent 40px,
+                transparent 80px
             );
             transform: translateY(-50%);
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.6);
+        }
+
+        /* Road edges */
+        .road-edge {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: white;
+            box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+        }
+
+        .road-edge-top {
+            top: calc(50% - 150px);
+        }
+
+        .road-edge-bottom {
+            top: calc(50% + 150px);
         }
 
         .racing-car {
             position: absolute;
-            width: 120px;
-            height: 60px;
+            width: 140px;
+            height: 70px;
             transition: left 0.05s linear;
+            z-index: 10;
         }
 
         @media (max-width: 768px) {
             .racing-car {
-                width: 80px;
-                height: 40px;
+                width: 100px;
+                height: 50px;
+            }
+        }
+
+        /* Car wheels */
+        .car-wheel {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #1a1a1a 0%, #000 60%, #333 80%, #000 100%);
+            border-radius: 50%;
+            border: 2px solid #222;
+            bottom: -5px;
+            animation: wheelSpin 0.3s linear infinite;
+        }
+
+        .car-wheel::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #444;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .car-wheel::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #666;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .wheel-front {
+            left: 75%;
+        }
+
+        .wheel-rear {
+            left: 15%;
+        }
+
+        @keyframes wheelSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .car-wheel {
+                width: 15px;
+                height: 15px;
+            }
+            
+            .car-wheel::before {
+                width: 6px;
+                height: 6px;
             }
         }
 
         .player-car {
-            top: 25%;
+            top: 35%;
             transform: translateY(-50%);
         }
 
         .opponent-car {
-            top: 75%;
+            top: 65%;
             transform: translateY(-50%);
         }
 
@@ -588,12 +838,35 @@
                 <h2 style="text-align: center; color: #00ffff; margin-bottom: 15px;">1/4 Mile Drag Race</h2>
                 
                 <div class="race-track" id="raceTrack">
-                    <div class="track-lines">
-                        <div class="center-line"></div>
+                    <!-- Environment layers -->
+                    <div class="race-environment">
+                        <div class="sky-layer"></div>
+                        <div class="sun"></div>
+                        <div class="cloud cloud-1"></div>
+                        <div class="cloud cloud-2"></div>
+                        <div class="trees-layer"></div>
+                        <div class="road-surface"></div>
                     </div>
+                    
+                    <!-- Track markings -->
+                    <div class="track-lines">
+                        <div class="road-edge road-edge-top"></div>
+                        <div class="center-line"></div>
+                        <div class="road-edge road-edge-bottom"></div>
+                    </div>
+                    
+                    <!-- Motion effects -->
                     <div class="motion-blur" id="motionBlur"></div>
-                    <div class="racing-car player-car" id="playerRaceCar"></div>
-                    <div class="racing-car opponent-car" id="opponentRaceCar"></div>
+                    
+                    <!-- Racing cars with wheels -->
+                    <div class="racing-car player-car" id="playerRaceCar">
+                        <div class="car-wheel wheel-front"></div>
+                        <div class="car-wheel wheel-rear"></div>
+                    </div>
+                    <div class="racing-car opponent-car" id="opponentRaceCar">
+                        <div class="car-wheel wheel-front"></div>
+                        <div class="car-wheel wheel-rear"></div>
+                    </div>
                 </div>
 
                 <div class="race-info">
