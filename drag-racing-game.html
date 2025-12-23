@@ -1082,7 +1082,7 @@
             motionBlur.classList.add('active');
             
             const raceInterval = setInterval(() => {
-                raceTime += 0.05;
+                raceTime += GAME_CONSTANTS.TIME_INCREMENT;
                 
                 // Calculate distances with realistic physics
                 playerDistance = calculateDistance(raceTime, playerPerformance);
@@ -1120,19 +1120,37 @@
                     createSparks(opponentPosition, '75%');
                 }
                 
-                // Check for winner
-                if (playerDistance >= quarterMile && !winner) {
-                    winner = 'player';
+                // Check for winner - handle both cars independently to detect ties
+                const playerFinished = playerDistance >= quarterMile;
+                const opponentFinished = opponentDistance >= quarterMile;
+                
+                if ((playerFinished || opponentFinished) && !winner) {
                     clearInterval(raceInterval);
-                    showResults('player', raceTime, playerPerformance.topSpeed);
-                } else if (opponentDistance >= quarterMile && !winner) {
-                    winner = 'opponent';
-                    clearInterval(raceInterval);
-                    showResults('opponent', raceTime, opponentPerformance.topSpeed);
+                    
+                    // Determine winner based on who crossed first (or tie)
+                    if (playerFinished && opponentFinished) {
+                        // Both finished in same update - check actual distances
+                        winner = playerDistance > opponentDistance ? 'player' : 'opponent';
+                    } else if (playerFinished) {
+                        winner = 'player';
+                    } else {
+                        winner = 'opponent';
+                    }
+                    
+                    showResults(winner, raceTime, winner === 'player' ? playerPerformance.topSpeed : opponentPerformance.topSpeed);
                 }
                 
-            }, 50);
+            }, GAME_CONSTANTS.RACE_UPDATE_INTERVAL);
         }
+
+        // Game timing constants
+        const GAME_CONSTANTS = {
+            // Race update interval in milliseconds (50ms = 20 updates per second)
+            RACE_UPDATE_INTERVAL: 50,
+            
+            // Time increment per update in seconds
+            TIME_INCREMENT: 0.05
+        };
 
         // Physics constants for realistic drag racing simulation
         const PHYSICS_CONSTANTS = {
