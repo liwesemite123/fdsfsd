@@ -580,7 +580,14 @@
         </div>
     </div>
 
+    <!-- Car Assets Configuration -->
+    <script src="assets/car-assets.js"></script>
+
     <script>
+        // Audio elements for engine sounds
+        let currentPlayerSound = null;
+        let currentOpponentSound = null;
+
         // Car database with realistic specs
         const carDatabase = {
             "BMW": {
@@ -884,6 +891,7 @@
             const car = {
                 brand: brand,
                 model: model,
+                configIndex: configIndex,  // Store config index for asset lookup
                 ...carDatabase[brand][model][configIndex]
             };
             
@@ -910,16 +918,26 @@
         function displayCarCard(player, car) {
             const container = document.getElementById(player === 'player' ? 'playerCarDisplay' : 'opponentCarDisplay');
             
+            // Get car assets (image and sound)
+            const assets = typeof getCarAssets === 'function' 
+                ? getCarAssets(car.brand, car.model, car.configIndex || 0)
+                : { image: '', sound: '', engineType: car.config };
+            
             // Calculate performance stats
             const powerToWeight = (car.hp / (car.weight / 1000)).toFixed(2);
             const estimated0to60 = (3.5 + (car.weight / car.hp) * 0.01).toFixed(2);
             const quarterMileTime = (10 + (car.weight / car.hp) * 0.02).toFixed(2);
             
+            // Generate car image HTML - use real photo if available, otherwise SVG
+            const carImageHTML = assets.image 
+                ? `<img src="${assets.image}" alt="${car.brand} ${car.model}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.parentElement.innerHTML='${generateCarSVG(car.brand).replace(/'/g, "&apos;")}';">`
+                : generateCarSVG(car.brand);
+            
             container.innerHTML = `
                 <div class="car-card">
                     <h3>${car.brand} ${car.model}</h3>
                     <div class="car-image">
-                        ${generateCarSVG(car.brand)}
+                        ${carImageHTML}
                     </div>
                     <div class="stats-grid">
                         <div class="stat-item">
@@ -947,6 +965,7 @@
                             <div class="stat-value">${quarterMileTime}s</div>
                         </div>
                     </div>
+                    ${assets.sound ? `<div style="margin-top: 10px; text-align: center; color: #00ffff; font-size: 12px;">🔊 ${assets.engineType}</div>` : ''}
                 </div>
             `;
         }
@@ -1013,6 +1032,9 @@
             // Reset race state
             gameState.raceInProgress = true;
             
+            // Load and prepare engine sounds
+            prepareEngineSounds();
+            
             // Set car visuals
             document.getElementById('playerRaceCar').innerHTML = generateCarSVG(gameState.playerCar.brand);
             document.getElementById('opponentRaceCar').innerHTML = generateCarSVG(gameState.opponentCar.brand);
@@ -1029,6 +1051,61 @@
             
             // Start countdown
             startCountdown();
+        }
+
+        // Prepare engine sounds for racing
+        function prepareEngineSounds() {
+            // Stop any currently playing sounds
+            stopEngineSounds();
+            
+            // Get sound URLs for both cars
+            const playerAssets = typeof getCarAssets === 'function' 
+                ? getCarAssets(gameState.playerCar.brand, gameState.playerCar.model, gameState.playerCar.configIndex || 0)
+                : null;
+            const opponentAssets = typeof getCarAssets === 'function'
+                ? getCarAssets(gameState.opponentCar.brand, gameState.opponentCar.model, gameState.opponentCar.configIndex || 0)
+                : null;
+            
+            // Create audio elements if sounds are available
+            if (playerAssets && playerAssets.sound) {
+                currentPlayerSound = new Audio(playerAssets.sound);
+                currentPlayerSound.loop = true;
+                currentPlayerSound.volume = 0.6;
+            }
+            
+            if (opponentAssets && opponentAssets.sound) {
+                currentOpponentSound = new Audio(opponentAssets.sound);
+                currentOpponentSound.loop = true;
+                currentOpponentSound.volume = 0.4;
+            }
+        }
+
+        // Play engine sounds during race
+        function playEngineSounds() {
+            try {
+                if (currentPlayerSound) {
+                    currentPlayerSound.play().catch(e => console.log('Player sound play failed:', e));
+                }
+                if (currentOpponentSound) {
+                    currentOpponentSound.play().catch(e => console.log('Opponent sound play failed:', e));
+                }
+            } catch (e) {
+                console.log('Error playing sounds:', e);
+            }
+        }
+
+        // Stop engine sounds
+        function stopEngineSounds() {
+            if (currentPlayerSound) {
+                currentPlayerSound.pause();
+                currentPlayerSound.currentTime = 0;
+                currentPlayerSound = null;
+            }
+            if (currentOpponentSound) {
+                currentOpponentSound.pause();
+                currentOpponentSound.currentTime = 0;
+                currentOpponentSound = null;
+            }
         }
 
         function startCountdown() {
@@ -1065,6 +1142,9 @@
         function executeRace() {
             const quarterMile = 1320; // feet
             const trackWidth = document.getElementById('raceTrack').offsetWidth - 120;
+            
+            // Start playing engine sounds
+            playEngineSounds();
             
             // Calculate race performance
             const playerPerformance = calculatePerformance(gameState.playerCar);
@@ -1222,6 +1302,9 @@
         function showResults(winner, time, topSpeed) {
             const motionBlur = document.getElementById('motionBlur');
             motionBlur.classList.remove('active');
+            
+            // Stop engine sounds
+            stopEngineSounds();
             
             const resultsDiv = document.getElementById('raceResults');
             const winnerCar = winner === 'player' ? gameState.playerCar : gameState.opponentCar;
