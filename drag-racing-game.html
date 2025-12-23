@@ -369,6 +369,55 @@
             color: #fff;
         }
 
+        /* Gear indicator */
+        .gear-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid #00ffff;
+            border-radius: 12px;
+            padding: 20px;
+            min-width: 120px;
+            text-align: center;
+            z-index: 200;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .gear-label {
+            font-size: clamp(12px, 2vw, 14px);
+            color: #00ffff;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .gear-value {
+            font-size: clamp(48px, 10vw, 72px);
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+            animation: gearPulse 0.3s ease-out;
+        }
+
+        @keyframes gearPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); color: #ff00ff; }
+            100% { transform: scale(1); }
+        }
+
+        .gear-rpm {
+            font-size: clamp(10px, 1.5vw, 12px);
+            color: #ff00ff;
+            margin-top: 5px;
+        }
+
+        .gear-instructions {
+            font-size: clamp(10px, 1.5vw, 12px);
+            color: #00ffff;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+
         /* Countdown */
         .countdown {
             position: absolute;
@@ -569,6 +618,17 @@
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill" style="width: 0%;">0%</div>
                 </div>
+
+                <!-- Gear Indicator (Manual Transmission) -->
+                <div class="gear-indicator" id="gearIndicator" style="display: none;">
+                    <div class="gear-label">⚙️ GEAR</div>
+                    <div class="gear-value" id="currentGear">N</div>
+                    <div class="gear-rpm" id="gearRPM">0 RPM</div>
+                    <div class="gear-instructions">
+                        ↑ Shift Up<br>
+                        ↓ Shift Down
+                    </div>
+                </div>
             </div>
 
             <div id="raceResults" style="display: none;"></div>
@@ -587,6 +647,18 @@
         // Audio elements for engine sounds
         let currentPlayerSound = null;
         let currentOpponentSound = null;
+
+        // Manual transmission state
+        let manualTransmission = {
+            enabled: true,  // Always enabled for player
+            currentGear: 0, // 0 = Neutral, 1-6 = gears
+            maxGear: 6,
+            rpm: 0,
+            redlineRPM: 8000,
+            gearRatios: [0, 3.8, 2.5, 1.9, 1.4, 1.0, 0.8], // Neutral + 6 gears
+            shiftTime: 0,
+            lastShiftTime: 0
+        };
 
         // Car database with realistic specs
         const carDatabase = {
@@ -1139,9 +1211,95 @@
             }, 1000);
         }
 
+        // Manual transmission functions
+        function shiftUp() {
+            if (manualTransmission.currentGear < manualTransmission.maxGear && gameState.raceInProgress) {
+                const now = Date.now();
+                if (now - manualTransmission.lastShiftTime > 300) { // 300ms cooldown
+                    manualTransmission.currentGear++;
+                    manualTransmission.lastShiftTime = now;
+                    updateGearDisplay();
+                }
+            }
+        }
+
+        function shiftDown() {
+            if (manualTransmission.currentGear > 0 && gameState.raceInProgress) {
+                const now = Date.now();
+                if (now - manualTransmission.lastShiftTime > 300) { // 300ms cooldown
+                    manualTransmission.currentGear--;
+                    manualTransmission.lastShiftTime = now;
+                    updateGearDisplay();
+                }
+            }
+        }
+
+        function updateGearDisplay() {
+            const gearElement = document.getElementById('currentGear');
+            const rpmElement = document.getElementById('gearRPM');
+            
+            if (gearElement) {
+                gearElement.textContent = manualTransmission.currentGear === 0 ? 'N' : manualTransmission.currentGear;
+                gearElement.style.animation = 'none';
+                setTimeout(() => gearElement.style.animation = 'gearPulse 0.3s ease-out', 10);
+            }
+            
+            if (rpmElement) {
+                rpmElement.textContent = Math.round(manualTransmission.rpm) + ' RPM';
+                if (manualTransmission.rpm > manualTransmission.redlineRPM * 0.9) {
+                    rpmElement.style.color = '#ff0000';
+                } else {
+                    rpmElement.style.color = '#ff00ff';
+                }
+            }
+        }
+
+        // Calculate effective speed based on current gear
+        function calculateManualSpeed(baseSpeed, currentGear) {
+            if (currentGear === 0) return 0; // Neutral = no movement
+            
+            const gearRatio = manualTransmission.gearRatios[currentGear];
+            const efficiency = 1.0 / gearRatio;
+            
+            // Each gear has optimal speed range
+            const gearMaxSpeed = (baseSpeed / manualTransmission.maxGear) * (currentGear + 1) * 1.2;
+            
+            if (baseSpeed > gearMaxSpeed) {
+                // Over-revving penalty
+                return gearMaxSpeed * 0.9;
+            }
+            
+            return Math.min(baseSpeed * efficiency, gearMaxSpeed);
+        }
+
+        // Keyboard controls for manual transmission
+        document.addEventListener('keydown', (e) => {
+            if (gameState.raceInProgress) {
+                if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
+                    e.preventDefault();
+                    shiftUp();
+                } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
+                    e.preventDefault();
+                    shiftDown();
+                }
+            }
+        });
+
         function executeRace() {
             const quarterMile = 1320; // feet
             const trackWidth = document.getElementById('raceTrack').offsetWidth - 120;
+            
+            // Initialize manual transmission
+            manualTransmission.currentGear = 1; // Start in 1st gear
+            manualTransmission.rpm = 1000;
+            manualTransmission.lastShiftTime = Date.now();
+            
+            // Show gear indicator
+            const gearIndicator = document.getElementById('gearIndicator');
+            if (gearIndicator) {
+                gearIndicator.style.display = 'block';
+            }
+            updateGearDisplay();
             
             // Start playing engine sounds
             playEngineSounds();
@@ -1164,13 +1322,37 @@
             const raceInterval = setInterval(() => {
                 raceTime += GAME_CONSTANTS.TIME_INCREMENT;
                 
-                // Calculate distances with realistic physics
-                playerDistance = calculateDistance(raceTime, playerPerformance);
-                opponentDistance = calculateDistance(raceTime, opponentPerformance);
+                // Calculate base distances with realistic physics
+                const basePlayerDistance = calculateDistance(raceTime, playerPerformance);
+                const baseOpponentDistance = calculateDistance(raceTime, opponentPerformance);
+                
+                // Calculate base speeds
+                let basePlayerSpeed = calculateSpeed(raceTime, playerPerformance);
+                const opponentSpeed = calculateSpeed(raceTime, opponentPerformance);
+                
+                // Apply manual transmission to player speed
+                const effectivePlayerSpeed = calculateManualSpeed(basePlayerSpeed, manualTransmission.currentGear);
+                
+                // Update RPM based on speed and gear
+                if (manualTransmission.currentGear > 0) {
+                    const gearRatio = manualTransmission.gearRatios[manualTransmission.currentGear];
+                    manualTransmission.rpm = Math.min(
+                        (effectivePlayerSpeed / basePlayerSpeed) * manualTransmission.redlineRPM * gearRatio,
+                        manualTransmission.redlineRPM
+                    );
+                } else {
+                    manualTransmission.rpm = 1000;
+                }
+                
+                // Calculate player distance with manual transmission
+                const speedRatio = effectivePlayerSpeed / Math.max(basePlayerSpeed, 1);
+                playerDistance = basePlayerDistance * speedRatio;
+                opponentDistance = baseOpponentDistance;
+                
+                updateGearDisplay();
                 
                 // Calculate current speeds
-                const playerSpeed = calculateSpeed(raceTime, playerPerformance);
-                const opponentSpeed = calculateSpeed(raceTime, opponentPerformance);
+                const playerSpeed = effectivePlayerSpeed;
                 
                 // Update positions
                 const playerPosition = (playerDistance / quarterMile) * trackWidth;
@@ -1302,6 +1484,12 @@
         function showResults(winner, time, topSpeed) {
             const motionBlur = document.getElementById('motionBlur');
             motionBlur.classList.remove('active');
+            
+            // Hide gear indicator
+            const gearIndicator = document.getElementById('gearIndicator');
+            if (gearIndicator) {
+                gearIndicator.style.display = 'none';
+            }
             
             // Stop engine sounds
             stopEngineSounds();
