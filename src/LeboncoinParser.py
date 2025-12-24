@@ -8,6 +8,7 @@ from loguru import logger
 from bs4 import BeautifulSoup
 import json
 import re
+from .LeboncoinConfig import LEBONCOIN_CATEGORIES
 
 
 class LeboncoinParser:
@@ -20,19 +21,7 @@ class LeboncoinParser:
     - Извлечение данных продавца (количество продаж, отзывы и т.д.)
     """
 
-    # Категории leboncoin
-    CATEGORIES = {
-        'vehicules': 'Транспорт',
-        'immobilier': 'Недвижимость',
-        'multimedia': 'Мультимедиа',
-        'maison': 'Дом',
-        'mode': 'Мода',
-        'loisirs': 'Досуг',
-        'materiel_professionnel': 'Профессиональное оборудование',
-        'services': 'Услуги',
-        'emploi': 'Работа',
-        'animaux': 'Животные',
-    }
+    # Категории leboncoin (используем из конфига)
 
     def __init__(
         self,
@@ -55,9 +44,9 @@ class LeboncoinParser:
         
         # Категории
         if categories:
-            self.categories = [c for c in categories if c in self.CATEGORIES]
+            self.categories = [c for c in categories if c in LEBONCOIN_CATEGORIES]
         else:
-            self.categories = list(self.CATEGORIES.keys())
+            self.categories = list(LEBONCOIN_CATEGORIES.keys())
         
         # Прокси
         self.proxy_list = proxy_list or []
