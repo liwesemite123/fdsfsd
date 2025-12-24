@@ -1,0 +1,15 @@
+# Core dependencies for Leboncoin Parser
+aiohttp>=3.13.2
+beautifulsoup4>=4.14.3
+lxml>=6.0.2
+loguru>=0.7.3
+certifi>=2025.11.12
+
+# Optional dependencies (already in pyproject.toml)
+aiofiles>=25.1.0
+aiosmtplib>=5.0.0
+bs4>=0.0.2
+curl-cffi>=0.13.0
+python-dotenv>=1.2.1
+pytz>=2025.2
+rich>=14.2.0
