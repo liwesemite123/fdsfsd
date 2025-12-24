@@ -1,0 +1,8 @@
+2025-12-11 14:26:01,773 INFO Logging initialized: logs\backend_run_2025-12-11_22-26-01.log
+2025-12-11 14:26:01,773 INFO GoDaddy Spammer starting...
+2025-12-11 14:26:01,779 INFO 📁 Найдено аккаунтов: 1
+2025-12-11 14:26:01,779 INFO 🎯 Цель: 2000 писем на аккаунт
+2025-12-11 14:26:01,789 INFO 📁 Аккаунты: d5.txt
+2025-12-11 14:26:05,362 INFO Cleaning up connections...
+2025-12-11 14:26:05,362 INFO All SMTP connections closed
+2025-12-11 14:26:05,362 INFO GoDaddy Spammer finished

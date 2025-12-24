@@ -1,0 +1,74 @@
+2025-12-16 02:20:32,829 INFO Logging initialized: logs\backend_run_2025-12-16_02-20-32.log
+2025-12-16 02:20:32,829 INFO GoDaddy Spammer starting...
+2025-12-16 02:20:32,836 INFO 📁 Найдено аккаунтов: 2
+2025-12-16 02:20:32,836 INFO 🎯 Цель: 2000 писем на аккаунт
+2025-12-16 02:20:32,837 INFO 📁 Аккаунты: daversaarvillahp296t_at_gmail_com.txt, eldorabuckridge71_at_gmail_com.txt
+2025-12-16 02:20:32,858 INFO ⌨️ Запущен мониторинг клавиатуры
+2025-12-16 02:21:04,739 INFO ✅ Спарсено 5 email
+2025-12-16 02:21:04,747 INFO Gmail validator loaded: version 1.0.0
+2025-12-16 02:21:05,300 DEBUG Validating helpingstjude25@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:21:05,300 INFO helpingstjude25@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:21:05,458 DEBUG Validating chinitaan@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:21:05,458 INFO chinitaan@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:21:05,522 DEBUG Validating keeyaya@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:21:05,523 INFO keeyaya@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:21:05,531 DEBUG Validating calzadazahniser@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:21:05,531 INFO calzadazahniser@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:21:05,629 DEBUG Validating jordanlwht23@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:21:05,629 INFO jordanlwht23@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:21:06,104 INFO ✅ Сгенерирована ссылка: poshmark-usverzgd2.s8ver1849fs.com/273213698
+2025-12-16 02:21:06,104 INFO 🔗 Сгенерирована ссылка для calzadazahniser@gmail.com | Title: Pink Velvet Caviar Phone Case | Link: poshmark-usverzgd2.s8ver1849fs.com/273213698
+2025-12-16 02:21:06,105 INFO ✅ Сгенерирована ссылка: poshmark-usver32oe.s8ver1849fs.com/264833392
+2025-12-16 02:21:06,105 INFO 🔗 Сгенерирована ссылка для jordanlwht23@gmail.com | Title: Timberland Men's Orange Plaid button down Shirt | Link: poshmark-usver32oe.s8ver1849fs.com/264833392
+2025-12-16 02:21:06,114 INFO ✅ Сгенерирована ссылка: poshmark-usverz30s.s8ver1849fs.com/233178707
+2025-12-16 02:21:06,115 INFO 🔗 Сгенерирована ссылка для chinitaan@gmail.com | Title: Orange Striped Kids One Piece | Link: poshmark-usverz30s.s8ver1849fs.com/233178707
+2025-12-16 02:21:06,134 INFO ✅ Сгенерирована ссылка: poshmark-usverhoz7.s8ver1849fs.com/226955457
+2025-12-16 02:21:06,134 INFO 🔗 Сгенерирована ссылка для keeyaya@gmail.com | Title: Blue and White Culligan Van | Link: poshmark-usverhoz7.s8ver1849fs.com/226955457
+2025-12-16 02:21:06,139 INFO 📤 Отправка письма на jordanlwht23@gmail.com | Ссылка: poshmark-usver32oe.s8ver1849fs.com/264833392
+2025-12-16 02:21:06,139 INFO 📤 Отправка письма на keeyaya@gmail.com | Ссылка: poshmark-usverhoz7.s8ver1849fs.com/226955457
+2025-12-16 02:21:06,142 INFO 📤 Отправка письма на calzadazahniser@gmail.com | Ссылка: poshmark-usverzgd2.s8ver1849fs.com/273213698
+2025-12-16 02:21:06,142 INFO 📤 Отправка письма на chinitaan@gmail.com | Ссылка: poshmark-usverz30s.s8ver1849fs.com/233178707
+2025-12-16 02:21:07,456 INFO ✅ Загружен кеш для аккаунта: eldorabuckridge71_at_gmail_com.txt
+2025-12-16 02:21:07,457 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-16 02:21:07,458 INFO 
+📧 Обрабатываем 2 email-адрес...
+2025-12-16 02:21:07,458 INFO 
+[1/2] Обработка calzadazahniser@gmail.com...
+2025-12-16 02:21:07,507 INFO ✅ Загружен кеш для аккаунта: daversaarvillahp296t_at_gmail_com.txt
+2025-12-16 02:21:07,508 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-16 02:21:07,509 INFO 
+📧 Обрабатываем 2 email-адрес...
+2025-12-16 02:21:07,509 INFO 
+[1/2] Обработка jordanlwht23@gmail.com...
+2025-12-16 02:21:08,433 INFO [daversaarvillahp296t_at_gmail_com.txt] ✅ Email изменен на jordanlwht23@gmail.com
+2025-12-16 02:21:08,433 INFO [daversaarvillahp296t_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmark-usver32oe.s8ver1849fs.com/264833392
+2025-12-16 02:21:08,509 INFO [eldorabuckridge71_at_gmail_com.txt] ✅ Email изменен на calzadazahniser@gmail.com
+2025-12-16 02:21:08,509 INFO [eldorabuckridge71_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmark-usverzgd2.s8ver1849fs.com/273213698
+2025-12-16 02:21:09,598 INFO [daversaarvillahp296t_at_gmail_com.txt] ✅ Сообщение отправлено на jordanlwht23@gmail.com
+2025-12-16 02:21:09,598 INFO [daversaarvillahp296t_at_gmail_com.txt]   Conversation ID: 738298105
+2025-12-16 02:21:09,598 INFO [daversaarvillahp296t_at_gmail_com.txt]   Conversation Token: efe9b4eff9eb0
+2025-12-16 02:21:09,599 INFO [daversaarvillahp296t_at_gmail_com.txt] ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-16 02:21:09,922 INFO [eldorabuckridge71_at_gmail_com.txt] ✅ Сообщение отправлено на calzadazahniser@gmail.com
+2025-12-16 02:21:09,922 INFO [eldorabuckridge71_at_gmail_com.txt]   Conversation ID: 738298109
+2025-12-16 02:21:09,922 INFO [eldorabuckridge71_at_gmail_com.txt]   Conversation Token: 58693b9a8b74d
+2025-12-16 02:21:09,923 INFO [eldorabuckridge71_at_gmail_com.txt] ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-16 02:21:25,627 INFO 
+[2/2] Обработка keeyaya@gmail.com...
+2025-12-16 02:21:25,938 INFO 
+[2/2] Обработка chinitaan@gmail.com...
+2025-12-16 02:21:25,945 INFO [daversaarvillahp296t_at_gmail_com.txt] ✅ Email изменен на keeyaya@gmail.com
+2025-12-16 02:21:25,946 INFO [daversaarvillahp296t_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmark-usverhoz7.s8ver1849fs.com/226955457
+2025-12-16 02:21:26,274 INFO [eldorabuckridge71_at_gmail_com.txt] ✅ Email изменен на chinitaan@gmail.com
+2025-12-16 02:21:26,274 INFO [eldorabuckridge71_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmark-usverz30s.s8ver1849fs.com/233178707
+2025-12-16 02:21:26,552 INFO [daversaarvillahp296t_at_gmail_com.txt] ✅ Сообщение отправлено на keeyaya@gmail.com
+2025-12-16 02:21:26,552 INFO [daversaarvillahp296t_at_gmail_com.txt]   Conversation ID: 738298273
+2025-12-16 02:21:26,552 INFO [daversaarvillahp296t_at_gmail_com.txt]   Conversation Token: 7436e8a0b4cc8
+2025-12-16 02:21:26,553 INFO ✅ Успешно отправлено на jordanlwht23@gmail.com | Ссылка: poshmark-usver32oe.s8ver1849fs.com/264833392
+2025-12-16 02:21:26,553 INFO ✅ Успешно отправлено на keeyaya@gmail.com | Ссылка: poshmark-usverhoz7.s8ver1849fs.com/226955457
+2025-12-16 02:21:27,040 INFO [eldorabuckridge71_at_gmail_com.txt] ✅ Сообщение отправлено на chinitaan@gmail.com
+2025-12-16 02:21:27,040 INFO [eldorabuckridge71_at_gmail_com.txt]   Conversation ID: 738298285
+2025-12-16 02:21:27,040 INFO [eldorabuckridge71_at_gmail_com.txt]   Conversation Token: 14976654a9484
+2025-12-16 02:21:27,041 INFO ✅ Успешно отправлено на calzadazahniser@gmail.com | Ссылка: poshmark-usverzgd2.s8ver1849fs.com/273213698
+2025-12-16 02:21:27,041 INFO ✅ Успешно отправлено на chinitaan@gmail.com | Ссылка: poshmark-usverz30s.s8ver1849fs.com/233178707
+2025-12-16 02:21:27,043 DEBUG 💾 Статистика сохранена для daversaarvillahp296t_at_gmail_com: 2/2000
+2025-12-16 02:21:27,044 DEBUG 💾 Статистика сохранена для eldorabuckridge71_at_gmail_com: 2/2000

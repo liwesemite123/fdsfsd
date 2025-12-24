@@ -1,0 +1,86 @@
+2025-12-16 02:08:10,571 INFO Logging initialized: logs\backend_run_2025-12-16_02-08-10.log
+2025-12-16 02:08:10,571 INFO GoDaddy Spammer starting...
+2025-12-16 02:08:10,578 INFO 📁 Найдено аккаунтов: 2
+2025-12-16 02:08:10,578 INFO 🎯 Цель: 2000 писем на аккаунт
+2025-12-16 02:08:10,580 INFO 📁 Аккаунты: rosamondallaband0319438_at_gmail_com.txt, terziannoeliarqobsw_at_gmail_com.txt
+2025-12-16 02:08:10,601 INFO ⌨️ Запущен мониторинг клавиатуры
+2025-12-16 02:08:13,872 INFO ⏸️ Процесс поставлен на паузу
+2025-12-16 02:08:15,963 INFO 📨 Запущена проверка inbox
+2025-12-16 02:08:15,964 INFO 📧 Тестовое письмо через аккаунт: rosamondallaband0319438_at_gmail_com.txt
+2025-12-16 02:08:17,527 INFO ✅ Сгенерирована ссылка: poshmarkfblu.s8ver1849fs.com/209692470
+2025-12-16 02:08:34,593 INFO ✅ Спарсено 5 email
+2025-12-16 02:08:34,599 INFO Gmail validator loaded: version 1.0.0
+2025-12-16 02:08:35,158 DEBUG Validating brown_beulah@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:08:35,158 INFO brown_beulah@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:08:35,168 DEBUG Validating danielamoral799@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:08:35,168 INFO danielamoral799@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:08:35,169 DEBUG Validating valeriemurph245@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:08:35,169 INFO valeriemurph245@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:08:35,216 DEBUG Validating laurieirmen@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:08:35,216 INFO laurieirmen@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:08:35,270 DEBUG Validating karylwhite@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:08:35,270 INFO karylwhite@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:08:35,584 INFO ✅ Загружен кеш для аккаунта: rosamondallaband0319438_at_gmail_com.txt
+2025-12-16 02:08:35,586 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-16 02:08:35,586 INFO 
+📧 Обрабатываем 1 email-адрес...
+2025-12-16 02:08:35,587 INFO 
+[1/1] Обработка azlzhcdayn48786@gmail.com...
+2025-12-16 02:08:36,567 INFO [rosamondallaband0319438_at_gmail_com.txt] ✅ Email изменен на azlzhcdayn48786@gmail.com
+2025-12-16 02:08:36,567 INFO [rosamondallaband0319438_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmarkfblu.s8ver1849fs.com/209692470
+2025-12-16 02:08:37,636 INFO [rosamondallaband0319438_at_gmail_com.txt] ✅ Сообщение отправлено на azlzhcdayn48786@gmail.com
+2025-12-16 02:08:37,637 INFO [rosamondallaband0319438_at_gmail_com.txt]   Conversation ID: 738289351
+2025-12-16 02:08:37,637 INFO [rosamondallaband0319438_at_gmail_com.txt]   Conversation Token: 12193c1576a2f
+2025-12-16 02:08:37,639 INFO ✅ Inbox check: письмо отправлено на azlzhcdayn48786@gmail.com с ссылкой poshmarkfblu.s8ver1849fs.com/209692470
+2025-12-16 02:08:50,804 INFO ▶️ Процесс возобновлён
+2025-12-16 02:08:51,281 INFO ✅ Сгенерирована ссылка: poshmarkttd5.s8ver1849fs.com/252507359
+2025-12-16 02:08:52,360 INFO ✅ Загружен кеш для аккаунта: rosamondallaband0319438_at_gmail_com.txt
+2025-12-16 02:08:52,361 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-16 02:08:52,362 INFO 
+📧 Обрабатываем 1 email-адрес...
+2025-12-16 02:08:52,362 INFO 
+[1/1] Обработка karylwhite@gmail.com...
+2025-12-16 02:08:53,388 INFO [rosamondallaband0319438_at_gmail_com.txt] ✅ Email изменен на karylwhite@gmail.com
+2025-12-16 02:08:53,388 INFO [rosamondallaband0319438_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmarkttd5.s8ver1849fs.com/252507359
+2025-12-16 02:08:54,519 INFO [rosamondallaband0319438_at_gmail_com.txt] ✅ Сообщение отправлено на karylwhite@gmail.com
+2025-12-16 02:08:54,519 INFO [rosamondallaband0319438_at_gmail_com.txt]   Conversation ID: 738289538
+2025-12-16 02:08:54,519 INFO [rosamondallaband0319438_at_gmail_com.txt]   Conversation Token: 0e5a66c22c729
+2025-12-16 02:08:54,521 DEBUG 💾 Статистика сохранена для rosamondallaband0319438_at_gmail_com: 1/2000
+2025-12-16 02:09:21,841 INFO ✅ Спарсено 5 email
+2025-12-16 02:09:22,392 DEBUG Validating marie_chapin@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:09:22,392 INFO marie_chapin@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:09:22,404 DEBUG Validating mariankrengel@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:09:22,405 INFO mariankrengel@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:09:22,406 DEBUG Validating choline_87_deer@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:09:22,406 INFO choline_87_deer@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:09:22,516 DEBUG Validating tracieweir@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:09:22,516 INFO tracieweir@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:09:22,704 DEBUG Validating thingzdotbiz@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:09:22,704 INFO thingzdotbiz@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:09:23,143 INFO ✅ Сгенерирована ссылка: poshmarkcy7p.s8ver1849fs.com/241988079
+2025-12-16 02:09:23,158 INFO ✅ Сгенерирована ссылка: poshmarkrjgn.s8ver1849fs.com/199712786
+2025-12-16 02:09:24,634 INFO ✅ Загружен кеш для аккаунта: rosamondallaband0319438_at_gmail_com.txt
+2025-12-16 02:09:24,635 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-16 02:09:24,636 INFO 
+📧 Обрабатываем 1 email-адрес...
+2025-12-16 02:09:24,636 INFO 
+[1/1] Обработка tracieweir@gmail.com...
+2025-12-16 02:09:25,696 INFO [rosamondallaband0319438_at_gmail_com.txt] ✅ Email изменен на tracieweir@gmail.com
+2025-12-16 02:09:25,696 INFO [rosamondallaband0319438_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmarkrjgn.s8ver1849fs.com/199712786
+2025-12-16 02:09:26,937 INFO [rosamondallaband0319438_at_gmail_com.txt] ✅ Сообщение отправлено на tracieweir@gmail.com
+2025-12-16 02:09:26,937 INFO [rosamondallaband0319438_at_gmail_com.txt]   Conversation ID: 738289914
+2025-12-16 02:09:26,937 INFO [rosamondallaband0319438_at_gmail_com.txt]   Conversation Token: 06b1235c95e12
+2025-12-16 02:09:54,836 INFO ⏸️ Процесс поставлен на паузу
+2025-12-16 02:09:55,460 INFO ✅ Загружен кеш для аккаунта: terziannoeliarqobsw_at_gmail_com.txt
+2025-12-16 02:09:55,461 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-16 02:09:55,461 INFO 
+📧 Обрабатываем 1 email-адрес...
+2025-12-16 02:09:55,461 INFO 
+[1/1] Обработка thingzdotbiz@gmail.com...
+2025-12-16 02:09:56,783 INFO [terziannoeliarqobsw_at_gmail_com.txt] ✅ Email изменен на thingzdotbiz@gmail.com
+2025-12-16 02:09:56,783 INFO [terziannoeliarqobsw_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmarkcy7p.s8ver1849fs.com/241988079
+2025-12-16 02:09:57,970 INFO [terziannoeliarqobsw_at_gmail_com.txt] ✅ Сообщение отправлено на thingzdotbiz@gmail.com
+2025-12-16 02:09:57,971 INFO [terziannoeliarqobsw_at_gmail_com.txt]   Conversation ID: 738290234
+2025-12-16 02:09:57,971 INFO [terziannoeliarqobsw_at_gmail_com.txt]   Conversation Token: a626b0042b953
+2025-12-16 02:09:57,973 DEBUG 💾 Статистика сохранена для rosamondallaband0319438_at_gmail_com: 2/2000
+2025-12-16 02:09:57,974 DEBUG 💾 Статистика сохранена для terziannoeliarqobsw_at_gmail_com: 1/2000
