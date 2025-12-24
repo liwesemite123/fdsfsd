@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+
+# User data
+cookies/
+account_stats/
+bad_accounts/
+spammed_*/
+dll/
+
+# Database files
+*.db
+*.sqlite
+src/db/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Specific to this project
+poshautospam/
