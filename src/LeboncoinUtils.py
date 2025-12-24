@@ -2,6 +2,8 @@
 Утилиты для работы с парсером Leboncoin
 """
 import os
+import json
+import ast
 from pathlib import Path
 from typing import List
 
@@ -114,9 +116,12 @@ def load_seller_filter_config(filename: str = "seller_filters.txt") -> dict:
                         elif value.isdigit():
                             config[key] = int(value)
                         else:
-                            # Обработка списков
+                            # Обработка списков безопасно через ast.literal_eval
                             if value.startswith('[') and value.endswith(']'):
-                                config[key] = eval(value)
+                                try:
+                                    config[key] = ast.literal_eval(value)
+                                except (ValueError, SyntaxError):
+                                    config[key] = value
                             else:
                                 config[key] = value
                     except:

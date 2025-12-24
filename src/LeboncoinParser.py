@@ -431,7 +431,7 @@ class LeboncoinParser:
                     if self._stop_parsing:
                         break
                     
-                    logger.info(f"Парсинг категории: {category} ({self.CATEGORIES[category]})")
+                    logger.info(f"Парсинг категории: {category} ({LEBONCOIN_CATEGORIES.get(category, category)})")
                     
                     # Парсим первые несколько страниц каждой категории
                     for page in range(1, 6):  # 5 страниц
