@@ -123,16 +123,25 @@ class GmailAutomationReal:
                 if sys.platform == 'win32':
                     import msvcrt
                     if msvcrt.kbhit():
-                        key = msvcrt.getch().decode('utf-8').upper()
-                        with self.command_lock:
-                            self.user_command = key
+                        try:
+                            key = msvcrt.getch().decode('utf-8').upper()
+                            with self.command_lock:
+                                self.user_command = key
+                        except (UnicodeDecodeError, AttributeError):
+                            # Ignore special keys that can't be decoded
+                            pass
                 else:
-                    # Unix-like systems
+                    # Unix-like systems - use non-blocking read
                     import select
-                    if select.select([sys.stdin], [], [], 0.1)[0]:
-                        key = sys.stdin.read(1).upper()
-                        with self.command_lock:
-                            self.user_command = key
+                    # Check if stdin has data available
+                    ready, _, _ = select.select([sys.stdin], [], [], 0.1)
+                    if ready:
+                        try:
+                            key = sys.stdin.read(1).upper()
+                            with self.command_lock:
+                                self.user_command = key
+                        except:
+                            pass
                 
                 time.sleep(0.1)
             except:

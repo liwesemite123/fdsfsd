@@ -1,6 +1,7 @@
 """Gmail client with App Password support for real email sending"""
 import json
 import os
+import socket
 from pathlib import Path
 from typing import Optional, Dict, List
 import time
@@ -51,11 +52,20 @@ class GmailClient:
             msg.attach(part)
             
             # Send via Gmail SMTP
-            with smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=30) as server:
-                server.login(self.email, self.app_password)
-                server.send_message(msg)
-            
-            return True
+            try:
+                with smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=30) as server:
+                    server.login(self.email, self.app_password)
+                    server.send_message(msg)
+                
+                return True
+            except socket.timeout:
+                print(f"❌ Timeout при подключении к Gmail SMTP")
+                print(f"   Проверьте интернет соединение")
+                return False
+            except ConnectionRefusedError:
+                print(f"❌ Не удалось подключиться к Gmail SMTP")
+                print(f"   Проверьте firewall и интернет соединение")
+                return False
             
         except smtplib.SMTPAuthenticationError as e:
             print(f"❌ Ошибка аутентификации для {self.email}")

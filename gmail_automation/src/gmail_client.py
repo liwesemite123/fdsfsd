@@ -100,30 +100,26 @@ class GmailClient:
             # Try to send via SMTP
             # Note: Gmail requires App Password or OAuth2 for SMTP
             # Cookie-based auth doesn't work directly with SMTP
-            try:
-                with smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=10) as server:
-                    # This will fail without proper credentials
-                    # Cookie authentication doesn't work with SMTP
-                    server.login(from_email, "")  # No password available from cookies
-                    server.send_message(msg)
-                    print(f"✅ Письмо отправлено на {to_email}")
-                    return True
-            except smtplib.SMTPAuthenticationError:
-                # Expected - cookies don't provide SMTP credentials
-                print(f"⚠️ SMTP авторизация не удалась (cookies не работают с SMTP)")
-                print(f"⚠️ Для реальной отправки нужен:")
-                print(f"   1. App Password для Gmail")
-                print(f"   2. Gmail API с OAuth2")
-                print(f"   3. Browser automation (Selenium/Playwright)")
-                print(f"")
-                print(f"📧 [ДЕМО] Симуляция отправки на {to_email}")
-                time.sleep(1)
-                return True
-            except Exception as smtp_error:
-                print(f"⚠️ SMTP ошибка: {smtp_error}")
-                print(f"📧 [ДЕМО] Симуляция отправки на {to_email}")
-                time.sleep(1)
-                return True
+            # This is intentionally commented out as it will always fail
+            # 
+            # Real implementation: Use gmail_sender_real.py with App Password
+            
+            # Demonstrate why cookies don't work:
+            # try:
+            #     with smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=10) as server:
+            #         server.login(from_email, "")  # No password from cookies - will fail
+            #         server.send_message(msg)
+            # except smtplib.SMTPAuthenticationError:
+            #     # Expected - cookies don't provide SMTP credentials
+            
+            print(f"⚠️ SMTP авторизация невозможна (cookies не работают с SMTP)")
+            print(f"⚠️ Для реальной отправки используйте:")
+            print(f"   python gmail_sender_real.py")
+            print(f"   (с App Password из accounts.json)")
+            print(f"")
+            print(f"📧 [ДЕМО] Симуляция отправки на {to_email}")
+            time.sleep(1)
+            return True
             
         except Exception as e:
             print(f"❌ Ошибка отправки на {to_email}: {e}")
