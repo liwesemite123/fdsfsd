@@ -46,6 +46,31 @@ def get_cookie_files(cookies_dir: str = "cookies") -> list[str]:
 
     return sorted(cookie_files)
 
+
+def get_site_config_files(sites_dir: str = "carrd_sites") -> list[str]:
+    """
+    Получить список файлов конфигурации Carrd сайтов.
+    
+    Args:
+        sites_dir: Путь к папке с конфигурациями сайтов
+        
+    Returns:
+        Список путей к JSON файлам конфигураций
+    """
+    sites_path = Path(sites_dir)
+    
+    if not sites_path.exists():
+        sites_path.mkdir(parents=True, exist_ok=True)
+        return []
+    
+    site_files = [
+        str(file_path)
+        for file_path in sites_path.iterdir()
+        if file_path.suffix == ".json"
+    ]
+    
+    return sorted(site_files)
+
 def move_account_to_spammed(cookie_file_path: str, spammed_dir: str = "spammed_square") -> bool:
     try:
         spammed_path = Path(spammed_dir)

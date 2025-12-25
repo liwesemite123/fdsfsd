@@ -1,0 +1,56 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Database and cache files
+*.db
+*.sqlite
+*.sqlite3
+
+# Account data and cookies (sensitive)
+cookies/
+spammed_*/
+bad_accounts/
+bad_sites/
+account_stats/
+src/db/
+
+# Carrd sites (sensitive - contains actual site configs)
+carrd_sites/*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
