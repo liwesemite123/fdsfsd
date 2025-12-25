@@ -83,6 +83,7 @@ class GmailBrowserClient:
                 cookie_data = json.load(f)
             
             # Add cookies to browser
+            cookies_added = 0
             if isinstance(cookie_data, list):
                 for cookie in cookie_data:
                     try:
@@ -98,9 +99,13 @@ class GmailBrowserClient:
                             cookie_dict['secure'] = cookie['secure']
                         
                         self.driver.add_cookie(cookie_dict)
+                        cookies_added += 1
                     except Exception as e:
-                        # Skip invalid cookies
-                        pass
+                        # Log specific cookie that failed
+                        print(f"   ⚠️ Пропущен cookie {cookie.get('name', 'unknown')}: {e}")
+            
+            if cookies_added == 0:
+                raise Exception("Не удалось загрузить ни одного cookie")
             
             # Refresh to apply cookies
             self.driver.refresh()
@@ -187,12 +192,22 @@ class GmailBrowserClient:
             # Check if email was sent (look for "Message sent" notification)
             try:
                 WebDriverWait(self.driver, 5).until(
-                    EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'sent')]"))
+                    EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'sent') or contains(text(), 'Sent')]"))
                 )
+                print(f"   ✅ Подтверждение отправки получено")
                 return True
-            except:
-                # Even if we don't see confirmation, assume it worked
-                return True
+            except TimeoutException:
+                # No confirmation found - likely failed
+                print(f"   ⚠️ Не получено подтверждение отправки")
+                # Check if compose dialog is still open (indicates failure)
+                try:
+                    self.driver.find_element(By.CSS_SELECTOR, 'div[role="dialog"]')
+                    print(f"   ❌ Окно compose все еще открыто - отправка не удалась")
+                    return False
+                except NoSuchElementException:
+                    # Dialog closed but no confirmation - assume sent
+                    print(f"   ⚠️ Окно закрылось - предполагаем успех")
+                    return True
                 
         except Exception as e:
             print(f"   ❌ Ошибка отправки: {e}")

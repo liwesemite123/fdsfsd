@@ -97,20 +97,26 @@ class GmailAutomationBrowser:
     
     def _listen_for_commands(self):
         """Listen for keyboard commands"""
+        # Import platform-specific modules once
+        if sys.platform == 'win32':
+            import msvcrt
+            win_module = msvcrt
+        else:
+            import select
+            unix_module = select
+        
         while self.is_running:
             try:
                 if sys.platform == 'win32':
-                    import msvcrt
-                    if msvcrt.kbhit():
+                    if win_module.kbhit():
                         try:
-                            key = msvcrt.getch().decode('utf-8').upper()
+                            key = win_module.getch().decode('utf-8').upper()
                             with self.command_lock:
                                 self.user_command = key
                         except:
                             pass
                 else:
-                    import select
-                    ready, _, _ = select.select([sys.stdin], [], [], 0.1)
+                    ready, _, _ = unix_module.select([sys.stdin], [], [], 0.1)
                     if ready:
                         try:
                             key = sys.stdin.read(1).upper()
