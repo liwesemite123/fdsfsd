@@ -2,6 +2,10 @@
 cookies/*.json
 !cookies/*.example
 
+# Gmail App Passwords - VERY SENSITIVE!
+accounts.json
+!accounts.json.example
+
 # Keep directory but not actual data files
 emails/emails.txt
 !emails/*.example
