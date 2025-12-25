@@ -1,0 +1,9 @@
+# Proxy list - one per line
+# Format: http://user:pass@host:port
+# Or: host:port:user:pass
+# Or: host:port
+
+# Example:
+# http://user:password@proxy.example.com:8080
+# 123.45.67.89:8080:username:password
+# 123.45.67.89:8080

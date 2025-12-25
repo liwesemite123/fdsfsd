@@ -1,0 +1,17 @@
+[
+  {
+    "name": "SID",
+    "value": "your_cookie_value_here",
+    "domain": ".google.com"
+  },
+  {
+    "name": "HSID",
+    "value": "your_cookie_value_here",
+    "domain": ".google.com"
+  },
+  {
+    "name": "SSID",
+    "value": "your_cookie_value_here",
+    "domain": ".google.com"
+  }
+]
