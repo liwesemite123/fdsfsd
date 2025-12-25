@@ -1,0 +1,27 @@
+2025-12-16 02:04:19,296 INFO Logging initialized: logs\backend_run_2025-12-16_02-04-19.log
+2025-12-16 02:04:19,296 INFO GoDaddy Spammer starting...
+2025-12-16 02:04:19,304 INFO 📁 Найдено аккаунтов: 2
+2025-12-16 02:04:19,304 INFO 🎯 Цель: 2000 писем на аккаунт
+2025-12-16 02:04:19,306 INFO 📁 Аккаунты: rosamondallaband0319438_at_gmail_com.txt, terziannoeliarqobsw_at_gmail_com.txt
+2025-12-16 02:04:19,329 INFO ⌨️ Запущен мониторинг клавиатуры
+2025-12-16 02:04:37,356 INFO ⏸️ Процесс поставлен на паузу
+2025-12-16 02:04:49,254 INFO ✅ Спарсено 5 email
+2025-12-16 02:04:49,261 INFO Gmail validator loaded: version 1.0.0
+2025-12-16 02:04:49,821 DEBUG Validating mkdelahoussaye@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:04:49,821 INFO mkdelahoussaye@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:04:49,878 DEBUG Validating brookestewar651@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:04:49,878 INFO brookestewar651@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:04:50,022 DEBUG Validating fartboomboom@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:04:50,022 INFO fartboomboom@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:04:50,054 DEBUG Validating phantomhustle@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:04:50,054 INFO phantomhustle@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:04:50,067 DEBUG Validating trsharber@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:04:50,067 INFO trsharber@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:05:48,664 INFO 📨 Запущена проверка inbox
+2025-12-16 02:05:48,665 INFO 📧 Тестовое письмо через аккаунт: rosamondallaband0319438_at_gmail_com.txt
+2025-12-16 02:05:48,979 INFO ✅ Сгенерирована ссылка: poshmarktm3n.s8ver1849fs.com/189030707
+2025-12-16 02:06:55,958 ERROR ❌ Ошибка inbox check: GoDaddyClient.execute_solo_conversation() got an unexpected keyword argument 'emails'
+Traceback (most recent call last):
+  File "c:\Users\Administrator\Desktop\posh\1\src\keyboard_monitor.py", line 142, in check_inbox
+    result = await godaddy_client.execute_solo_conversation(
+TypeError: GoDaddyClient.execute_solo_conversation() got an unexpected keyword argument 'emails'
