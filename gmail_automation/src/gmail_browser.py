@@ -52,25 +52,38 @@ class GmailBrowserClient:
             
             chrome_options = Options()
             
-            # Headless mode options
+            # Headless mode options - use old headless mode for better stability
             if self.headless:
-                chrome_options.add_argument('--headless=new')  # Use new headless mode
+                chrome_options.add_argument('--headless')
+                chrome_options.add_argument('--disable-gpu')
             
-            # Stability options
+            # Critical stability options for renderer timeout fixes
             chrome_options.add_argument('--no-sandbox')
             chrome_options.add_argument('--disable-dev-shm-usage')
-            chrome_options.add_argument('--disable-gpu')
             chrome_options.add_argument('--disable-software-rasterizer')
             chrome_options.add_argument('--disable-extensions')
             chrome_options.add_argument('--disable-setuid-sandbox')
+            chrome_options.add_argument('--single-process')  # Run in single process mode
+            chrome_options.add_argument('--disable-renderer-backgrounding')
+            chrome_options.add_argument('--disable-background-timer-throttling')
+            chrome_options.add_argument('--disable-backgrounding-occluded-windows')
+            chrome_options.add_argument('--disable-client-side-phishing-detection')
+            chrome_options.add_argument('--disable-crash-reporter')
+            chrome_options.add_argument('--disable-oopr-debug-crash-dump')
+            chrome_options.add_argument('--no-crash-upload')
+            chrome_options.add_argument('--disable-low-res-tiling')
+            
+            # Memory and performance
+            chrome_options.add_argument('--disable-features=VizDisplayCompositor')
+            chrome_options.add_argument('--disable-dev-shm-usage')
+            chrome_options.add_argument('--shm-size=2gb')
             
             # Window and display
             chrome_options.add_argument('--window-size=1920,1080')
-            chrome_options.add_argument('--start-maximized')
             chrome_options.add_argument('--disable-blink-features=AutomationControlled')
             
             # User agent
-            chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+            chrome_options.add_argument('--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
             
             # Disable automation detection
             chrome_options.add_experimental_option("excludeSwitches", ["enable-automation", "enable-logging"])
@@ -80,11 +93,14 @@ class GmailBrowserClient:
             prefs = {
                 "profile.default_content_setting_values.notifications": 2,
                 "credentials_enable_service": False,
-                "profile.password_manager_enabled": False
+                "profile.password_manager_enabled": False,
+                "profile.default_content_settings.popups": 0,
+                "download.prompt_for_download": False,
             }
             chrome_options.add_experimental_option("prefs", prefs)
             
             # Try to initialize with latest driver
+            print(f"   🔧 Инициализация Chrome WebDriver...")
             try:
                 service = Service(ChromeDriverManager().install())
                 self.driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -94,16 +110,24 @@ class GmailBrowserClient:
                 # Try without webdriver-manager (use system chromedriver)
                 self.driver = webdriver.Chrome(options=chrome_options)
             
-            # Set timeouts
-            self.driver.set_page_load_timeout(30)
-            self.driver.implicitly_wait(10)
+            # Set extended timeouts for slow connections
+            self.driver.set_page_load_timeout(60)  # Increased from 30
+            self.driver.set_script_timeout(60)      # Script timeout
+            self.driver.implicitly_wait(15)         # Increased from 10
             
             print(f"   ✅ Браузер запущен")
         except Exception as e:
             print(f"   ❌ Ошибка запуска браузера: {e}")
-            print(f"   💡 Убедитесь что Chrome установлен")
-            print(f"   💡 Попробуйте: sudo apt-get install chromium-browser chromium-chromedriver")
-            print(f"   💡 Или установите Google Chrome")
+            print(f"")
+            print(f"   💡 Решения:")
+            print(f"   1. Установите Chrome/Chromium:")
+            print(f"      sudo apt-get update")
+            print(f"      sudo apt-get install -y chromium-browser chromium-chromedriver")
+            print(f"")
+            print(f"   2. Используйте альтернативный метод (SMTP - быстрее и стабильнее):")
+            print(f"      python gmail_sender_real.py")
+            print(f"")
+            print(f"   📖 Подробнее: см. TROUBLESHOOTING.md")
             raise
     
     def _load_cookies(self):
