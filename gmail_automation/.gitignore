@@ -1,10 +1,16 @@
 # Sensitive files - DO NOT COMMIT
-cookies/*.json
-!cookies/*.example
 
-# Gmail App Passwords - VERY SENSITIVE!
+# Gmail Accounts - ОЧЕНЬ ВАЖНО!
+accounts/*.txt
+!accounts/example.txt
+
+# Gmail App Passwords
 accounts.json
 !accounts.json.example
+
+# Legacy cookies (deprecated)
+cookies/*.json
+!cookies/*.example
 
 # Keep directory but not actual data files
 emails/emails.txt
