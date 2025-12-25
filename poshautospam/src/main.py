@@ -338,7 +338,7 @@ async def main() -> int:
         logging.info(f"📁 Найдено аккаунтов: {account_count}")
         logging.info(f"🎯 Цель: {EMAILS_PER_ACCOUNT} писем на аккаунт")
 
-        message = read_message_text("Texts/text.txt", "Hello, sorry for distrub its just a test.")
+        message = read_message_text("Texts/text.txt", "Hello, sorry for disturb its just a test.")
 
         # Формируем список аккаунтов
         accounts_str = ", ".join([Path(cf).name for cf in cookie_files])
