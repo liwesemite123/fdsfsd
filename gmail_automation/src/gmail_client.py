@@ -60,6 +60,16 @@ class GmailClient:
         """
         Send email via Gmail
         
+        ⚠️ IMPORTANT: This is a MOCK/PLACEHOLDER implementation!
+        
+        For PRODUCTION use, you must implement one of:
+        1. Gmail API with OAuth2 authentication
+        2. SMTP with OAuth2 tokens derived from cookies
+        3. Browser automation (Selenium/Playwright) for web interface
+        
+        The current implementation simulates sending but does NOT actually send emails.
+        Replace this method with real Gmail integration before production use.
+        
         Args:
             to_email: Recipient email address
             subject: Email subject
@@ -69,18 +79,13 @@ class GmailClient:
             True if sent successfully, False otherwise
         """
         try:
-            # Gmail compose endpoint (simplified simulation)
-            # In real implementation, this would use Gmail API or SMTP
+            # ⚠️ PLACEHOLDER IMPLEMENTATION - DOES NOT SEND REAL EMAILS
+            # Replace this with actual Gmail sending logic
             
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
                 'Content-Type': 'application/json',
             }
-            
-            # Note: This is a placeholder. Real Gmail sending requires:
-            # 1. Gmail API with OAuth2
-            # 2. Or SMTP with cookies converted to OAuth token
-            # 3. Or selenium/playwright automation with browser control
             
             # For production, replace this with actual implementation:
             # - Use smtplib with OAuth2 tokens from cookies
@@ -90,8 +95,8 @@ class GmailClient:
             # Simulate send delay
             time.sleep(1)
             
-            # For now, we'll return True to simulate successful send
-            # In production, you would integrate with Gmail API or use automation
+            # ⚠️ MOCK: Returns True to simulate successful send
+            # In production, this should return actual send status
             return True
             
         except Exception as e:

@@ -9,7 +9,7 @@ class ResponseChecker:
     
     def __init__(self):
         """Initialize response checker"""
-        self.last_check_time = datetime.now()
+        self.last_check_time = time.time()
         self.new_messages: List[Dict] = []
         self.check_interval = 60  # Check every 60 seconds
     
@@ -35,7 +35,7 @@ class ResponseChecker:
             except Exception as e:
                 print(f"⚠️ Ошибка проверки сообщений: {e}")
         
-        self.last_check_time = datetime.now()
+        self.last_check_time = time.time()
         self.new_messages.extend(new_messages)
         
         return new_messages
@@ -60,7 +60,7 @@ class ResponseChecker:
     
     def should_check(self) -> bool:
         """Check if it's time to check for responses"""
-        elapsed = (datetime.now() - self.last_check_time).total_seconds()
+        elapsed = time.time() - self.last_check_time
         return elapsed >= self.check_interval
     
     def get_new_messages_count(self) -> int:

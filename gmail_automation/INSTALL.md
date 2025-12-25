@@ -2,15 +2,8 @@
 
 ## Шаг 1: Подготовка (2 минуты)
 
-### Скачайте проект
+### Перейдите в папку проекта
 
-Если вы используете Git:
-```bash
-git clone https://github.com/liwesemite123/fdsfsd.git
-cd fdsfsd/gmail_automation
-```
-
-Или просто перейдите в папку:
 ```bash
 cd gmail_automation
 ```
