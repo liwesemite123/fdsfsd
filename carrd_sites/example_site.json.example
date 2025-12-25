@@ -1,0 +1,13 @@
+{
+  "site_url": "https://your-carrd-site.carrd.co",
+  "form_action": "https://your-carrd-site.carrd.co/submit",
+  "form_fields": {
+    "email_field": "email",
+    "message_field": "message",
+    "name_field": "name",
+    "additional_fields": {
+      "_carrd_verify": "your_verification_token_if_needed"
+    }
+  },
+  "site_description": "Example Carrd site configuration"
+}
