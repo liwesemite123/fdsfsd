@@ -72,9 +72,6 @@ class GmailClient:
             # Gmail compose endpoint (simplified simulation)
             # In real implementation, this would use Gmail API or SMTP
             
-            # For demonstration, we'll simulate the send
-            # Real implementation would need proper Gmail API integration
-            
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
                 'Content-Type': 'application/json',
@@ -83,14 +80,12 @@ class GmailClient:
             # Note: This is a placeholder. Real Gmail sending requires:
             # 1. Gmail API with OAuth2
             # 2. Or SMTP with cookies converted to OAuth token
-            # 3. Or selenium/playwright automation
+            # 3. Or selenium/playwright automation with browser control
             
-            # For this implementation, we'll use a simple approach
-            # that would need to be replaced with actual Gmail API calls
-            
-            print(f"📧 Отправка письма на {to_email}")
-            print(f"   Тема: {subject}")
-            print(f"   Текст: {body[:100]}...")
+            # For production, replace this with actual implementation:
+            # - Use smtplib with OAuth2 tokens from cookies
+            # - Use Gmail API with proper authentication
+            # - Use browser automation (selenium/playwright) to send via web interface
             
             # Simulate send delay
             time.sleep(1)

@@ -1,13 +1,16 @@
 # Sensitive files - DO NOT COMMIT
 cookies/*.json
-cookies/*.txt
 !cookies/*.example
 
+# Keep directory but not actual data files
 emails/emails.txt
 !emails/*.example
 
 proxies/proxies.txt
 !proxies/*.example
+
+text/text.txt
+!text/*.example
 
 # Python
 __pycache__/
