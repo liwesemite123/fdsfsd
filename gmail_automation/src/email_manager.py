@@ -22,7 +22,12 @@ class EmailManager:
         """Load emails from file"""
         try:
             with open(self.emails_file, 'r', encoding='utf-8') as f:
-                self.emails = [line.strip() for line in f if line.strip()]
+                # Skip empty lines and comments
+                self.emails = [
+                    line.strip() 
+                    for line in f 
+                    if line.strip() and not line.strip().startswith('#')
+                ]
             print(f"✅ Загружено {len(self.emails)} email адресов")
         except Exception as e:
             print(f"❌ Ошибка загрузки email из {self.emails_file}: {e}")
