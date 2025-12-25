@@ -57,24 +57,59 @@ class GmailPasswordClient:
             from webdriver_manager.chrome import ChromeDriverManager
             
             chrome_options = Options()
+            
+            # Headless mode options
             if self.headless:
-                chrome_options.add_argument('--headless')
+                chrome_options.add_argument('--headless=new')  # Use new headless mode
+            
+            # Stability options
             chrome_options.add_argument('--no-sandbox')
             chrome_options.add_argument('--disable-dev-shm-usage')
             chrome_options.add_argument('--disable-gpu')
-            chrome_options.add_argument('--window-size=1920,1080')
-            chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36')
+            chrome_options.add_argument('--disable-software-rasterizer')
+            chrome_options.add_argument('--disable-extensions')
+            chrome_options.add_argument('--disable-setuid-sandbox')
             
-            # Disable automation flags
-            chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+            # Window and display
+            chrome_options.add_argument('--window-size=1920,1080')
+            chrome_options.add_argument('--start-maximized')
+            chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+            
+            # User agent
+            chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+            
+            # Disable automation detection
+            chrome_options.add_experimental_option("excludeSwitches", ["enable-automation", "enable-logging"])
             chrome_options.add_experimental_option('useAutomationExtension', False)
             
-            service = Service(ChromeDriverManager().install())
-            self.driver = webdriver.Chrome(service=service, options=chrome_options)
+            # Preferences
+            prefs = {
+                "profile.default_content_setting_values.notifications": 2,
+                "credentials_enable_service": False,
+                "profile.password_manager_enabled": False
+            }
+            chrome_options.add_experimental_option("prefs", prefs)
+            
+            # Try to initialize with latest driver
+            try:
+                service = Service(ChromeDriverManager().install())
+                self.driver = webdriver.Chrome(service=service, options=chrome_options)
+            except Exception as driver_error:
+                print(f"   ⚠️ Ошибка с ChromeDriverManager: {driver_error}")
+                print(f"   🔄 Попытка использовать системный chromedriver...")
+                # Try without webdriver-manager (use system chromedriver)
+                self.driver = webdriver.Chrome(options=chrome_options)
+            
+            # Set timeouts
+            self.driver.set_page_load_timeout(30)
+            self.driver.implicitly_wait(10)
             
             print(f"   ✅ Браузер запущен")
         except Exception as e:
             print(f"   ❌ Ошибка запуска браузера: {e}")
+            print(f"   💡 Убедитесь что Chrome установлен")
+            print(f"   💡 Попробуйте: sudo apt-get install chromium-browser chromium-chromedriver")
+            print(f"   💡 Или установите Google Chrome")
             raise
     
     def _login(self):
