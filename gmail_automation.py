@@ -8,11 +8,14 @@ import os
 from pathlib import Path
 
 
-# Глобальные переменные для хранения координат
+# Global variables for storing button coordinates
 coords = {
-    "compose_button": None,       # Координаты кнопки "Написать"
-    "send_button": None,          # Координаты кнопки "Отправить"
+    "compose_button": None,       # Coordinates for "Compose" button
+    "send_button": None,          # Coordinates for "Send" button
 }
+
+# Placeholder text to check if template has default content
+DEFAULT_TEMPLATE_PREFIX = "Введите текст"
 
 
 class GmailSenderApp:
@@ -275,14 +278,10 @@ class GmailSenderApp:
         self.setup_keyboard_shortcuts()
 
     def add_tooltips(self):
-        """Добавление всплывающих подсказок."""
-        tooltips = {
-            'email_delay': 'Пауза между отправкой каждого письма (защита от блокировки)',
-            'action_delay': 'Пауза между кликами и нажатиями клавиш',
-            'paste_delay': 'Пауза после вставки текста из буфера обмена'
-        }
-        
-        # Можно добавить библиотеку для tooltip, пока оставляем простую версию
+        """Add tooltips/hints to UI elements."""
+        # Tooltips could be implemented using a library like tkinter.tooltip
+        # For now keeping simple version without external dependencies
+        pass
 
     def setup_keyboard_shortcuts(self):
         """Настройка горячих клавиш."""
@@ -406,7 +405,7 @@ class GmailSenderApp:
         for i in range(1, 4):
             template_text = getattr(self, f'template{i}_entry')
             text = template_text.get("1.0", tk.END).strip()
-            templates.append(text if text and not text.startswith("Введите текст") else "")
+            templates.append(text if text and not text.startswith(DEFAULT_TEMPLATE_PREFIX) else "")
         return templates
 
     def attempt_paste(self, text):
@@ -641,15 +640,20 @@ class GmailSenderApp:
             self.action_delay.set(config.get('action_delay', 0.5))
             self.paste_delay.set(config.get('paste_delay', 0.3))
             
-            # Восстанавливаем координаты
+            # Restore coordinates
             saved_coords = config.get('coords', {})
             for key, value in saved_coords.items():
                 if value:
-                    coords[key] = tuple(value) if isinstance(value, list) else value
-                    entry = getattr(self, f"{key.split('_')[0]}_entry", None)
-                    if entry:
-                        entry.delete(0, tk.END)
-                        entry.insert(0, str(coords[key]))
+                    # Ensure coordinates are properly formatted as tuple of two integers
+                    if isinstance(value, (list, tuple)) and len(value) == 2:
+                        try:
+                            coords[key] = (int(value[0]), int(value[1]))
+                            entry = getattr(self, f"{key.split('_')[0]}_entry", None)
+                            if entry:
+                                entry.delete(0, tk.END)
+                                entry.insert(0, str(coords[key]))
+                        except (ValueError, IndexError):
+                            self.add_log(f"Ошибка загрузки координат для '{key}'", 'warning')
             
             # Восстанавливаем шаблоны
             templates = config.get('templates', [])
