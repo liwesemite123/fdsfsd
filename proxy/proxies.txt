@@ -1,0 +1,5 @@
+# Add your proxies here - one per line
+# Supported formats:
+# socks5://user:pass@host:port
+# http://user:pass@host:port
+# https://user:pass@host:port

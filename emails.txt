@@ -1,0 +1,4 @@
+# Add email recipients here - one per line
+# example@example.com
+recipient1@example.com
+recipient2@example.com

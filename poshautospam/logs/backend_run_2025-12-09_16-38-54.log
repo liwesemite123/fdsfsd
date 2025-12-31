@@ -1,7 +1,0 @@
-2025-12-09 08:38:54,172 INFO Logging initialized: logs\backend_run_2025-12-09_16-38-54.log
-2025-12-09 08:38:54,172 INFO GoDaddy Spammer starting...
-2025-12-09 08:38:54,177 INFO 📁 Найдено аккаунтов: 1
-2025-12-09 08:38:54,179 INFO 🚀 Начинаем работу с аккаунтом: godady poshmark (прогресс: 0/200)
-2025-12-09 08:38:56,613 INFO Cleaning up connections...
-2025-12-09 08:38:56,613 INFO All SMTP connections closed
-2025-12-09 08:38:56,613 INFO GoDaddy Spammer finished

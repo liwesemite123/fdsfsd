@@ -16,4 +16,6 @@ dependencies = [
     "python-dotenv>=1.2.1",
     "pytz>=2025.2",
     "rich>=14.2.0",
+    "playwright>=1.49.1",
+    "python-socks[asyncio]>=2.5.2",
 ]
