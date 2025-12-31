@@ -1,0 +1,78 @@
+# Example Carrd Automation Configuration
+# Copy values from this file and customize for your needs
+
+# ========================================
+# SITE CONFIGURATION (SITE/title.txt)
+# ========================================
+# Single line with your desired site name
+# Example:
+#   My Awesome Portfolio
+#   Poshmark Store
+#   Contact Form Site
+
+# ========================================
+# RECIPIENT EMAILS (emails.txt)
+# ========================================
+# One email per line
+# Example:
+#   customer1@example.com
+#   customer2@example.com
+#   customer3@example.com
+
+# ========================================
+# PROXIES (proxy/proxies.txt)
+# ========================================
+# One proxy per line
+# Supported formats:
+#   socks5://username:password@host:port
+#   http://username:password@host:port
+#   https://username:password@host:port
+#
+# Example:
+#   socks5://user123:pass456@proxy.example.com:1080
+#   http://proxyuser:proxypass@192.168.1.100:8080
+
+# ========================================
+# MESSAGE CUSTOMIZATION (in script)
+# ========================================
+# Edit carrd_automation.py and modify these constants:
+#
+# DEFAULT_NAME = "Your Name Here"
+#   → The name that will appear in the form submission
+#
+# DEFAULT_EMAIL = "your.email@example.com"
+#   → The email that will appear as the sender
+#
+# DEFAULT_MESSAGE = "Your message content here"
+#   → The message that will be sent through the form
+#
+# Example:
+#   DEFAULT_NAME = "John Smith"
+#   DEFAULT_EMAIL = "john.smith@business.com"
+#   DEFAULT_MESSAGE = "Hello! I'm interested in your services. Please contact me."
+
+# ========================================
+# TELEGRAM BOT API (in script)
+# ========================================
+# Already configured in the script:
+#   TELEGRAM_BOT_API_KEY = "CmeCiBaS3fAgAXoGYTYS6l3x2k0Kowyc"
+#   TELEGRAM_BOT_USERNAME = "anymessage_shop_bot"
+#
+# This is used to generate temporary emails for site registration
+
+# ========================================
+# ADVANCED OPTIONS
+# ========================================
+# These are in the script and can be modified:
+#
+# HEADLESS MODE:
+#   browser_options = {'headless': True}
+#   → Runs browser in background (no visible window)
+#
+# TIMEOUT VALUES:
+#   await page.wait_for_timeout(2000)
+#   → Increase if you have slow internet (value in milliseconds)
+#
+# LOG ROTATION:
+#   logger.add("carrd_automation.log", rotation="10 MB")
+#   → Change rotation size as needed

@@ -1,4 +1,50 @@
-# 📧 GoDaddy Email Sender с динамической генерацией ссылок
+# 📧 Automation Scripts Repository
+
+This repository contains two automation systems:
+
+1. **GoDaddy Email Sender** - Email automation with dynamic link generation
+2. **Carrd.co Automation** - Website creation and form messaging automation (NEW!)
+
+---
+
+## 🆕 Carrd.co Automation Script
+
+Automated script for creating Carrd sites with forms and sending messages through them.
+
+### Quick Start
+
+See **[CARRD_README.md](CARRD_README.md)** and **[QUICKSTART_CARRD.md](QUICKSTART_CARRD.md)** for detailed instructions.
+
+#### Installation
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+playwright install chromium
+
+# Run validation
+python validate_config.py
+
+# Run automation
+python carrd_automation.py
+```
+
+Or use the launcher scripts:
+- **Linux/Mac**: `./run_carrd.sh`
+- **Windows**: `run_carrd.bat`
+
+### Features
+
+- ✅ Proxy support (HTTP and SOCKS5)
+- ✅ Template selection and form creation
+- ✅ Pro trial activation with Telegram bot API
+- ✅ Automated message sending
+- ✅ Duplicate prevention
+- ✅ Comprehensive logging
+
+---
+
+## 📧 GoDaddy Email Sender с динамической генерацией ссылок
 
 Автоматизированная система для отправки персонализированных писем через GoDaddy с динамической генерацией ссылок через API.
 
