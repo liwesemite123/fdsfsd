@@ -95,6 +95,25 @@ def main():
     try:
         import playwright
         print("✓ playwright is installed")
+        
+        # Check if browsers are installed
+        import subprocess
+        try:
+            result = subprocess.run(
+                ['playwright', 'install', '--dry-run', 'chromium'],
+                capture_output=True,
+                text=True,
+                timeout=10
+            )
+            # If chromium is not installed, the dry-run will indicate it
+            if 'chromium' in result.stdout.lower() or result.returncode == 0:
+                print("✓ Playwright browsers appear to be installed")
+            else:
+                print("⚠ Playwright browsers may not be installed")
+                print("  → Run: playwright install chromium")
+        except (subprocess.TimeoutExpired, FileNotFoundError):
+            print("⚠ Could not verify browser installation")
+            print("  → Run: playwright install chromium")
     except ImportError:
         print("✗ playwright is not installed")
         print("  → Run: pip install playwright && playwright install chromium")

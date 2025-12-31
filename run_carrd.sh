@@ -9,19 +9,24 @@ echo "  Carrd.co Automation Launcher"
 echo "================================================"
 echo ""
 
-# Check if Python is installed
-if ! command -v python3 &> /dev/null; then
+# Check if Python is installed (try python3 first, then python)
+PYTHON_CMD=""
+if command -v python3 &> /dev/null; then
+    PYTHON_CMD="python3"
+elif command -v python &> /dev/null; then
+    PYTHON_CMD="python"
+else
     echo "❌ Python 3 is not installed"
     echo "Please install Python 3.11 or higher"
     exit 1
 fi
 
-echo "✓ Python 3 found: $(python3 --version)"
+echo "✓ Python found: $($PYTHON_CMD --version)"
 echo ""
 
 # Check if dependencies are installed
 echo "Checking dependencies..."
-if ! python3 validate_config.py; then
+if ! $PYTHON_CMD validate_config.py; then
     echo ""
     echo "❌ Configuration validation failed"
     echo ""
@@ -29,10 +34,10 @@ if ! python3 validate_config.py; then
     echo ""
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         echo "Installing dependencies..."
-        pip install -r requirements.txt
+        $PYTHON_CMD -m pip install -r requirements.txt
         echo ""
         echo "Installing Playwright browsers..."
-        playwright install chromium
+        $PYTHON_CMD -m playwright install chromium
         echo ""
         echo "✓ Dependencies installed"
         echo ""
@@ -57,7 +62,7 @@ echo "================================================"
 echo ""
 
 # Run the automation
-python3 carrd_automation.py
+$PYTHON_CMD carrd_automation.py
 
 echo ""
 echo "================================================"

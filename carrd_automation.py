@@ -25,6 +25,9 @@ PROXY_FOLDER = "proxy"
 SITE_FOLDER = "SITE"
 EMAILS_FILE = "emails.txt"
 
+# Browser configuration
+HEADLESS_MODE = False  # Set to True to run browser in background (no visible window)
+
 # Default form field values (customizable)
 DEFAULT_NAME = "John Doe"
 DEFAULT_EMAIL = "sender@example.com"
@@ -89,11 +92,24 @@ class TelegramEmailGenerator:
         self.base_url = f"https://api.telegram.org/bot{api_key}"
     
     async def get_temporary_email(self) -> Optional[str]:
-        """Request a temporary email from the Telegram bot"""
+        """Request a temporary email from the Telegram bot
+        
+        NOTE: This is a PLACEHOLDER implementation!
+        The actual @anymessage_shop_bot API integration needs to be implemented.
+        
+        For production use, you need to:
+        1. Find the actual API endpoint for @anymessage_shop_bot
+        2. Implement the correct API call format
+        3. Handle the response properly
+        
+        Current implementation generates random temp emails for testing purposes.
+        """
         try:
             async with aiohttp.ClientSession() as session:
+                # TODO: Replace this with actual Telegram bot API implementation
                 # This is a simulated implementation as the actual API might work differently
                 # You would need to adapt this to the actual @anymessage_shop_bot API
+                logger.warning("Using PLACEHOLDER email generation - implement actual Telegram bot API!")
                 logger.info(f"Requesting temporary email from {self.bot_username}")
                 
                 # For now, generate a random email as placeholder
@@ -166,7 +182,7 @@ class CarrdAutomation:
         proxy = self.proxy_manager.get_random_proxy()
         
         browser_options = {
-            'headless': False,  # Set to True for headless mode
+            'headless': HEADLESS_MODE,  # Configurable via constant at top of file
             'args': ['--disable-blink-features=AutomationControlled']
         }
         

@@ -85,7 +85,21 @@ Edit the script constants at the top of `carrd_automation.py`:
 DEFAULT_NAME = "Your Name"
 DEFAULT_EMAIL = "your.email@example.com"
 DEFAULT_MESSAGE = "Your custom message here"
+HEADLESS_MODE = False  # Set to True to run browser in background
 ```
+
+### 6. Configure Telegram Bot API (Important!)
+
+⚠️ **IMPORTANT**: The Telegram bot API integration is currently a **PLACEHOLDER**.
+
+The script is configured to use `@anymessage_shop_bot` but the actual API implementation needs to be completed. Currently, it generates random temporary emails for testing.
+
+To implement the actual Telegram bot API:
+1. Find the correct API endpoint for @anymessage_shop_bot
+2. Edit the `get_temporary_email()` method in `carrd_automation.py`
+3. Implement the proper API call and response handling
+
+See the comments in the code for details.
 
 ## Usage
 
