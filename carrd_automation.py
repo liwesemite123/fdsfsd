@@ -35,6 +35,8 @@ DEFAULT_MESSAGE = "Hello, this is a test message from Carrd form automation."
 PROCESSED_EMAILS_FILE = "processed_emails.json"
 
 # Carrd API endpoints (these may need to be adjusted based on actual API)
+# NOTE: These endpoints are inferred and should be verified against Carrd's actual API.
+# The actual API structure may differ and require adjustments.
 CARRD_BASE_URL = "https://carrd.co"
 CARRD_API_URL = "https://api.carrd.co"
 
@@ -104,7 +106,9 @@ class TelegramEmailGenerator:
             logger.warning("Using PLACEHOLDER email generation - implement actual Telegram bot API!")
             logger.info(f"Requesting temporary email from {self.bot_username}")
             
-            # For now, generate a random email as placeholder
+            # IMPORTANT: Current implementation generates random emails for TESTING ONLY
+            # For production, integrate with an actual temporary email service
+            # The domain @tempmail.com is not functional - this is a placeholder
             random_id = ''.join(random.choices(string.ascii_lowercase + string.digits, k=10))
             email = f"temp_{random_id}@tempmail.com"
             logger.info(f"Generated temporary email: {email}")
@@ -187,14 +191,17 @@ class CarrdAPIAutomation:
             await self.session.close()
     
     async def register_account(self, temp_email: str) -> bool:
-        """Register a new Carrd account via API"""
+        """Register a new Carrd account via API
+        
+        NOTE: API endpoint is assumed and may need verification.
+        """
         logger.info(f"Registering account with email: {temp_email}")
         
         try:
             # Generate random password
             password = ''.join(random.choices(string.ascii_letters + string.digits, k=16))
             
-            # Carrd registration endpoint (may need adjustment)
+            # Carrd registration endpoint (ASSUMED - verify against actual API)
             register_url = f"{CARRD_BASE_URL}/account/register"
             
             payload = {
@@ -227,11 +234,14 @@ class CarrdAPIAutomation:
             return False
     
     async def activate_pro_trial(self) -> bool:
-        """Activate Pro Free Trial via API"""
+        """Activate Pro Free Trial via API
+        
+        NOTE: API endpoint is assumed and may need verification.
+        """
         logger.info("Activating Pro Free Trial")
         
         try:
-            # Carrd Pro trial endpoint (may need adjustment)
+            # Carrd Pro trial endpoint (ASSUMED - verify against actual API)
             trial_url = f"{CARRD_BASE_URL}/account/upgrade/trial"
             
             headers = {
@@ -251,11 +261,14 @@ class CarrdAPIAutomation:
             return False
     
     async def create_site_from_template(self, site_config: Dict[str, str]) -> bool:
-        """Create a new site from template via API"""
+        """Create a new site from template via API
+        
+        NOTE: API endpoint is assumed and may need verification.
+        """
         logger.info("Creating site from template")
         
         try:
-            # Carrd create site endpoint (may need adjustment)
+            # Carrd create site endpoint (ASSUMED - verify against actual API)
             create_url = f"{CARRD_BASE_URL}/api/sites/create"
             
             site_name = site_config.get('title', 'mysite').lower().replace(' ', '-')
@@ -289,11 +302,14 @@ class CarrdAPIAutomation:
             return False
     
     async def add_form_to_site(self, recipient_emails: List[str]) -> bool:
-        """Add form element to site via API"""
+        """Add form element to site via API
+        
+        NOTE: API endpoint is assumed and may need verification.
+        """
         logger.info("Adding form element to site")
         
         try:
-            # Carrd add element endpoint (may need adjustment)
+            # Carrd add element endpoint (ASSUMED - verify against actual API)
             add_element_url = f"{CARRD_BASE_URL}/api/sites/{self.site_id}/elements/add"
             
             payload = {
@@ -327,11 +343,14 @@ class CarrdAPIAutomation:
             return False
     
     async def publish_site(self) -> bool:
-        """Publish the site via API"""
+        """Publish the site via API
+        
+        NOTE: API endpoint is assumed and may need verification.
+        """
         logger.info("Publishing site")
         
         try:
-            # Carrd publish endpoint (may need adjustment)
+            # Carrd publish endpoint (ASSUMED - verify against actual API)
             publish_url = f"{CARRD_BASE_URL}/api/sites/{self.site_id}/publish"
             
             headers = {
@@ -354,7 +373,10 @@ class CarrdAPIAutomation:
                                        name: str = DEFAULT_NAME,
                                        email: str = DEFAULT_EMAIL,
                                        message: str = DEFAULT_MESSAGE) -> bool:
-        """Send a message through the Carrd form via API"""
+        """Send a message through the Carrd form via API
+        
+        NOTE: Form submission endpoint is assumed and may need verification.
+        """
         logger.info(f"Sending message to {recipient_email}")
         
         if not self.carrd_site_url:
@@ -362,7 +384,7 @@ class CarrdAPIAutomation:
             return False
         
         try:
-            # Carrd form submission endpoint (typically on the published site)
+            # Carrd form submission endpoint (ASSUMED - typically on published site)
             form_url = f"{self.carrd_site_url}/submit"
             
             payload = {
