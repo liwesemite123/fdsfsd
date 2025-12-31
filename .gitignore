@@ -1,0 +1,51 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Log files
+logs/
+*.log
+carrd_automation.log
+
+# Processed tracking
+processed_emails.json
+
+# Environment files
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.bak
+
+# Archive files
+*.zip
+
+# Account data
+account_stats/
+cookies/
+bad_accounts/
+spammed_*/
+src/db/
+
+# DLL files
+dll/
