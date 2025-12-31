@@ -1,0 +1,15 @@
+Dear User,
+
+We would like to notify you that your account has been temporarily suspended due to pending verification. To restore access to your account, please click the link below and complete the necessary verification steps:
+
+🔗 Click here {LINK}
+
+Please ensure that all required steps are followed to prevent any delays in restoring full access to your account.
+
+We appreciate your membership and are confident that the verification process will be completed promptly. Should you have any questions or need assistance, our support team is ready to assist you.
+
+Thank you for your understanding and cooperation.
+
+Best regards,
+The Poshmark Team
+[Contact information for support]

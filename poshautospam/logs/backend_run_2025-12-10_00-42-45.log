@@ -1,0 +1,43 @@
+2025-12-09 16:42:45,886 INFO Logging initialized: logs\backend_run_2025-12-10_00-42-45.log
+2025-12-09 16:42:45,886 INFO GoDaddy Spammer starting...
+2025-12-09 16:42:45,890 INFO 📁 Найдено аккаунтов: 1
+2025-12-09 16:42:45,890 INFO ⚡ Одновременная обработка: 2 аккаунтов
+2025-12-09 16:43:00,722 INFO ✅ Спарсено 5 email
+2025-12-09 16:43:00,742 INFO Gmail validator loaded: version 1.0.0
+2025-12-09 16:43:01,009 DEBUG Validating michellefran916@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 16:43:01,009 INFO michellefran916@gmail.com -> INVALID (Gmail validator)
+2025-12-09 16:43:01,073 DEBUG Validating leeleesqueezy@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 16:43:01,074 INFO leeleesqueezy@gmail.com -> INVALID (Gmail validator)
+2025-12-09 16:43:01,161 DEBUG Validating vanityismyangel@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 16:43:01,161 INFO vanityismyangel@gmail.com -> VALID (Gmail validator)
+2025-12-09 16:43:01,171 DEBUG Validating kateritter@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 16:43:01,171 INFO kateritter@gmail.com -> VALID (Gmail validator)
+2025-12-09 16:43:01,172 DEBUG Validating staplesfam@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 16:43:01,172 INFO staplesfam@gmail.com -> VALID (Gmail validator)
+2025-12-09 16:43:01,260 INFO 📁 Загружены аккаунты: пошмаркаепта.txt
+2025-12-09 16:43:01,260 INFO 🚀 Начинаем работу с аккаунтом: пошмаркаепта.txt (3 email'ов)
+2025-12-09 16:43:01,262 ERROR ❌ Ошибка загрузки куков для пошмаркаепта: GoDaddyClient.__init__() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\poshmark_square\src\main.py", line 150, in process_account
+    godaddy_client = GoDaddyClient(cookie_file, account_name)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GoDaddyClient.__init__() takes 2 positional arguments but 3 were given
+2025-12-09 16:43:01,263 ERROR 🚫 Аккаунт пошмаркаепта невалиден (401): Ошибка загрузки куков: GoDaddyClient.__init__() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\poshmark_square\src\main.py", line 150, in process_account
+    godaddy_client = GoDaddyClient(cookie_file, account_name)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GoDaddyClient.__init__() takes 2 positional arguments but 3 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Desktop\poshmark_square\src\main.py", line 241, in process_account_wrapper
+    success = await process_account(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Desktop\poshmark_square\src\main.py", line 154, in process_account
+    raise InvalidAccountError(f"Ошибка загрузки куков: {e}")
+src.main.InvalidAccountError: Ошибка загрузки куков: GoDaddyClient.__init__() takes 2 positional arguments but 3 were given
+2025-12-09 16:43:01,267 INFO Cleaning up connections...
+2025-12-09 16:43:01,267 INFO All SMTP connections closed
+2025-12-09 16:43:01,267 INFO GoDaddy Spammer finished

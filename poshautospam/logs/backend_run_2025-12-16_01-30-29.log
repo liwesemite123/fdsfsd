@@ -1,0 +1,25 @@
+2025-12-16 01:30:29,093 INFO Logging initialized: logs\backend_run_2025-12-16_01-30-29.log
+2025-12-16 01:30:29,093 INFO GoDaddy Spammer starting...
+2025-12-16 01:30:29,101 INFO 📁 Найдено аккаунтов: 2
+2025-12-16 01:30:29,101 INFO 🎯 Цель: 2000 писем на аккаунт
+2025-12-16 01:30:29,102 INFO 📁 Аккаунты: p1.txt, p2.txt
+2025-12-16 01:30:48,333 INFO ✅ Спарсено 5 email
+2025-12-16 01:30:48,346 INFO Gmail validator loaded: version 1.0.0
+2025-12-16 01:30:48,907 DEBUG Validating jeanettelee265@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 01:30:48,908 INFO jeanettelee265@gmail.com -> INVALID (Gmail validator)
+2025-12-16 01:30:48,917 DEBUG Validating mops_vertex_26@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 01:30:48,917 INFO mops_vertex_26@gmail.com -> INVALID (Gmail validator)
+2025-12-16 01:30:48,918 DEBUG Validating elovise@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 01:30:48,918 INFO elovise@gmail.com -> INVALID (Gmail validator)
+2025-12-16 01:30:49,122 DEBUG Validating mariahungerford@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 01:30:49,122 INFO mariahungerford@gmail.com -> VALID (Gmail validator)
+2025-12-16 01:30:49,134 DEBUG Validating marrylindner@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 01:30:49,134 INFO marrylindner@gmail.com -> VALID (Gmail validator)
+2025-12-16 01:30:49,601 INFO ✅ Сгенерирована ссылка: poshmarkcodu.s8ver1849fs.com/243227489
+2025-12-16 01:30:49,602 INFO ✅ Сгенерирована ссылка: poshmarkkw8j.s8ver1849fs.com/233912557
+2025-12-16 01:30:55,192 ERROR ❌ Не удалось обновить рефреш токен
+2025-12-16 01:30:55,192 ERROR ❌ [p1] Ошибка отправки батча 1: False
+2025-12-16 01:30:56,971 ERROR ❌ Не удалось обновить рефреш токен
+2025-12-16 01:30:56,971 ERROR ❌ [p2] Ошибка отправки батча 1: False
+2025-12-16 01:30:56,973 DEBUG 💾 Статистика сохранена для p1: 0/2000
+2025-12-16 01:30:56,973 DEBUG 💾 Статистика сохранена для p2: 0/2000

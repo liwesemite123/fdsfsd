@@ -1,0 +1,520 @@
+2025-12-09 11:44:52,463 INFO Logging initialized: logs\backend_run_2025-12-09_19-44-52.log
+2025-12-09 11:44:52,463 INFO GoDaddy Spammer starting...
+2025-12-09 11:44:52,463 INFO 📁 Найдено аккаунтов: 1
+2025-12-09 11:44:52,492 INFO 📊 Загружена статистика для godady poshmark: 355/2000 отписок
+2025-12-09 11:44:52,492 INFO 🚀 Начинаем работу с аккаунтом: godady poshmark (прогресс: 355/2000)
+2025-12-09 11:45:17,976 INFO ✅ Спарсено 5 email
+2025-12-09 11:45:17,984 INFO Gmail validator loaded: version 1.0.0
+2025-12-09 11:45:18,283 DEBUG Validating renee_gooley@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:45:18,283 INFO renee_gooley@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:45:18,292 DEBUG Validating king880@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:45:18,293 INFO king880@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:45:18,294 DEBUG Validating k_tramontana@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:45:18,294 INFO k_tramontana@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:45:18,400 DEBUG Validating distressvintage@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:45:18,402 INFO distressvintage@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:45:18,500 DEBUG Validating mcginley111@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:45:18,500 INFO mcginley111@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:45:19,763 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 11:45:19,764 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 11:45:19,765 INFO 
+📧 Обрабатываем 2 email-адрес...
+2025-12-09 11:45:19,766 INFO 
+[1/2] Обработка mcginley111@gmail.com...
+2025-12-09 11:45:20,774 INFO ✅ Email изменен на mcginley111@gmail.com
+2025-12-09 11:45:21,751 INFO ✅ Сообщение отправлено на mcginley111@gmail.com
+2025-12-09 11:45:21,751 INFO    Conversation ID: 732170248
+2025-12-09 11:45:21,751 INFO    Conversation Token: ea9faf3dc5257
+2025-12-09 11:45:21,753 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:45:37,754 INFO 
+[2/2] Обработка distressvintage@gmail.com...
+2025-12-09 11:45:38,071 INFO ✅ Email изменен на distressvintage@gmail.com
+2025-12-09 11:45:38,474 INFO ✅ Сообщение отправлено на distressvintage@gmail.com
+2025-12-09 11:45:38,474 INFO    Conversation ID: 732170585
+2025-12-09 11:45:38,474 INFO    Conversation Token: 131d221ac0b76
+2025-12-09 11:45:38,476 INFO 
+==================================================
+2025-12-09 11:45:38,476 INFO ✅ Успех: 2/2
+2025-12-09 11:45:38,476 INFO ❌ Ошибок: 0/2
+2025-12-09 11:45:38,476 INFO ==================================================
+2025-12-09 11:45:38,479 DEBUG 💾 Статистика сохранена для godady poshmark: 357/2000
+2025-12-09 11:46:18,543 INFO ✅ Спарсено 5 email
+2025-12-09 11:46:18,929 DEBUG Validating mac0607@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:46:18,929 INFO mac0607@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:46:19,012 DEBUG Validating buy1sellwell@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:46:19,012 INFO buy1sellwell@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:46:19,038 DEBUG Validating georgedemian23@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:46:19,038 INFO georgedemian23@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:46:19,071 DEBUG Validating xiaofei791127@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:46:19,071 INFO xiaofei791127@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:46:19,639 DEBUG Validating bramsoncrb@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:46:19,639 INFO bramsoncrb@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:46:20,144 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 11:46:20,144 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 11:46:20,144 INFO 
+📧 Обрабатываем 5 email-адрес...
+2025-12-09 11:46:20,144 INFO 
+[1/5] Обработка georgedemian23@gmail.com...
+2025-12-09 11:46:20,417 INFO ✅ Email изменен на georgedemian23@gmail.com
+2025-12-09 11:46:20,894 INFO ✅ Сообщение отправлено на georgedemian23@gmail.com
+2025-12-09 11:46:20,894 INFO    Conversation ID: 732171396
+2025-12-09 11:46:20,894 INFO    Conversation Token: 4aebbb7e34056
+2025-12-09 11:46:20,894 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:46:36,909 INFO 
+[2/5] Обработка buy1sellwell@gmail.com...
+2025-12-09 11:46:37,159 INFO ✅ Email изменен на buy1sellwell@gmail.com
+2025-12-09 11:46:37,676 INFO ✅ Сообщение отправлено на buy1sellwell@gmail.com
+2025-12-09 11:46:37,676 INFO    Conversation ID: 732171752
+2025-12-09 11:46:37,676 INFO    Conversation Token: 067384a4fcab9
+2025-12-09 11:46:37,676 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:46:53,691 INFO 
+[3/5] Обработка bramsoncrb@gmail.com...
+2025-12-09 11:46:53,935 INFO ✅ Email изменен на bramsoncrb@gmail.com
+2025-12-09 11:46:54,539 INFO ✅ Сообщение отправлено на bramsoncrb@gmail.com
+2025-12-09 11:46:54,539 INFO    Conversation ID: 732172079
+2025-12-09 11:46:54,539 INFO    Conversation Token: ff7f5a3797287
+2025-12-09 11:46:54,541 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:47:10,565 INFO 
+[4/5] Обработка mac0607@gmail.com...
+2025-12-09 11:47:10,925 INFO ✅ Email изменен на mac0607@gmail.com
+2025-12-09 11:47:11,425 INFO ✅ Сообщение отправлено на mac0607@gmail.com
+2025-12-09 11:47:11,425 INFO    Conversation ID: 732172435
+2025-12-09 11:47:11,425 INFO    Conversation Token: 8f5245e865727
+2025-12-09 11:47:11,425 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:47:27,440 INFO 
+[5/5] Обработка xiaofei791127@gmail.com...
+2025-12-09 11:47:27,737 INFO ✅ Email изменен на xiaofei791127@gmail.com
+2025-12-09 11:47:28,176 INFO ✅ Сообщение отправлено на xiaofei791127@gmail.com
+2025-12-09 11:47:28,176 INFO    Conversation ID: 732172779
+2025-12-09 11:47:28,176 INFO    Conversation Token: 49be68277f13a
+2025-12-09 11:47:28,176 INFO 
+==================================================
+2025-12-09 11:47:28,176 INFO ✅ Успех: 5/5
+2025-12-09 11:47:28,176 INFO ❌ Ошибок: 0/5
+2025-12-09 11:47:28,176 INFO ==================================================
+2025-12-09 11:47:28,176 DEBUG 💾 Статистика сохранена для godady poshmark: 362/2000
+2025-12-09 11:48:29,755 INFO ✅ Спарсено 5 email
+2025-12-09 11:48:30,054 DEBUG Validating dappertencent@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:48:30,054 INFO dappertencent@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:48:30,069 DEBUG Validating cdowe@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:48:30,069 INFO cdowe@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:48:30,090 DEBUG Validating melodes_market@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:48:30,090 INFO melodes_market@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:48:30,127 DEBUG Validating skyesepahrom@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:48:30,127 INFO skyesepahrom@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:48:30,185 DEBUG Validating vawievjnatv@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:48:30,186 INFO vawievjnatv@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:48:31,275 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 11:48:31,276 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 11:48:31,277 INFO 
+📧 Обрабатываем 1 email-адрес...
+2025-12-09 11:48:31,277 INFO 
+[1/1] Обработка skyesepahrom@gmail.com...
+2025-12-09 11:48:31,519 INFO ✅ Email изменен на skyesepahrom@gmail.com
+2025-12-09 11:48:32,079 INFO ✅ Сообщение отправлено на skyesepahrom@gmail.com
+2025-12-09 11:48:32,079 INFO    Conversation ID: 732173928
+2025-12-09 11:48:32,079 INFO    Conversation Token: f981bad53f60b
+2025-12-09 11:48:32,081 INFO 
+==================================================
+2025-12-09 11:48:32,081 INFO ✅ Успех: 1/1
+2025-12-09 11:48:32,081 INFO ❌ Ошибок: 0/1
+2025-12-09 11:48:32,081 INFO ==================================================
+2025-12-09 11:48:32,084 DEBUG 💾 Статистика сохранена для godady poshmark: 363/2000
+2025-12-09 11:49:02,847 INFO ✅ Спарсено 5 email
+2025-12-09 11:49:03,162 DEBUG Validating mayabeauplacard@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:49:03,162 INFO mayabeauplacard@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:49:03,172 DEBUG Validating erinperryman446@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:49:03,172 INFO erinperryman446@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:49:03,319 DEBUG Validating scarlett5679@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:49:03,319 INFO scarlett5679@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:49:03,385 DEBUG Validating marthag38@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:49:03,385 INFO marthag38@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:49:03,408 DEBUG Validating ceciliawiser@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:49:03,409 INFO ceciliawiser@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:49:03,894 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 11:49:03,894 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 11:49:03,894 INFO 
+📧 Обрабатываем 3 email-адрес...
+2025-12-09 11:49:03,894 INFO 
+[1/3] Обработка ceciliawiser@gmail.com...
+2025-12-09 11:49:04,190 INFO ✅ Email изменен на ceciliawiser@gmail.com
+2025-12-09 11:49:04,644 INFO ✅ Сообщение отправлено на ceciliawiser@gmail.com
+2025-12-09 11:49:04,644 INFO    Conversation ID: 732174478
+2025-12-09 11:49:04,644 INFO    Conversation Token: e51ac9d3690b4
+2025-12-09 11:49:04,644 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:49:20,644 INFO 
+[2/3] Обработка scarlett5679@gmail.com...
+2025-12-09 11:49:20,987 INFO ✅ Email изменен на scarlett5679@gmail.com
+2025-12-09 11:49:21,394 INFO ✅ Сообщение отправлено на scarlett5679@gmail.com
+2025-12-09 11:49:21,394 INFO    Conversation ID: 732174779
+2025-12-09 11:49:21,394 INFO    Conversation Token: e29ec2035129c
+2025-12-09 11:49:21,394 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:49:37,394 INFO 
+[3/3] Обработка marthag38@gmail.com...
+2025-12-09 11:49:37,687 INFO ✅ Email изменен на marthag38@gmail.com
+2025-12-09 11:49:38,280 INFO ✅ Сообщение отправлено на marthag38@gmail.com
+2025-12-09 11:49:38,280 INFO    Conversation ID: 732175054
+2025-12-09 11:49:38,280 INFO    Conversation Token: f97dc5acaf7f4
+2025-12-09 11:49:38,281 INFO 
+==================================================
+2025-12-09 11:49:38,281 INFO ✅ Успех: 3/3
+2025-12-09 11:49:38,281 INFO ❌ Ошибок: 0/3
+2025-12-09 11:49:38,281 INFO ==================================================
+2025-12-09 11:49:38,284 DEBUG 💾 Статистика сохранена для godady poshmark: 366/2000
+2025-12-09 11:50:34,112 INFO ✅ Спарсено 5 email
+2025-12-09 11:50:34,423 DEBUG Validating kathyloraine653@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:50:34,423 INFO kathyloraine653@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:50:34,432 DEBUG Validating ladariushickman@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:50:34,432 INFO ladariushickman@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:50:34,604 DEBUG Validating kameronulmer07@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:50:34,604 INFO kameronulmer07@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:50:35,391 DEBUG Validating katehenritze@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:50:35,391 INFO katehenritze@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:50:35,630 DEBUG Validating santosrivas278@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:50:35,630 INFO santosrivas278@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:50:36,075 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 11:50:36,075 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 11:50:36,075 INFO 
+📧 Обрабатываем 3 email-адрес...
+2025-12-09 11:50:36,075 INFO 
+[1/3] Обработка kameronulmer07@gmail.com...
+2025-12-09 11:50:36,332 INFO ✅ Email изменен на kameronulmer07@gmail.com
+2025-12-09 11:50:36,831 INFO ✅ Сообщение отправлено на kameronulmer07@gmail.com
+2025-12-09 11:50:36,831 INFO    Conversation ID: 732176081
+2025-12-09 11:50:36,831 INFO    Conversation Token: 2bff4250f1c19
+2025-12-09 11:50:36,831 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:50:52,837 INFO 
+[2/3] Обработка santosrivas278@gmail.com...
+2025-12-09 11:50:53,144 INFO ✅ Email изменен на santosrivas278@gmail.com
+2025-12-09 11:50:53,582 INFO ✅ Сообщение отправлено на santosrivas278@gmail.com
+2025-12-09 11:50:53,582 INFO    Conversation ID: 732176382
+2025-12-09 11:50:53,582 INFO    Conversation Token: 842b0315a812d
+2025-12-09 11:50:53,582 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:51:09,566 INFO 
+[3/3] Обработка katehenritze@gmail.com...
+2025-12-09 11:51:09,835 INFO ✅ Email изменен на katehenritze@gmail.com
+2025-12-09 11:51:10,348 INFO ✅ Сообщение отправлено на katehenritze@gmail.com
+2025-12-09 11:51:10,348 INFO    Conversation ID: 732176652
+2025-12-09 11:51:10,348 INFO    Conversation Token: 714c6abcc70c1
+2025-12-09 11:51:10,348 INFO 
+==================================================
+2025-12-09 11:51:10,348 INFO ✅ Успех: 3/3
+2025-12-09 11:51:10,348 INFO ❌ Ошибок: 0/3
+2025-12-09 11:51:10,348 INFO ==================================================
+2025-12-09 11:51:10,348 DEBUG 💾 Статистика сохранена для godady poshmark: 369/2000
+2025-12-09 11:52:05,379 INFO ✅ Спарсено 5 email
+2025-12-09 11:52:05,677 DEBUG Validating chiz001@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:52:05,677 INFO chiz001@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:52:05,694 DEBUG Validating lulaaddict329@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:52:05,694 INFO lulaaddict329@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:52:07,363 DEBUG Validating lynnwhite06@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:52:07,364 INFO lynnwhite06@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:52:07,472 DEBUG Validating gerrera2020@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:52:07,472 INFO gerrera2020@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:52:09,859 DEBUG Validating hrohm@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:52:09,859 INFO hrohm@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:52:10,338 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 11:52:10,338 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 11:52:10,338 INFO 
+📧 Обрабатываем 2 email-адрес...
+2025-12-09 11:52:10,338 INFO 
+[1/2] Обработка gerrera2020@gmail.com...
+2025-12-09 11:52:10,602 INFO ✅ Email изменен на gerrera2020@gmail.com
+2025-12-09 11:52:11,165 INFO ✅ Сообщение отправлено на gerrera2020@gmail.com
+2025-12-09 11:52:11,165 INFO    Conversation ID: 732177651
+2025-12-09 11:52:11,165 INFO    Conversation Token: b3c0c3bd5a5b0
+2025-12-09 11:52:11,166 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:52:27,191 INFO 
+[2/2] Обработка lynnwhite06@gmail.com...
+2025-12-09 11:52:27,479 INFO ✅ Email изменен на lynnwhite06@gmail.com
+2025-12-09 11:52:28,035 INFO ✅ Сообщение отправлено на lynnwhite06@gmail.com
+2025-12-09 11:52:28,035 INFO    Conversation ID: 732177977
+2025-12-09 11:52:28,035 INFO    Conversation Token: 8bb7093ce2640
+2025-12-09 11:52:28,037 INFO 
+==================================================
+2025-12-09 11:52:28,037 INFO ✅ Успех: 2/2
+2025-12-09 11:52:28,037 INFO ❌ Ошибок: 0/2
+2025-12-09 11:52:28,037 INFO ==================================================
+2025-12-09 11:52:28,041 DEBUG 💾 Статистика сохранена для godady poshmark: 371/2000
+2025-12-09 11:54:51,987 INFO ✅ Спарсено 5 email
+2025-12-09 11:54:52,316 DEBUG Validating coastalcloset63@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:54:52,316 INFO coastalcloset63@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:54:52,502 DEBUG Validating mmachado244@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:54:52,502 INFO mmachado244@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:54:52,791 DEBUG Validating rageddyandi@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:54:52,791 INFO rageddyandi@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:54:53,133 DEBUG Validating mhoganbard@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:54:53,133 INFO mhoganbard@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:54:54,522 DEBUG Validating kayleepender@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:54:54,522 INFO kayleepender@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:54:55,272 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 11:54:55,273 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 11:54:55,273 INFO 
+📧 Обрабатываем 2 email-адрес...
+2025-12-09 11:54:55,274 INFO 
+[1/2] Обработка mmachado244@gmail.com...
+2025-12-09 11:54:56,593 INFO ✅ Email изменен на mmachado244@gmail.com
+2025-12-09 11:54:58,347 INFO ✅ Сообщение отправлено на mmachado244@gmail.com
+2025-12-09 11:54:58,347 INFO    Conversation ID: 732180505
+2025-12-09 11:54:58,347 INFO    Conversation Token: b1d69ab8c71e2
+2025-12-09 11:54:58,347 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:55:14,347 INFO 
+[2/2] Обработка kayleepender@gmail.com...
+2025-12-09 11:55:14,721 INFO ✅ Email изменен на kayleepender@gmail.com
+2025-12-09 11:55:15,144 INFO ✅ Сообщение отправлено на kayleepender@gmail.com
+2025-12-09 11:55:15,144 INFO    Conversation ID: 732180760
+2025-12-09 11:55:15,144 INFO    Conversation Token: fe89b415cf599
+2025-12-09 11:55:15,144 INFO 
+==================================================
+2025-12-09 11:55:15,144 INFO ✅ Успех: 2/2
+2025-12-09 11:55:15,144 INFO ❌ Ошибок: 0/2
+2025-12-09 11:55:15,144 INFO ==================================================
+2025-12-09 11:55:15,159 DEBUG 💾 Статистика сохранена для godady poshmark: 373/2000
+2025-12-09 11:55:47,800 INFO ✅ Спарсено 5 email
+2025-12-09 11:55:48,106 DEBUG Validating liabuza@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:55:48,106 INFO liabuza@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:55:48,117 DEBUG Validating ssohn2022@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:55:48,117 INFO ssohn2022@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:55:48,583 DEBUG Validating sofiaanderso658@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:55:48,583 INFO sofiaanderso658@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:55:48,808 DEBUG Validating ajinannaedwards@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:55:48,808 INFO ajinannaedwards@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:55:49,588 DEBUG Validating bfehl21@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:55:49,588 INFO bfehl21@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:55:50,050 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 11:55:50,050 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 11:55:50,050 INFO 
+📧 Обрабатываем 1 email-адрес...
+2025-12-09 11:55:50,050 INFO 
+[1/1] Обработка ajinannaedwards@gmail.com...
+2025-12-09 11:55:50,426 INFO ✅ Email изменен на ajinannaedwards@gmail.com
+2025-12-09 11:55:51,087 INFO ✅ Сообщение отправлено на ajinannaedwards@gmail.com
+2025-12-09 11:55:51,088 INFO    Conversation ID: 732181358
+2025-12-09 11:55:51,088 INFO    Conversation Token: 49e4a58dc5fd9
+2025-12-09 11:55:51,089 INFO 
+==================================================
+2025-12-09 11:55:51,089 INFO ✅ Успех: 1/1
+2025-12-09 11:55:51,089 INFO ❌ Ошибок: 0/1
+2025-12-09 11:55:51,089 INFO ==================================================
+2025-12-09 11:55:51,093 DEBUG 💾 Статистика сохранена для godady poshmark: 374/2000
+2025-12-09 11:56:34,252 INFO ✅ Спарсено 5 email
+2025-12-09 11:56:34,541 DEBUG Validating kywynn_king@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:56:34,541 INFO kywynn_king@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:56:34,551 DEBUG Validating ford_mustang3@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:56:34,551 INFO ford_mustang3@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:56:34,554 DEBUG Validating aprilsims392@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:56:34,554 INFO aprilsims392@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:56:34,715 DEBUG Validating sonyaguerrero@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:56:34,715 INFO sonyaguerrero@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:56:35,724 DEBUG Validating sarahjackson772@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:56:35,724 INFO sarahjackson772@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:56:36,192 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 11:56:36,192 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 11:56:36,192 INFO 
+📧 Обрабатываем 2 email-адрес...
+2025-12-09 11:56:36,192 INFO 
+[1/2] Обработка sonyaguerrero@gmail.com...
+2025-12-09 11:56:36,614 INFO ✅ Email изменен на sonyaguerrero@gmail.com
+2025-12-09 11:56:37,050 INFO ✅ Сообщение отправлено на sonyaguerrero@gmail.com
+2025-12-09 11:56:37,050 INFO    Conversation ID: 732182106
+2025-12-09 11:56:37,050 INFO    Conversation Token: 21beb53dbb7f5
+2025-12-09 11:56:37,050 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:56:53,050 INFO 
+[2/2] Обработка sarahjackson772@gmail.com...
+2025-12-09 11:56:53,441 INFO ✅ Email изменен на sarahjackson772@gmail.com
+2025-12-09 11:56:54,065 INFO ✅ Сообщение отправлено на sarahjackson772@gmail.com
+2025-12-09 11:56:54,065 INFO    Conversation ID: 732182349
+2025-12-09 11:56:54,065 INFO    Conversation Token: d69b6543405ee
+2025-12-09 11:56:54,066 INFO 
+==================================================
+2025-12-09 11:56:54,066 INFO ✅ Успех: 2/2
+2025-12-09 11:56:54,066 INFO ❌ Ошибок: 0/2
+2025-12-09 11:56:54,066 INFO ==================================================
+2025-12-09 11:56:54,071 DEBUG 💾 Статистика сохранена для godady poshmark: 376/2000
+2025-12-09 11:58:12,925 INFO ✅ Спарсено 5 email
+2025-12-09 11:58:13,236 DEBUG Validating dresslikekels@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:58:13,236 INFO dresslikekels@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:58:13,257 DEBUG Validating logan_geiger@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:58:13,257 INFO logan_geiger@gmail.com -> INVALID (Gmail validator)
+2025-12-09 11:58:13,378 DEBUG Validating isha917@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:58:13,378 INFO isha917@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:58:14,891 DEBUG Validating skywabbit@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:58:14,891 INFO skywabbit@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:58:15,510 DEBUG Validating zuzuspedals@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 11:58:15,510 INFO zuzuspedals@gmail.com -> VALID (Gmail validator)
+2025-12-09 11:58:16,285 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 11:58:16,285 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 11:58:16,286 INFO 
+📧 Обрабатываем 3 email-адрес...
+2025-12-09 11:58:16,286 INFO 
+[1/3] Обработка isha917@gmail.com...
+2025-12-09 11:58:16,887 INFO ✅ Email изменен на isha917@gmail.com
+2025-12-09 11:58:17,435 INFO ✅ Сообщение отправлено на isha917@gmail.com
+2025-12-09 11:58:17,435 INFO    Conversation ID: 732183634
+2025-12-09 11:58:17,436 INFO    Conversation Token: 3fa87fde34548
+2025-12-09 11:58:17,437 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:58:33,457 INFO 
+[2/3] Обработка skywabbit@gmail.com...
+2025-12-09 11:58:33,976 INFO ✅ Email изменен на skywabbit@gmail.com
+2025-12-09 11:58:34,379 INFO ✅ Сообщение отправлено на skywabbit@gmail.com
+2025-12-09 11:58:34,379 INFO    Conversation ID: 732183905
+2025-12-09 11:58:34,379 INFO    Conversation Token: 74df22219cadc
+2025-12-09 11:58:34,379 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 11:58:50,351 INFO 
+[3/3] Обработка zuzuspedals@gmail.com...
+2025-12-09 11:58:50,691 INFO ✅ Email изменен на zuzuspedals@gmail.com
+2025-12-09 11:58:51,159 INFO ✅ Сообщение отправлено на zuzuspedals@gmail.com
+2025-12-09 11:58:51,159 INFO    Conversation ID: 732184170
+2025-12-09 11:58:51,159 INFO    Conversation Token: ccaa9729af359
+2025-12-09 11:58:51,159 INFO 
+==================================================
+2025-12-09 11:58:51,159 INFO ✅ Успех: 3/3
+2025-12-09 11:58:51,159 INFO ❌ Ошибок: 0/3
+2025-12-09 11:58:51,159 INFO ==================================================
+2025-12-09 11:58:51,159 DEBUG 💾 Статистика сохранена для godady poshmark: 379/2000
+2025-12-09 12:00:08,857 INFO ✅ Спарсено 5 email
+2025-12-09 12:00:09,173 DEBUG Validating stoltenberg_e@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:00:09,173 INFO stoltenberg_e@gmail.com -> INVALID (Gmail validator)
+2025-12-09 12:00:09,200 DEBUG Validating klciarmella@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:00:09,200 INFO klciarmella@gmail.com -> VALID (Gmail validator)
+2025-12-09 12:00:09,288 DEBUG Validating amypierpont@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:00:09,288 INFO amypierpont@gmail.com -> VALID (Gmail validator)
+2025-12-09 12:00:09,344 DEBUG Validating akamarovski@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:00:09,344 INFO akamarovski@gmail.com -> VALID (Gmail validator)
+2025-12-09 12:00:12,741 DEBUG Validating angsho79@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:00:12,741 INFO angsho79@gmail.com -> VALID (Gmail validator)
+2025-12-09 12:00:13,268 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 12:00:13,268 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 12:00:13,268 INFO 
+📧 Обрабатываем 4 email-адрес...
+2025-12-09 12:00:13,268 INFO 
+[1/4] Обработка angsho79@gmail.com...
+2025-12-09 12:00:13,675 INFO ✅ Email изменен на angsho79@gmail.com
+2025-12-09 12:00:14,222 INFO ✅ Сообщение отправлено на angsho79@gmail.com
+2025-12-09 12:00:14,222 INFO    Conversation ID: 732185359
+2025-12-09 12:00:14,222 INFO    Conversation Token: 2e62a833bea89
+2025-12-09 12:00:14,222 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 12:00:30,237 INFO 
+[2/4] Обработка klciarmella@gmail.com...
+2025-12-09 12:00:30,692 INFO ✅ Email изменен на klciarmella@gmail.com
+2025-12-09 12:00:31,159 INFO ✅ Сообщение отправлено на klciarmella@gmail.com
+2025-12-09 12:00:31,159 INFO    Conversation ID: 732185746
+2025-12-09 12:00:31,159 INFO    Conversation Token: 11f55f37e15d4
+2025-12-09 12:00:31,159 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 12:00:47,148 INFO 
+[3/4] Обработка akamarovski@gmail.com...
+2025-12-09 12:00:48,659 INFO ✅ Email изменен на akamarovski@gmail.com
+2025-12-09 12:00:49,113 INFO ✅ Сообщение отправлено на akamarovski@gmail.com
+2025-12-09 12:00:49,113 INFO    Conversation ID: 732186381
+2025-12-09 12:00:49,113 INFO    Conversation Token: ad44304f72aa2
+2025-12-09 12:00:49,128 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 12:01:05,129 INFO 
+[4/4] Обработка amypierpont@gmail.com...
+2025-12-09 12:01:05,519 INFO ✅ Email изменен на amypierpont@gmail.com
+2025-12-09 12:01:06,068 INFO ✅ Сообщение отправлено на amypierpont@gmail.com
+2025-12-09 12:01:06,068 INFO    Conversation ID: 732186973
+2025-12-09 12:01:06,069 INFO    Conversation Token: f043770ae58ea
+2025-12-09 12:01:06,070 INFO 
+==================================================
+2025-12-09 12:01:06,070 INFO ✅ Успех: 4/4
+2025-12-09 12:01:06,070 INFO ❌ Ошибок: 0/4
+2025-12-09 12:01:06,070 INFO ==================================================
+2025-12-09 12:01:06,074 DEBUG 💾 Статистика сохранена для godady poshmark: 383/2000
+2025-12-09 12:02:27,407 INFO ✅ Спарсено 5 email
+2025-12-09 12:02:27,715 DEBUG Validating johnsone1989365@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:02:27,715 INFO johnsone1989365@gmail.com -> INVALID (Gmail validator)
+2025-12-09 12:02:27,748 DEBUG Validating jeremymeyer821@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:02:27,748 INFO jeremymeyer821@gmail.com -> INVALID (Gmail validator)
+2025-12-09 12:02:27,875 DEBUG Validating burrillluke@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:02:27,876 INFO burrillluke@gmail.com -> VALID (Gmail validator)
+2025-12-09 12:02:28,205 DEBUG Validating haleynoelle1191@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:02:28,205 INFO haleynoelle1191@gmail.com -> INVALID (Gmail validator)
+2025-12-09 12:02:28,373 DEBUG Validating prouddad424@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:02:28,373 INFO prouddad424@gmail.com -> VALID (Gmail validator)
+2025-12-09 12:02:29,198 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 12:02:29,198 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 12:02:29,199 INFO 
+📧 Обрабатываем 2 email-адрес...
+2025-12-09 12:02:29,199 INFO 
+[1/2] Обработка prouddad424@gmail.com...
+2025-12-09 12:02:29,597 INFO ✅ Email изменен на prouddad424@gmail.com
+2025-12-09 12:02:30,202 INFO ✅ Сообщение отправлено на prouddad424@gmail.com
+2025-12-09 12:02:30,202 INFO    Conversation ID: 732189601
+2025-12-09 12:02:30,202 INFO    Conversation Token: 275ff2791a5cd
+2025-12-09 12:02:30,204 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 12:02:46,191 INFO 
+[2/2] Обработка burrillluke@gmail.com...
+2025-12-09 12:02:46,674 INFO ✅ Email изменен на burrillluke@gmail.com
+2025-12-09 12:02:47,175 INFO ✅ Сообщение отправлено на burrillluke@gmail.com
+2025-12-09 12:02:47,175 INFO    Conversation ID: 732190052
+2025-12-09 12:02:47,175 INFO    Conversation Token: c152d09390047
+2025-12-09 12:02:47,175 INFO 
+==================================================
+2025-12-09 12:02:47,175 INFO ✅ Успех: 2/2
+2025-12-09 12:02:47,175 INFO ❌ Ошибок: 0/2
+2025-12-09 12:02:47,175 INFO ==================================================
+2025-12-09 12:02:47,175 DEBUG 💾 Статистика сохранена для godady poshmark: 385/2000
+2025-12-09 12:04:16,377 INFO ✅ Спарсено 5 email
+2025-12-09 12:04:16,693 DEBUG Validating snsinclair@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:04:16,693 INFO snsinclair@gmail.com -> INVALID (Gmail validator)
+2025-12-09 12:04:16,703 DEBUG Validating zoelan9392@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:04:16,703 INFO zoelan9392@gmail.com -> INVALID (Gmail validator)
+2025-12-09 12:04:16,922 DEBUG Validating wearswayson@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:04:16,922 INFO wearswayson@gmail.com -> VALID (Gmail validator)
+2025-12-09 12:04:17,176 DEBUG Validating delaneyrowla881@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:04:17,176 INFO delaneyrowla881@gmail.com -> INVALID (Gmail validator)
+2025-12-09 12:04:17,501 DEBUG Validating thriftx_llc@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:04:17,501 INFO thriftx_llc@gmail.com -> INVALID (Gmail validator)
+2025-12-09 12:04:18,035 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 12:04:18,035 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 12:04:18,035 INFO 
+📧 Обрабатываем 1 email-адрес...
+2025-12-09 12:04:18,035 INFO 
+[1/1] Обработка wearswayson@gmail.com...
+2025-12-09 12:04:18,425 INFO ✅ Email изменен на wearswayson@gmail.com
+2025-12-09 12:04:18,894 INFO ✅ Сообщение отправлено на wearswayson@gmail.com
+2025-12-09 12:04:18,894 INFO    Conversation ID: 732192387
+2025-12-09 12:04:18,894 INFO    Conversation Token: 7fa431dbf06e5
+2025-12-09 12:04:18,894 INFO 
+==================================================
+2025-12-09 12:04:18,894 INFO ✅ Успех: 1/1
+2025-12-09 12:04:18,894 INFO ❌ Ошибок: 0/1
+2025-12-09 12:04:18,894 INFO ==================================================
+2025-12-09 12:04:18,894 DEBUG 💾 Статистика сохранена для godady poshmark: 386/2000
+2025-12-09 12:05:04,003 INFO ✅ Спарсено 5 email
+2025-12-09 12:05:04,316 DEBUG Validating bayousumthrift@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:05:04,316 INFO bayousumthrift@gmail.com -> INVALID (Gmail validator)
+2025-12-09 12:05:04,493 DEBUG Validating sdblew@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:05:04,493 INFO sdblew@gmail.com -> VALID (Gmail validator)
+2025-12-09 12:05:04,497 DEBUG Validating cckrn2@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:05:04,497 INFO cckrn2@gmail.com -> VALID (Gmail validator)
+2025-12-09 12:05:05,487 DEBUG Validating allisonreese991@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:05:05,487 INFO allisonreese991@gmail.com -> INVALID (Gmail validator)
+2025-12-09 12:05:34,707 DEBUG Validating xauerin@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 12:05:34,707 WARNING xauerin@gmail.com -> ERROR (Gmail validator: Connection timeout)
+2025-12-09 12:05:35,363 INFO ✅ Загружен кеш для аккаунта: godady poshmark.txt
+2025-12-09 12:05:35,363 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-09 12:05:35,363 INFO 
+📧 Обрабатываем 2 email-адрес...
+2025-12-09 12:05:35,363 INFO 
+[1/2] Обработка cckrn2@gmail.com...
+2025-12-09 12:05:35,754 INFO ✅ Email изменен на cckrn2@gmail.com
+2025-12-09 12:05:36,269 INFO ✅ Сообщение отправлено на cckrn2@gmail.com
+2025-12-09 12:05:36,269 INFO    Conversation ID: 732194376
+2025-12-09 12:05:36,269 INFO    Conversation Token: 7834b06026967
+2025-12-09 12:05:36,269 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 12:05:52,285 INFO 
+[2/2] Обработка sdblew@gmail.com...
+2025-12-09 12:05:52,817 INFO ✅ Email изменен на sdblew@gmail.com
+2025-12-09 12:05:53,221 INFO ✅ Сообщение отправлено на sdblew@gmail.com
+2025-12-09 12:05:53,221 INFO    Conversation ID: 732194826
+2025-12-09 12:05:53,221 INFO    Conversation Token: 3a5e61a82c1fa
+2025-12-09 12:05:53,221 INFO 
+==================================================
+2025-12-09 12:05:53,221 INFO ✅ Успех: 2/2
+2025-12-09 12:05:53,221 INFO ❌ Ошибок: 0/2
+2025-12-09 12:05:53,221 INFO ==================================================
+2025-12-09 12:05:53,221 DEBUG 💾 Статистика сохранена для godady poshmark: 388/2000
+2025-12-09 12:05:56,369 INFO Cleaning up connections...
+2025-12-09 12:05:56,369 INFO All SMTP connections closed
+2025-12-09 12:05:56,369 INFO GoDaddy Spammer finished

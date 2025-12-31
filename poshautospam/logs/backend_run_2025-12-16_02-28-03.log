@@ -1,0 +1,34 @@
+2025-12-16 02:28:03,087 INFO Logging initialized: logs\backend_run_2025-12-16_02-28-03.log
+2025-12-16 02:28:03,087 INFO GoDaddy Spammer starting...
+2025-12-16 02:28:03,094 INFO 📁 Найдено аккаунтов: 2
+2025-12-16 02:28:03,094 INFO 🎯 Цель: 2000 писем на аккаунт
+2025-12-16 02:28:03,096 INFO 📁 Аккаунты: daversaarvillahp296t_at_gmail_com.txt, eldorabuckridge71_at_gmail_com.txt
+2025-12-16 02:28:03,119 INFO ⌨️ Запущен мониторинг клавиатуры
+2025-12-16 02:28:46,121 INFO ✅ Спарсено 5 email
+2025-12-16 02:28:46,129 INFO Gmail validator loaded: version 1.0.0
+2025-12-16 02:28:46,688 DEBUG Validating evelynhan347@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:28:46,688 INFO evelynhan347@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:28:46,699 DEBUG Validating dimplegirlmimi@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:28:46,699 INFO dimplegirlmimi@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:28:46,700 DEBUG Validating moharebastik@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:28:46,700 INFO moharebastik@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:28:46,797 DEBUG Validating ssanantonio@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:28:46,797 INFO ssanantonio@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:28:46,807 DEBUG Validating bradennoble33@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:28:46,807 INFO bradennoble33@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:28:47,212 INFO ✅ Сгенерирована ссылка: poshmark-usver3mmw.s8ver1849fs.com/196943455
+2025-12-16 02:28:47,212 INFO 🔗 Сгенерирована ссылка для ssanantonio@gmail.com | Title: ssanantonio | Link: poshmark-usver3mmw.s8ver1849fs.com/196943455
+2025-12-16 02:28:47,216 INFO 📤 Отправка письма на ssanantonio@gmail.com | Title: ssanantonio | Ссылка: poshmark-usver3mmw.s8ver1849fs.com/196943455
+2025-12-16 02:28:48,251 INFO ✅ Загружен кеш для аккаунта: daversaarvillahp296t_at_gmail_com.txt
+2025-12-16 02:28:48,252 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-16 02:28:48,253 INFO 
+📧 Обрабатываем 1 email-адрес...
+2025-12-16 02:28:48,253 INFO 
+[1/1] Обработка ssanantonio@gmail.com...
+2025-12-16 02:28:49,307 INFO [daversaarvillahp296t_at_gmail_com.txt] ✅ Email изменен на ssanantonio@gmail.com
+2025-12-16 02:28:49,307 INFO [daversaarvillahp296t_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmark-usver3mmw.s8ver1849fs.com/196943455
+2025-12-16 02:28:50,584 INFO [daversaarvillahp296t_at_gmail_com.txt] ✅ Сообщение отправлено на ssanantonio@gmail.com
+2025-12-16 02:28:50,584 INFO [daversaarvillahp296t_at_gmail_com.txt]   Conversation ID: 738303410
+2025-12-16 02:28:50,584 INFO [daversaarvillahp296t_at_gmail_com.txt]   Conversation Token: afbb6588a1248
+2025-12-16 02:28:50,586 INFO ✅ Успешно отправлено на ssanantonio@gmail.com | Title: ssanantonio | Ссылка: poshmark-usver3mmw.s8ver1849fs.com/196943455
+2025-12-16 02:28:50,587 DEBUG 💾 Статистика сохранена для daversaarvillahp296t_at_gmail_com: 1/2000

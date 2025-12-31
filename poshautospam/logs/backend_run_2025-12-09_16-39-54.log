@@ -1,0 +1,30 @@
+2025-12-09 08:39:54,668 INFO Logging initialized: logs\backend_run_2025-12-09_16-39-54.log
+2025-12-09 08:39:54,668 INFO GoDaddy Spammer starting...
+2025-12-09 08:39:54,673 INFO 📁 Найдено аккаунтов: 1
+2025-12-09 08:39:54,675 INFO 🚀 Начинаем работу с аккаунтом: godady poshmark (прогресс: 0/200)
+2025-12-09 08:40:10,831 INFO ✅ Спарсено 5 email
+2025-12-09 08:40:11,045 INFO Gmail validator loaded: version 1.0.0
+2025-12-09 08:40:11,334 DEBUG Validating alliebartell24@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 08:40:11,335 INFO alliebartell24@gmail.com -> INVALID (Gmail validator)
+2025-12-09 08:40:11,346 DEBUG Validating tdogssc@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 08:40:11,346 INFO tdogssc@gmail.com -> INVALID (Gmail validator)
+2025-12-09 08:40:11,384 DEBUG Validating frankiebarba699@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 08:40:11,384 INFO frankiebarba699@gmail.com -> INVALID (Gmail validator)
+2025-12-09 08:40:11,499 DEBUG Validating onyxmanor@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 08:40:11,499 INFO onyxmanor@gmail.com -> VALID (Gmail validator)
+2025-12-09 08:40:11,516 DEBUG Validating mariamaliouk@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-09 08:40:11,516 INFO mariamaliouk@gmail.com -> VALID (Gmail validator)
+2025-12-09 08:40:14,564 INFO 🔄 Получаем свежие данные аккаунта...
+2025-12-09 08:40:17,190 INFO 💾 Кеш сохранен для аккаунта: godady poshmark.txt
+2025-12-09 08:40:17,191 INFO 
+📧 Обрабатываем 2 email-адрес...
+2025-12-09 08:40:17,192 INFO 
+[1/2] Обработка mariamaliouk@gmail.com...
+2025-12-09 08:40:17,471 INFO ✅ Email изменен на mariamaliouk@gmail.com
+2025-12-09 08:40:18,593 INFO ✅ Сообщение отправлено на mariamaliouk@gmail.com
+2025-12-09 08:40:18,593 INFO    Conversation ID: 731935073
+2025-12-09 08:40:18,593 INFO    Conversation Token: 31d3ed16d7c3c
+2025-12-09 08:40:18,595 INFO ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-09 08:40:34,500 INFO Cleaning up connections...
+2025-12-09 08:40:34,500 INFO All SMTP connections closed
+2025-12-09 08:40:34,500 INFO GoDaddy Spammer finished

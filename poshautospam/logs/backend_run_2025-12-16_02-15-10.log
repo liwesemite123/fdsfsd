@@ -1,0 +1,80 @@
+2025-12-16 02:15:10,887 INFO Logging initialized: logs\backend_run_2025-12-16_02-15-10.log
+2025-12-16 02:15:10,887 INFO GoDaddy Spammer starting...
+2025-12-16 02:15:10,894 INFO 📁 Найдено аккаунтов: 2
+2025-12-16 02:15:10,894 INFO 🎯 Цель: 2000 писем на аккаунт
+2025-12-16 02:15:10,896 INFO 📁 Аккаунты: daversaarvillahp296t_at_gmail_com.txt, eldorabuckridge71_at_gmail_com.txt
+2025-12-16 02:15:10,918 INFO ⌨️ Запущен мониторинг клавиатуры
+2025-12-16 02:15:33,709 INFO ✅ Спарсено 5 email
+2025-12-16 02:15:33,718 INFO Gmail validator loaded: version 1.0.0
+2025-12-16 02:15:34,284 DEBUG Validating bessierodrig481@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:15:34,284 INFO bessierodrig481@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:15:34,302 DEBUG Validating torrestruds@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:15:34,302 INFO torrestruds@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:15:34,437 DEBUG Validating aveslanderson@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:15:34,437 INFO aveslanderson@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:15:34,495 DEBUG Validating kendallsiller@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:15:34,495 INFO kendallsiller@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:15:34,535 DEBUG Validating eliacinsimon78@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:15:34,535 INFO eliacinsimon78@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:15:34,952 INFO ✅ Сгенерирована ссылка: poshmark-usverpjm8.s8ver1849fs.com/196228085
+2025-12-16 02:15:34,953 INFO ✅ Сгенерирована ссылка: poshmark-usveryt30.s8ver1849fs.com/245697127
+2025-12-16 02:15:34,973 INFO ✅ Сгенерирована ссылка: poshmark-usverw99x.s8ver1849fs.com/200543224
+2025-12-16 02:15:36,133 INFO 🔄 Получаем свежие данные аккаунта...
+2025-12-16 02:15:36,718 INFO 🔄 Получаем свежие данные аккаунта...
+2025-12-16 02:15:39,057 INFO 💾 Кеш сохранен для аккаунта: daversaarvillahp296t_at_gmail_com.txt
+2025-12-16 02:15:39,058 INFO 
+📧 Обрабатываем 2 email-адрес...
+2025-12-16 02:15:39,058 INFO 
+[1/2] Обработка aveslanderson@gmail.com...
+2025-12-16 02:15:39,366 INFO [daversaarvillahp296t_at_gmail_com.txt] ✅ Email изменен на aveslanderson@gmail.com
+2025-12-16 02:15:39,366 INFO [daversaarvillahp296t_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmark-usverpjm8.s8ver1849fs.com/196228085
+2025-12-16 02:15:39,544 INFO 💾 Кеш сохранен для аккаунта: eldorabuckridge71_at_gmail_com.txt
+2025-12-16 02:15:39,545 INFO 
+📧 Обрабатываем 1 email-адрес...
+2025-12-16 02:15:39,546 INFO 
+[1/1] Обработка eliacinsimon78@gmail.com...
+2025-12-16 02:15:39,897 INFO [eldorabuckridge71_at_gmail_com.txt] ✅ Email изменен на eliacinsimon78@gmail.com
+2025-12-16 02:15:39,898 INFO [eldorabuckridge71_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmark-usverw99x.s8ver1849fs.com/200543224
+2025-12-16 02:15:40,959 INFO [eldorabuckridge71_at_gmail_com.txt] ✅ Сообщение отправлено на eliacinsimon78@gmail.com
+2025-12-16 02:15:40,959 INFO [eldorabuckridge71_at_gmail_com.txt]   Conversation ID: 738294298
+2025-12-16 02:15:40,959 INFO [eldorabuckridge71_at_gmail_com.txt]   Conversation Token: 516aafe0145f0
+2025-12-16 02:15:41,762 INFO [daversaarvillahp296t_at_gmail_com.txt] ✅ Сообщение отправлено на aveslanderson@gmail.com
+2025-12-16 02:15:41,762 INFO [daversaarvillahp296t_at_gmail_com.txt]   Conversation ID: 738294302
+2025-12-16 02:15:41,762 INFO [daversaarvillahp296t_at_gmail_com.txt]   Conversation Token: dfb33fd12607e
+2025-12-16 02:15:41,763 INFO [daversaarvillahp296t_at_gmail_com.txt] ⏸️  Пауза 16 секунды перед следующей отправкой...
+2025-12-16 02:15:57,767 INFO 
+[2/2] Обработка kendallsiller@gmail.com...
+2025-12-16 02:15:58,088 INFO [daversaarvillahp296t_at_gmail_com.txt] ✅ Email изменен на kendallsiller@gmail.com
+2025-12-16 02:15:58,089 INFO [daversaarvillahp296t_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmark-usveryt30.s8ver1849fs.com/245697127
+2025-12-16 02:15:58,882 INFO [daversaarvillahp296t_at_gmail_com.txt] ✅ Сообщение отправлено на kendallsiller@gmail.com
+2025-12-16 02:15:58,882 INFO [daversaarvillahp296t_at_gmail_com.txt]   Conversation ID: 738294516
+2025-12-16 02:15:58,882 INFO [daversaarvillahp296t_at_gmail_com.txt]   Conversation Token: 5c920181ae203
+2025-12-16 02:15:58,885 DEBUG 💾 Статистика сохранена для daversaarvillahp296t_at_gmail_com: 2/2000
+2025-12-16 02:15:58,885 DEBUG 💾 Статистика сохранена для eldorabuckridge71_at_gmail_com: 1/2000
+2025-12-16 02:16:08,352 INFO ⏸️ Процесс поставлен на паузу
+2025-12-16 02:16:33,289 INFO ✅ Спарсено 5 email
+2025-12-16 02:16:33,853 DEBUG Validating r_jenkin@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:16:33,853 INFO r_jenkin@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:16:33,862 DEBUG Validating summerreyes384@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:16:33,863 INFO summerreyes384@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:16:33,864 DEBUG Validating thatmanecomics@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:16:33,864 INFO thatmanecomics@gmail.com -> INVALID (Gmail validator)
+2025-12-16 02:16:34,057 DEBUG Validating tyralouviere@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:16:34,057 INFO tyralouviere@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:16:34,065 DEBUG Validating leeroyrockwood@gmail.com via proxy: http://modeler_wg8LYZ:uWwpqvxdrAFh@172.236.12.10:11195
+2025-12-16 02:16:34,065 INFO leeroyrockwood@gmail.com -> VALID (Gmail validator)
+2025-12-16 02:16:36,129 INFO 📨 Запущена проверка inbox
+2025-12-16 02:16:36,131 INFO 📧 Тестовое письмо через аккаунт: daversaarvillahp296t_at_gmail_com.txt
+2025-12-16 02:16:36,473 INFO ✅ Сгенерирована ссылка: poshmark-usverm1es.s8ver1849fs.com/191458281
+2025-12-16 02:16:50,054 INFO ✅ Загружен кеш для аккаунта: daversaarvillahp296t_at_gmail_com.txt
+2025-12-16 02:16:50,055 INFO 🚀 Используем кешированные данные аккаунта
+2025-12-16 02:16:50,055 INFO 
+📧 Обрабатываем 1 email-адрес...
+2025-12-16 02:16:50,055 INFO 
+[1/1] Обработка azlzhcdayn48786@gmail.com...
+2025-12-16 02:16:51,066 INFO [daversaarvillahp296t_at_gmail_com.txt] ✅ Email изменен на azlzhcdayn48786@gmail.com
+2025-12-16 02:16:51,066 INFO [daversaarvillahp296t_at_gmail_com.txt] 🔗 Используем персональную ссылку: poshmark-usverm1es.s8ver1849fs.com/191458281
+2025-12-16 02:16:52,418 INFO [daversaarvillahp296t_at_gmail_com.txt] ✅ Сообщение отправлено на azlzhcdayn48786@gmail.com
+2025-12-16 02:16:52,418 INFO [daversaarvillahp296t_at_gmail_com.txt]   Conversation ID: 738295125
+2025-12-16 02:16:52,418 INFO [daversaarvillahp296t_at_gmail_com.txt]   Conversation Token: 699268e0e1f7f
+2025-12-16 02:16:52,421 INFO ✅ Inbox check: письмо отправлено на azlzhcdayn48786@gmail.com с ссылкой poshmark-usverm1es.s8ver1849fs.com/191458281

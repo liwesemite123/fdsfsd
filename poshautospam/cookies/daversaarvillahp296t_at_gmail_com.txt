@@ -1,0 +1,267 @@
+[
+    {
+        "domain": "www.godaddy.com",
+        "httpOnly": false,
+        "name": "akaas_godaddy-com-wildcard",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "2147483647~rv=8~id=9d506a4a4bf7a7b155ad77f7c6e3e9b4~rn="
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1797378706,
+        "httpOnly": false,
+        "name": "OPTOUTMULTI",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "0:0%7Cc2:1%7Cc9:1%7Cc11:1"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1797378704,
+        "httpOnly": false,
+        "name": "_abck",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true,
+        "value": "56F46117044E9942E3539DDE629E7C34~-1~YAAQh9N6XAOhcsOaAQAAdFltJA8d86mwTc1PX5edbHWdV+4Cjkume4HmEjLh279nbbgn4z3OtFyqPn+TQ089blPLsl2/4hzSPIQwWvX6JYavv6bXcoTXfb9Ecj3JuuML9QoAFe7OLHGbZZ9gXP6TqWHUFjChzG57Wqaa7vJs6W0tqhzMy7AcQEXDoML2VT+5yxLUFoHSDP8LFgmxFFE+vG4uDw8rkFmqSrJM9pKKdfkavJ9Q2e4urtylSkQbfgiUnNEd5ntsbq+SmGLFOxeVJ/FgiCqUT/YTmgIWVY349K8rk7JODnmMyaNGXHVZNZ7AuiZgqqHUZRIBQ6pSBDGpGdJCqpD5wfbztgppFLnE/1cbQX1JHhXBS7dlOEteuAhsucy01hFGx8WcHo7W46taIwMzi2vZIhL9830LEu4q6KT/nk5n2pb6Y/9Lel5CoKslOhELj7e2GZOWNBGsdgyhUm3oPJl7Q68eiOHScL4UHLkNuAbW9G7ImEQL6xhC/jYSgZ3NzGEhrciFQ4jrqHa0iztJ02cZa0DJehWJvQOdW9LyzEK+1UPSnU0vEyfxIZ2vKC6ARwvOvbGdbHDCuhb+A1ZeHQTOaCvvS+964/nY+g+9sXYMPg==~-1~-1~-1~AAQAAAAE%2f%2f%2f%2f%2f4WYKC67OlDo4x2k4+j0eeRpH2oHmprhF2v6efN9SmCIC0AwrBoYsd1Ldr755rsB+ddWhiEc3ULeIPTT2i1a6z+eOIoQbrPgKeuoNr+M5TeOPeU2rdDvF8Ewlw+1qhF0TYL3+dU%3d~-1"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1771026580,
+        "httpOnly": false,
+        "name": "xpdpp3",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true,
+        "value": "B"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1797378638,
+        "httpOnly": false,
+        "name": "hub_sb",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "1"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1765856966,
+        "httpOnly": false,
+        "name": "bm_sz",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "64DFE714EB658D6330AF7DB689634696~YAAQh9N6XPifcsOaAQAAflVtJB6fOssD1klnLBcZaGvwcdyRavvpJr+mjoOgR+gsgPqrB9yDnnu1q+gxWWa4V/wVGKwCA4NGMN9xQXff8PqsgT8ujLBpn6wBbS9R2your+HUERmuqmlsb75qnAooFVysUvqNljWYTACPM1NGYCzX6kej0x92exz9gq4UOqB0Gm5dv7c80XrJ7CW6Z5GZcxajhg/WE2sFzn8GiiBn6XueMqYQwFqNMQAC/TURimsuz0P0v+UPCD3bQtJ9ykzDygjN3WS1RK7EO7SxalqOh0R8AoY4IBe5ag9OHfurv8fCkCXeYzM2CM5NkWjqll3HvTcZj/HrCem30DYTVD6mnFKYsPZO3WontrHvURziMcXJDL1bR6ZchmQGj2bUbSI6zC4BOdzIF9gQTJuqCdd9InEG5Y/LzO69rd9nf692Ew==~4534854~4600388"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1765929100,
+        "httpOnly": false,
+        "name": "bm_so",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true,
+        "value": "1CFD97D37B1947D657749817512946A3A95E436C50291F8FDF020F4E78D091E8~YAAQh9N6XMCdcsOaAQAAE0xtJAZSEGZ5Yj4l0TA51zaJmu0QjHFBIJNGA9FcDeL+y4DLvOovhX/1hB7oMap5dutvGHgkQ/0Zjx1Nt8lyN/M46GzSo/DMgAfSlD9ynpeTD5mMpThtLkk067zLBSctxBEGZ57WAv7nSI2HRFAskmKNitaKA0pQ806EnU9x0a0UdIPO1uKpOn8NPwWbUcu76nDK2dlpJ9mJJNAXVc9k+B8usPCio8zkZygJ4A2VvSbtjoEIFv7DC4M1MVlS/AJHJW4L/TNiA/Cbe5UdQ8lLxpWTfwsVP+Gi4ZztTno+37YPRnm+EFxRUaflCq7dNr63e7X4HXIV/7pmbF1076/IIIAK7bEOifkwv4/LxkzoL0gVkFRXaYNsL3JfqTF5kyyDM4fc+QCIMNxcRPsZcsY5HcO6+OPvlfnZHhf1jpAgZwj1tb76Dza3Bo7My9pnMbE="
+    },
+    {
+        "domain": ".godaddy.com",
+        "httpOnly": false,
+        "name": "actpro",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true,
+        "value": "abodrhigacbfajohoegexjkfdjobofdixfeiehdeydtbeaqbxawaxabjdivgjeai"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1797378563,
+        "httpOnly": false,
+        "name": "info_cust_idp",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "%7B%22typ%22%3A%20%22idp%22%2C%20%22info_shopperId%22%3A%20%22689854687%22%2C%20%22plid%22%3A%20%221%22%2C%20%22auth%22%3A%20%22none%22%2C%20%22info_cid%22%3A%20%224e5864cf-1720-498d-929e-3818a61bfc99%22%2C%20%22ctype%22%3A%20%22SHOPPER%22%2C%20%22username%22%3A%20%22daversaarvillahp296t%40gmail.coma%22%2C%20%22firstname%22%3A%20%22%22%2C%20%22lastname%22%3A%20%22%22%2C%20%22currency%22%3A%20%22GBP%22%2C%20%22mbr%22%3A%200%7D"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1797378569,
+        "httpOnly": false,
+        "name": "info_idp_vat_time",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "1765842569874"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1765849779,
+        "httpOnly": true,
+        "name": "ak_bmsc",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "73DD54153DAEA5CE68B429A485DAA689~000000000000000000000000000000~YAAQh9N6XJMucsOaAQAAKYJrJB5iNA6X+9mlYUeX0+wWE+SUX5YeKpm6SADz5+Je8hsEfy+dhZx4zYRvZuf7OJSBteQ8hV9CEPiGL78eEuzjSR8R0uqxFyR2BPjDWl/isaD6WnJVTsiSpfPH3WmlNQ0fpwXStB9FGNZTZRYsv2FJGlJZPinaPmPuqAVJv92d3sGoQQcXIHYX22wEdS/ZQySrlALqrF1VAYxy2IX26FqLJfzB7GEDH24V2SrdE9R0qNUFOMa8LYFfOm6/wHsSlfY/YxE9oVbg3K/WGJNgSbO1d++5672AdSQvHu6W85BsOUQT9pGwoEjwwgT+Mz3yIzbPAWkmz+dlQyCGAijYyLhRikbeBKp/y1AxMoQQvLPpNh/WARkKwusr6VdQdDNT+U7VZXlvyM9hp/PYZi4URf3FE/5bUCCo2t/k5tXjZK5fwQ+4IKANjbRSXboXQtT00hS4ge1ySFyKbY6k8h/MZ0h34agoYK73dVrTRsfw1Ipj6MSQa4mELpEgesTHisPw"
+    },
+    {
+        "domain": ".godaddy.com",
+        "httpOnly": false,
+        "name": "info_idp",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "%7B%22typ%22%3A%20%22idp%22%2C%20%22info_shopperId%22%3A%20%22689854687%22%2C%20%22plid%22%3A%20%221%22%2C%20%22plt%22%3A%201%2C%20%22jti%22%3A%20%22RL5ZaTwtvPRzUeyTsCs9Tw%22%2C%20%22auth%22%3A%20%22basic%22%2C%20%22iat%22%3A%201765842563%2C%20%22info_cid%22%3A%20%224e5864cf-1720-498d-929e-3818a61bfc99%22%2C%20%22vat%22%3A%201765842570%2C%20%22factors%22%3A%20%7B%22k_pw%22%3A%201765842563%7D%2C%20%22info_identity%22%3A%20%22aea987ac-da10-11f0-9042-ca160a08ee7e%22%2C%20%22hbi%22%3A%201765842563%2C%20%22username%22%3A%20%22daversaarvillahp296t%40gmail.coma%22%2C%20%22firstname%22%3A%20%22%22%2C%20%22lastname%22%3A%20%22%22%2C%20%22currency%22%3A%20%22GBP%22%2C%20%22pcx%22%3A%20false%2C%20%22mbr%22%3A%200%2C%20%22segopts%22%3A%200%7D"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1797378563,
+        "httpOnly": true,
+        "name": "cust_idp",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true,
+        "value": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImE3clkxRThLaXcifQ.eyJzaG9wcGVySWQiOiAiNjg5ODU0Njg3IiwgImNpZCI6ICI0ZTU4NjRjZi0xNzIwLTQ5OGQtOTI5ZS0zODE4YTYxYmZjOTkiLCAicGxpZCI6ICIxIiwgInR5cCI6ICJpZHAiLCAiYXV0aCI6ICJub25lIiwgInNoYXJkIjogIjAwMDUiLCAiY3R5cGUiOiAiU0hPUFBFUiJ9.D7Vmhqucnd2KSo_6ymryvk18NhwlM86xb_7u6AOHcTPHHqqEZJOXReqIM56GLqIA9IirPQ7Ck7DO3rh-dVFdWq7ux8YHp8Va2-POYwJgHl7jqulxOhxUHGbu-wp_dta3Si64TmHyqMMcyewmYlzWB8vr9YpkRzx-LLclpIvmYm0STyfZU3C_J8Ihc3U1cVCJLsoc5rT2X6tWzYxiCGilsFu2tfYjTv-1QNEQfacdv_YChzW_LPTorjGk0TyWCfOcxPY0Tw-qmck1AOfZFdPgLpUAcnd5IMN3xeEcKbhKOcfvSUwch5OGIUrMAdNvF8hHaGAOGIj28vTuse6iuaT3FA"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1765846166,
+        "httpOnly": true,
+        "name": "bm_ss",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "ab8e18ef4e"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1797292094,
+        "httpOnly": false,
+        "name": "visitor",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "vid=a1c442e9-ce37-48bb-ad23-5a0d9655863f"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1765843902,
+        "httpOnly": false,
+        "name": "fb_sessiontraffic",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "S_TOUCH=&pathway=a1c442e9-ce37-48bb-ad23-5a0d9655863f&V_DATE=&pc=14&C_TOUCH=2025-12-15T23:51:42.698Z"
+    },
+    {
+        "domain": ".www.godaddy.com",
+        "expiry": 1768434706,
+        "httpOnly": false,
+        "name": "bm_lso",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "1CFD97D37B1947D657749817512946A3A95E436C50291F8FDF020F4E78D091E8~YAAQh9N6XMCdcsOaAQAAE0xtJAZSEGZ5Yj4l0TA51zaJmu0QjHFBIJNGA9FcDeL+y4DLvOovhX/1hB7oMap5dutvGHgkQ/0Zjx1Nt8lyN/M46GzSo/DMgAfSlD9ynpeTD5mMpThtLkk067zLBSctxBEGZ57WAv7nSI2HRFAskmKNitaKA0pQ806EnU9x0a0UdIPO1uKpOn8NPwWbUcu76nDK2dlpJ9mJJNAXVc9k+B8usPCio8zkZygJ4A2VvSbtjoEIFv7DC4M1MVlS/AJHJW4L/TNiA/Cbe5UdQ8lLxpWTfwsVP+Gi4ZztTno+37YPRnm+EFxRUaflCq7dNr63e7X4HXIV/7pmbF1076/IIIAK7bEOifkwv4/LxkzoL0gVkFRXaYNsL3JfqTF5kyyDM4fc+QCIMNxcRPsZcsY5HcO6+OPvlfnZHhf1jpAgZwj1tb76Dza3Bo7My9pnMbE=~1765842706973"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1765849766,
+        "httpOnly": false,
+        "name": "bm_mi",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true,
+        "value": "C2E8CABDDF41AF58F6AB2B92833835D9~YAAQh9N6XKkqcsOaAQAA73JrJB5Na5xjQnD0SDGTH39UY43CMWKK+SdXJu4SDu5WyBIMsTV2pkVf+4dEl5G6GCI8YOdMWQQ+zJnnkdrAzngSkEbWKmPChn08eY2v1UtuugwxsylULnsmUubJWOu+zZ1nd/188GNkAHklNXjtojK4zpmKOoMtm5p4NGPfun9yBtTc2ncBBCdyTcFyDB98uT1odnqEwLZ8PL0biY0jv9u0nuz27Jbj+TfZ1Um1mBdWAlet13WjOuH+rMbkh9VREGlhJJNWAksOs5T4Ysy/nRn81e5jTHHfVZnanMbOAtULgMXm7+1lXm30MhjM9m//7vomSdmmBut8xnQNBGw=~1"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1765849771,
+        "httpOnly": false,
+        "name": "bm_sv",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true,
+        "value": "4D775A62F587A370D6A73B27837A498C~YAAQuHd7XN3cjAybAQAAIGltJB5q0kdR+S8zg9WjNy/8usTDRXGzhn1EIS8GTcmr0KQDo38xhtttHITfQs80uROSGMULBpwmUiWS4vKL191dA58JbKU/s2JuYr6Pl+1S5gIHXbSQ8g6Zcida83i+MW74W4YlWHHapAsls4jV8B935XCrqHPrmbawdD2qtDYZsBwR6RQ3bJtsxADWJQx8XT9WiPEY/bTHYIOZwVFpbRoiIUdHWdiHhBEdN/ZWEYj8VpY=~1"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1768521107,
+        "httpOnly": true,
+        "name": "bm_s",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true,
+        "value": "YAAQh9N6XHGkcsOaAQAArGhtJAQ2xIXGCoRh3tLAvPO4vGflm2se6VToH5WBBMGdlPnfon7xYmxRcSDMCipaUBJIarf3VqbHtAOUS7lVMNXT0JM++I/Ao8LjuhhgkFnaZrSIEwY75MKJ3unKCl06PJElfOzlhfxoJ7+m0PAV2viJbcoPIEnA01UkeIWSORxw6n4qkSsMhJtIq4qubez89pL6ReTnaRAc8ixjBT6++dqCPVLJoxTXt6s9QD6859meClHC7SBDebRLErEGvxIaVo+quYJkexylrtU2I1qjKGwf/u6SVxI5IDLSF+iyVRQ9xqC776rlollm+zmepvKehdDgbVSRO+3bLtnk45n6xvuXFzjPQ9NaPQp2IudmlmoPnv4prrQ66V4r+p6szhIBW0ii8xaFnPDaV+zQE5zx3VCPjj6R6Q894q7cTbr8jWFNB0zN8Xj995PKQbd1ho2EvvkkdxenkePvWYoXdtpziP5L9ODh5UT88A6hmSxfbwj0ljX7OvgkpmV3IAqjX+eByKzepsDjeu/KKCz8LaV3gAJ2sK2C2hcdgxKAJp2Rk/0+60RNuXE="
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1765846180,
+        "httpOnly": true,
+        "name": "AKA_A2",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true,
+        "value": "A"
+    },
+    {
+        "domain": ".godaddy.com",
+        "httpOnly": false,
+        "name": "PIM-SESSION-ID",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "G2FxPVsOoMPcLuyn"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1797378494,
+        "httpOnly": false,
+        "name": "market",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "en-GB"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1765843694,
+        "httpOnly": false,
+        "name": "pathway",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "a1c442e9-ce37-48bb-ad23-5a0d9655863f"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1797378708,
+        "httpOnly": false,
+        "name": "_policy",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "{\"restricted_market\":true,\"tracking_market\":\"explicit\"}"
+    },
+    {
+        "domain": ".godaddy.com",
+        "expiry": 1797378494,
+        "httpOnly": false,
+        "name": "currency",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": false,
+        "value": "GBP"
+    },
+    {
+        "domain": ".godaddy.com",
+        "httpOnly": true,
+        "name": "auth_idp",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true,
+        "value": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImE3clkxRThLaXcifQ.eyJhdXRoIjogImJhc2ljIiwgImZ0YyI6IDEsICJpYXQiOiAxNzY1ODQyNTYzLCAianRpIjogIlJMNVphVHd0dlBSelVleVRzQ3M5VHciLCAidHlwIjogImlkcCIsICJ2YXQiOiAxNzY1ODQyNTcwLCAiZmFjdG9ycyI6IHsia19wdyI6IDE3NjU4NDI1NjN9LCAiaGJpIjogMTc2NTg0MjU2MywgInNob3BwZXJJZCI6ICI2ODk4NTQ2ODciLCAiY2lkIjogIjRlNTg2NGNmLTE3MjAtNDk4ZC05MjllLTM4MThhNjFiZmM5OSIsICJwbGlkIjogIjEiLCAicGx0IjogMSwgInNoYXJkIjogIjAwMDUiLCAiaWRlbnRpdHkiOiAiYWVhOTg3YWMtZGExMC0xMWYwLTkwNDItY2ExNjBhMDhlZTdlIn0.lQjosZwSLYMB7AfutlqcZ4jxZbb3JSk7hxxwq6oGt3xpk0k3EJDUPtQYBOSzBQ9KccWxoP9iBL6IBxjpdOmah7b4fWL-DqaFCAIS2kKubIVdE-Xmdv9szPe3w93DsFupfPeLq6BldmbKe2nsbwWgeOQnvffapAjDGE7eeeVLO8J9OP66ll0sg_HL6G7Oo_f7X9_2eX4tI1IMYtO1l2L-IhxHz5cfKy5Rcl_rZMKCAOKqzS_6_DZC6FCEH6jJJJKr_xX8a8h4mk4xUYYRY5qIpT7FNZ6mqBh9wyor5LDQAkR6AAB0efKMcTGJ5SSrzwh5yimdzKRn7YrMcnhprYLLsA"
+    }
+]
