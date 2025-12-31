@@ -93,30 +93,19 @@ def main():
     # Check Python dependencies
     print("Checking Python dependencies...")
     try:
-        import playwright
-        print("✓ playwright is installed")
-        
-        # Check if browsers are installed
-        import subprocess
-        try:
-            result = subprocess.run(
-                ['playwright', 'install', '--dry-run', 'chromium'],
-                capture_output=True,
-                text=True,
-                timeout=10
-            )
-            # If chromium is not installed, the dry-run will indicate it
-            if 'chromium' in result.stdout.lower() or result.returncode == 0:
-                print("✓ Playwright browsers appear to be installed")
-            else:
-                print("⚠ Playwright browsers may not be installed")
-                print("  → Run: playwright install chromium")
-        except (subprocess.TimeoutExpired, FileNotFoundError):
-            print("⚠ Could not verify browser installation")
-            print("  → Run: playwright install chromium")
+        import aiohttp
+        print("✓ aiohttp is installed")
     except ImportError:
-        print("✗ playwright is not installed")
-        print("  → Run: pip install playwright && playwright install chromium")
+        print("✗ aiohttp is not installed")
+        print("  → Run: pip install -r requirements.txt")
+        all_good = False
+    
+    try:
+        import aiohttp_socks
+        print("✓ aiohttp-socks is installed")
+    except ImportError:
+        print("✗ aiohttp-socks is not installed")
+        print("  → Run: pip install -r requirements.txt")
         all_good = False
     
     try:
@@ -126,14 +115,7 @@ def main():
         print("✗ loguru is not installed")
         print("  → Run: pip install -r requirements.txt")
         all_good = False
-    
-    try:
-        import aiohttp
-        print("✓ aiohttp is installed")
-    except ImportError:
-        print("✗ aiohttp is not installed")
-        print("  → Run: pip install -r requirements.txt")
-        all_good = False
+    print()
     print()
     
     # Summary
@@ -149,9 +131,8 @@ def main():
         print()
         print("Quick setup:")
         print("  1. pip install -r requirements.txt")
-        print("  2. playwright install chromium")
-        print("  3. Add recipient emails to emails.txt")
-        print("  4. (Optional) Add proxies to proxy/proxies.txt")
+        print("  2. Add recipient emails to emails.txt")
+        print("  3. (Optional) Add proxies to proxy/proxies.txt")
         return 1
 
 

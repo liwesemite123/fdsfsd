@@ -1,10 +1,12 @@
-# Carrd.co Automation - Quick Start Guide
+# Carrd.co Automation - Quick Start Guide (HTTP API Version)
 
 ## Prerequisites
 
 - Python 3.11 or higher
 - Internet connection
 - Valid proxies (optional but recommended)
+
+**NO browser installation needed!** This version uses pure HTTP requests.
 
 ## Installation Steps
 
@@ -15,20 +17,13 @@ pip install -r requirements.txt
 ```
 
 This will install:
-- `playwright` - Browser automation framework
-- `python-socks` - SOCKS proxy support
+- `aiohttp` - Async HTTP client for API requests
+- `aiohttp-socks` - SOCKS proxy support
 - `loguru` - Advanced logging
-- `aiohttp` - Async HTTP client
 
-### 2. Install Playwright Browser
+**That's it!** No browser installation required.
 
-```bash
-playwright install chromium
-```
-
-This downloads the Chromium browser needed for automation.
-
-### 3. Configure Your Setup
+### 2. Configure Your Setup
 
 #### Add Recipient Emails
 
@@ -87,12 +82,15 @@ python carrd_automation.py
 
 The script will:
 1. Load a random proxy (if configured)
-2. Open a browser and navigate to Carrd.co
-3. Select a template and add a form
-4. Register with a temporary email
-5. Configure the form with your recipient emails
-6. Publish the site
-7. Send messages to all recipients
+2. Create HTTP session with proxy
+3. Register account via API with temporary email
+4. Activate Pro trial via API
+5. Create site from template via API
+6. Add form element with recipients via API
+7. Publish the site via API
+8. Send messages to all recipients via HTTP requests
+
+**All done via HTTP requests - no browser window opens!**
 
 ## Monitoring
 
@@ -116,24 +114,18 @@ rm processed_emails.json
 
 ## Troubleshooting
 
-### "playwright not found"
-
-```bash
-pip install playwright
-playwright install chromium
-```
-
-### "No module named 'loguru'"
+### "No module named 'aiohttp'" or similar
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Browser crashes or hangs
+### API request fails
 
 - Check your internet connection
 - Try running without proxies first
-- Increase timeout values in the script
+- Check logs for detailed error messages
+- API endpoints may need adjustment
 
 ### Form submission fails
 
@@ -143,34 +135,33 @@ pip install -r requirements.txt
 
 ## Advanced Configuration
 
-### Run in Headless Mode
+### Customize Request Delays
 
-Edit `carrd_automation.py`:
-
-```python
-browser_options = {
-    'headless': True,  # Change to True
-    ...
-}
-```
-
-### Customize Timeouts
-
-Adjust wait times in the script if you have slow internet:
+Adjust delays between API requests in the script if needed:
 
 ```python
-await page.wait_for_timeout(5000)  # Wait 5 seconds instead of 2
+await asyncio.sleep(random.uniform(2, 4))  # Random delay 2-4 seconds
 ```
 
 ### Use Different Templates
 
-Modify the `navigate_and_select_template()` function to select specific templates:
+Modify the template parameter in `create_site_from_template()`:
 
 ```python
-# Select by index
-await page.click(f'.template-item:nth-child(3)')
+payload = {
+    'template': 'minimal',  # Change template name
+    ...
+}
+```
 
-# Select by attribute
+### Customize API Endpoints
+
+If Carrd changes their API, update the endpoints in the script:
+
+```python
+CARRD_BASE_URL = "https://carrd.co"
+CARRD_API_URL = "https://api.carrd.co"
+```
 await page.click('[data-template="minimal"]')
 ```
 

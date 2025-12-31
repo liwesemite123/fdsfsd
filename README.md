@@ -7,20 +7,19 @@ This repository contains two automation systems:
 
 ---
 
-## 🆕 Carrd.co Automation Script
+## 🆕 Carrd.co Automation Script (HTTP API Version)
 
-Automated script for creating Carrd sites with forms and sending messages through them.
+Automated script for creating Carrd sites with forms and sending messages through them **using HTTP requests only** - no browser window is opened.
 
 ### Quick Start
 
-See **[CARRD_README.md](CARRD_README.md)** and **[QUICKSTART_CARRD.md](QUICKSTART_CARRD.md)** for detailed instructions.
+See **[CARRD_README_API.md](CARRD_README_API.md)** and **[QUICKSTART_CARRD.md](QUICKSTART_CARRD.md)** for detailed instructions.
 
 #### Installation
 
 ```bash
-# Install dependencies
+# Install dependencies (NO browser needed!)
 pip install -r requirements.txt
-playwright install chromium
 
 # Run validation
 python validate_config.py
@@ -35,8 +34,10 @@ Or use the launcher scripts:
 
 ### Features
 
+- ✅ **HTTP API-based** - No browser window, pure HTTP requests
+- ✅ **Faster & Lighter** - No browser means lower resource usage
 - ✅ Proxy support (HTTP and SOCKS5)
-- ✅ Template selection and form creation
+- ✅ Template selection and form creation via API
 - ✅ Pro trial activation with Telegram bot API
 - ✅ Automated message sending
 - ✅ Duplicate prevention

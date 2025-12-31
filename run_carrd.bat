@@ -32,9 +32,6 @@ if %errorlevel% neq 0 (
         echo Installing dependencies...
         pip install -r requirements.txt
         echo.
-        echo Installing Playwright browsers...
-        playwright install chromium
-        echo.
         echo Dependencies installed successfully!
         echo.
         echo Please configure your settings:

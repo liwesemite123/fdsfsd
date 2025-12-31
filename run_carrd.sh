@@ -36,9 +36,6 @@ if ! $PYTHON_CMD validate_config.py; then
         echo "Installing dependencies..."
         $PYTHON_CMD -m pip install -r requirements.txt
         echo ""
-        echo "Installing Playwright browsers..."
-        $PYTHON_CMD -m playwright install chromium
-        echo ""
         echo "✓ Dependencies installed"
         echo ""
         echo "Please configure your settings:"
