@@ -1,6 +1,27 @@
 # Carrd.co Automation Script (HTTP API Version)
 
+⚠️ **IMPORTANT: API Endpoints Need Discovery** ⚠️
+
+This script uses **placeholder API endpoints** that will return **404 errors**. You must discover the actual Carrd.co API endpoints before the script will work.
+
+**See [API_ENDPOINT_DISCOVERY.md](API_ENDPOINT_DISCOVERY.md) for step-by-step instructions on finding the real endpoints.**
+
+---
+
 Automated script for creating Carrd sites with forms and sending messages through them using **HTTP requests only** - no browser window is opened.
+
+## Quick Fix for 404 Errors
+
+If you see errors like `Registration failed with status: 404`:
+
+1. Read **[API_ENDPOINT_DISCOVERY.md](API_ENDPOINT_DISCOVERY.md)** 
+2. Use browser DevTools (F12) to find real API endpoints
+3. Update the endpoints in `carrd_automation.py`
+
+OR use **DRY_RUN_MODE** to test without real API calls:
+- Open `carrd_automation.py`
+- Change line ~48: `DRY_RUN_MODE = True`
+- Run the script to see what it would do
 
 ## Features
 

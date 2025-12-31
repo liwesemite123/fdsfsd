@@ -34,11 +34,24 @@ DEFAULT_MESSAGE = "Hello, this is a test message from Carrd form automation."
 # Track processed emails to avoid duplicates
 PROCESSED_EMAILS_FILE = "processed_emails.json"
 
-# Carrd API endpoints (these may need to be adjusted based on actual API)
-# NOTE: These endpoints are inferred and should be verified against Carrd's actual API.
-# The actual API structure may differ and require adjustments.
+# Carrd API endpoints (MUST be discovered from actual Carrd.co website)
+# NOTE: These endpoints are PLACEHOLDERS and will return 404 errors!
+# 
+# TO FIX 404 ERRORS:
+# 1. Open Carrd.co in a browser with developer tools (F12)
+# 2. Go to Network tab
+# 3. Perform the actions (register, create site, etc.)
+# 4. Look for XHR/Fetch requests to find actual API endpoints
+# 5. Update the endpoints below with the correct URLs
+#
+# EXAMPLE: If you see a request to "https://carrd.co/api/v1/auth/register"
+#          then update register_account() to use that URL instead
+#
 CARRD_BASE_URL = "https://carrd.co"
 CARRD_API_URL = "https://api.carrd.co"
+
+# Set to True to skip API calls and just log what would be done (for testing)
+DRY_RUN_MODE = False
 
 
 class ProxyManager:
@@ -193,15 +206,21 @@ class CarrdAPIAutomation:
     async def register_account(self, temp_email: str) -> bool:
         """Register a new Carrd account via API
         
-        NOTE: API endpoint is assumed and may need verification.
+        NOTE: API endpoint is PLACEHOLDER and will return 404!
+        You MUST discover the actual endpoint from Carrd.co using browser dev tools.
         """
         logger.info(f"Registering account with email: {temp_email}")
+        
+        if DRY_RUN_MODE:
+            logger.info("[DRY RUN] Would register account - skipping actual API call")
+            return True
         
         try:
             # Generate random password
             password = ''.join(random.choices(string.ascii_letters + string.digits, k=16))
             
-            # Carrd registration endpoint (ASSUMED - verify against actual API)
+            # PLACEHOLDER endpoint - WILL RETURN 404!
+            # Discover actual endpoint using browser DevTools (F12) -> Network tab
             register_url = f"{CARRD_BASE_URL}/account/register"
             
             payload = {
@@ -215,8 +234,23 @@ class CarrdAPIAutomation:
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
             }
             
+            logger.info(f"Attempting registration at: {register_url}")
             async with self.session.post(register_url, data=payload, headers=headers) as response:
-                if response.status == 200 or response.status == 302:
+                response_text = await response.text()
+                
+                if response.status == 404:
+                    logger.error("❌ 404 Error - API endpoint does not exist!")
+                    logger.error("=" * 70)
+                    logger.error("TO FIX THIS:")
+                    logger.error("1. Open https://carrd.co in your browser")
+                    logger.error("2. Open DevTools (F12) and go to Network tab")
+                    logger.error("3. Try to register an account manually")
+                    logger.error("4. Look for the XHR/Fetch request that sends registration data")
+                    logger.error("5. Copy the actual endpoint URL")
+                    logger.error(f"6. Update line ~205 in {__file__} with the real endpoint")
+                    logger.error("=" * 70)
+                    return False
+                elif response.status == 200 or response.status == 302:
                     logger.info("Account registered successfully")
                     # Extract auth token from response or cookies
                     cookies = self.session.cookie_jar.filter_cookies(CARRD_BASE_URL)
@@ -227,6 +261,7 @@ class CarrdAPIAutomation:
                     return True
                 else:
                     logger.error(f"Registration failed with status: {response.status}")
+                    logger.error(f"Response: {response_text[:500]}")
                     return False
                     
         except Exception as e:
@@ -236,12 +271,16 @@ class CarrdAPIAutomation:
     async def activate_pro_trial(self) -> bool:
         """Activate Pro Free Trial via API
         
-        NOTE: API endpoint is assumed and may need verification.
+        NOTE: API endpoint is PLACEHOLDER - discover real endpoint using DevTools.
         """
         logger.info("Activating Pro Free Trial")
         
+        if DRY_RUN_MODE:
+            logger.info("[DRY RUN] Would activate Pro trial - skipping actual API call")
+            return True
+        
         try:
-            # Carrd Pro trial endpoint (ASSUMED - verify against actual API)
+            # PLACEHOLDER endpoint - discover actual endpoint using browser DevTools
             trial_url = f"{CARRD_BASE_URL}/account/upgrade/trial"
             
             headers = {
@@ -249,7 +288,11 @@ class CarrdAPIAutomation:
             }
             
             async with self.session.post(trial_url, headers=headers) as response:
-                if response.status == 200 or response.status == 302:
+                if response.status == 404:
+                    logger.warning("⚠️  404 Error on Pro trial activation")
+                    logger.warning("See API_ENDPOINT_DISCOVERY.md for instructions on finding the real endpoint")
+                    return False
+                elif response.status == 200 or response.status == 302:
                     logger.info("Pro trial activated successfully")
                     return True
                 else:
@@ -263,17 +306,23 @@ class CarrdAPIAutomation:
     async def create_site_from_template(self, site_config: Dict[str, str]) -> bool:
         """Create a new site from template via API
         
-        NOTE: API endpoint is assumed and may need verification.
+        NOTE: API endpoint is PLACEHOLDER - discover real endpoint using DevTools.
         """
         logger.info("Creating site from template")
         
+        site_name = site_config.get('title', 'mysite').lower().replace(' ', '-')
+        random_suffix = ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
+        full_site_name = f"{site_name}-{random_suffix}"
+        
+        if DRY_RUN_MODE:
+            logger.info(f"[DRY RUN] Would create site: {full_site_name}.carrd.co")
+            self.site_id = "dry-run-site-id"
+            self.carrd_site_url = f"https://{full_site_name}.carrd.co"
+            return True
+        
         try:
-            # Carrd create site endpoint (ASSUMED - verify against actual API)
+            # PLACEHOLDER endpoint - discover actual endpoint using browser DevTools
             create_url = f"{CARRD_BASE_URL}/api/sites/create"
-            
-            site_name = site_config.get('title', 'mysite').lower().replace(' ', '-')
-            random_suffix = ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
-            full_site_name = f"{site_name}-{random_suffix}"
             
             payload = {
                 'template': 'base',  # Default template
@@ -287,7 +336,11 @@ class CarrdAPIAutomation:
             }
             
             async with self.session.post(create_url, json=payload, headers=headers) as response:
-                if response.status == 200:
+                if response.status == 404:
+                    logger.error("❌ 404 Error - Site creation endpoint does not exist!")
+                    logger.error("See API_ENDPOINT_DISCOVERY.md for instructions")
+                    return False
+                elif response.status == 200:
                     data = await response.json()
                     self.site_id = data.get('id') or data.get('site_id')
                     self.carrd_site_url = f"https://{full_site_name}.carrd.co"
@@ -304,12 +357,16 @@ class CarrdAPIAutomation:
     async def add_form_to_site(self, recipient_emails: List[str]) -> bool:
         """Add form element to site via API
         
-        NOTE: API endpoint is assumed and may need verification.
+        NOTE: API endpoint is PLACEHOLDER - discover real endpoint using DevTools.
         """
         logger.info("Adding form element to site")
         
+        if DRY_RUN_MODE:
+            logger.info(f"[DRY RUN] Would add form with {len(recipient_emails)} recipients")
+            return True
+        
         try:
-            # Carrd add element endpoint (ASSUMED - verify against actual API)
+            # PLACEHOLDER endpoint - discover actual endpoint using browser DevTools
             add_element_url = f"{CARRD_BASE_URL}/api/sites/{self.site_id}/elements/add"
             
             payload = {
@@ -331,7 +388,11 @@ class CarrdAPIAutomation:
             }
             
             async with self.session.post(add_element_url, json=payload, headers=headers) as response:
-                if response.status == 200:
+                if response.status == 404:
+                    logger.error("❌ 404 Error - Form addition endpoint does not exist!")
+                    logger.error("See API_ENDPOINT_DISCOVERY.md for instructions")
+                    return False
+                elif response.status == 200:
                     logger.info(f"Form added with {len(recipient_emails)} recipients")
                     return True
                 else:
@@ -345,12 +406,16 @@ class CarrdAPIAutomation:
     async def publish_site(self) -> bool:
         """Publish the site via API
         
-        NOTE: API endpoint is assumed and may need verification.
+        NOTE: API endpoint is PLACEHOLDER - discover real endpoint using DevTools.
         """
         logger.info("Publishing site")
         
+        if DRY_RUN_MODE:
+            logger.info(f"[DRY RUN] Would publish site at: {self.carrd_site_url}")
+            return True
+        
         try:
-            # Carrd publish endpoint (ASSUMED - verify against actual API)
+            # PLACEHOLDER endpoint - discover actual endpoint using browser DevTools
             publish_url = f"{CARRD_BASE_URL}/api/sites/{self.site_id}/publish"
             
             headers = {
@@ -358,7 +423,11 @@ class CarrdAPIAutomation:
             }
             
             async with self.session.post(publish_url, headers=headers) as response:
-                if response.status == 200:
+                if response.status == 404:
+                    logger.error("❌ 404 Error - Publish endpoint does not exist!")
+                    logger.error("See API_ENDPOINT_DISCOVERY.md for instructions")
+                    return False
+                elif response.status == 200:
                     logger.info(f"Site published at: {self.carrd_site_url}")
                     return True
                 else:
@@ -375,7 +444,7 @@ class CarrdAPIAutomation:
                                        message: str = DEFAULT_MESSAGE) -> bool:
         """Send a message through the Carrd form via API
         
-        NOTE: Form submission endpoint is assumed and may need verification.
+        NOTE: Form submission endpoint is PLACEHOLDER - discover real endpoint.
         """
         logger.info(f"Sending message to {recipient_email}")
         
@@ -383,8 +452,12 @@ class CarrdAPIAutomation:
             logger.error("No Carrd site URL available")
             return False
         
+        if DRY_RUN_MODE:
+            logger.info(f"[DRY RUN] Would send message to {recipient_email}")
+            return True
+        
         try:
-            # Carrd form submission endpoint (ASSUMED - typically on published site)
+            # PLACEHOLDER endpoint - discover actual form submission endpoint
             form_url = f"{self.carrd_site_url}/submit"
             
             payload = {
@@ -400,7 +473,11 @@ class CarrdAPIAutomation:
             }
             
             async with self.session.post(form_url, data=payload, headers=headers) as response:
-                if response.status == 200 or response.status == 302:
+                if response.status == 404:
+                    logger.warning(f"⚠️  404 Error on form submission to {recipient_email}")
+                    logger.warning("See API_ENDPOINT_DISCOVERY.md for instructions")
+                    return False
+                elif response.status == 200 or response.status == 302:
                     logger.info(f"✓ Message sent successfully to {recipient_email}")
                     return True
                 else:
