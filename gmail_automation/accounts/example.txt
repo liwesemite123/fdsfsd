@@ -1,0 +1,41 @@
+# Пример файла с аккаунтами Gmail
+# 
+# Формат:
+# GMAIL: ваш_email@gmail.com
+# PASSWORD: ваш_пароль
+# DOP MAIL: доп_почта@example.com (если есть, для проверки)
+# 2FA: ваш_2fa_secret_код (если есть, из 2fa.online)
+# ---
+# (следующий аккаунт)
+#
+# Примечания:
+# - Разделитель между аккаунтами: ---
+# - DOP MAIL и 2FA - опциональные
+# - Можно добавить сколько угодно аккаунтов
+
+# ============= ПРИМЕР АККАУНТА 1 =============
+GMAIL: example1@gmail.com
+PASSWORD: your_password_here
+DOP MAIL: backup1@example.com
+2FA: JBSWY3DPEHPK3PXP
+---
+
+# ============= ПРИМЕР АККАУНТА 2 (без доп. почты и 2FA) =============
+GMAIL: example2@gmail.com
+PASSWORD: another_password
+---
+
+# ============= ПРИМЕР АККАУНТА 3 (только с 2FA) =============
+GMAIL: example3@gmail.com
+PASSWORD: third_password
+2FA: ABCDEFGH12345678
+---
+
+# ============= ВАШ АККАУНТ =============
+# Раскомментируйте и заполните своими данными:
+#
+# GMAIL: your.email@gmail.com
+# PASSWORD: your_secure_password
+# DOP MAIL: your.backup@email.com
+# 2FA: YOUR2FASECRET
+# ---

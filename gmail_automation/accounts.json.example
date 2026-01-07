@@ -1,0 +1,10 @@
+[
+  {
+    "email": "your.email@gmail.com",
+    "app_password": "abcd efgh ijkl mnop"
+  },
+  {
+    "email": "second.email@gmail.com",
+    "app_password": "wxyz 1234 5678 9012"
+  }
+]

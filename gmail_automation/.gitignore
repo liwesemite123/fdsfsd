@@ -1,0 +1,47 @@
+# Sensitive files - DO NOT COMMIT
+
+# Gmail Accounts - ОЧЕНЬ ВАЖНО!
+accounts/*.txt
+!accounts/example.txt
+
+# Gmail App Passwords
+accounts.json
+!accounts.json.example
+
+# Legacy cookies (deprecated)
+cookies/*.json
+!cookies/*.example
+
+# Keep directory but not actual data files
+emails/emails.txt
+!emails/*.example
+
+proxies/proxies.txt
+!proxies/*.example
+
+text/text.txt
+!text/*.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db

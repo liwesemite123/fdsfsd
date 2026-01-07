@@ -1,0 +1,8 @@
+# Gmail Automation Requirements
+# Install with: pip install -r requirements.txt
+
+requests>=2.28.0
+
+# For browser automation with cookies (gmail_sender_cookies.py)
+selenium>=4.0.0
+webdriver-manager>=4.0.0
